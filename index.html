@@ -38,7 +38,8 @@
             text-decoration: none;
             color: #757575;
             font-size: 13px;
-            padding: 4px 0 0 8px ;
+            padding: 8px 0 0 8px ;
+            line-height: 20px;
         }
         .product > li:hover > a,
         .items > li:hover > a {
@@ -77,8 +78,12 @@
        }
     .img {
         width: 100%;
-       height: auto;
-        background: url(https://lzd-img-global.slatic.net/g/icms/images/ims-web/757bf38b-20e8-4a9b-8cb7-b1fc493ea229.jpg_2200x2200q90.jpg_.webp) center / cover no-repeat;
+        height: 100%;
+      
+    }
+    .items-img {
+        width: 980px;
+        height: 342px;
     }
     </style>
 </head>
@@ -141,12 +146,34 @@
                 <li class="items-all"><a href="#"> <span>Thời Trang Nam</span> <i class="ti-angle-right icon"></i></a> </li>
                 <li class="items-all"><a href="#"> <span>Phụ Kiện Thời Trang</span> <i class="ti-angle-right icon"></i></a> </li>
                 <li class="items-all"><a href="#"> <span>Thể Thao & Du Lịch</span> <i class="ti-angle-right icon"></i></a> </li>
+                <li class="items-all"><a href="#"> <span>Ôtô, Xe Máy & Thiết Bị Định Vị</span> <i class="ti-angle-right icon"></i></a> </li>
             </ul>
-            <div class="img"></div>
-            
+            <div class="items-img">
+                <img class="img" id="img" onclick="changeImage()" src="https://lzd-img-global.slatic.net/g/icms/images/ims-web/757bf38b-20e8-4a9b-8cb7-b1fc493ea229.jpg_2200x2200q90.jpg_.webp" alt="">
+            </div>
         </div>
+        <script>
+            var index = 1;
+            changeImage = function() {
+                var imgs = [
+                    "https://lzd-img-global.slatic.net/g/icms/images/ims-web/757bf38b-20e8-4a9b-8cb7-b1fc493ea229.jpg_2200x2200q90.jpg_.webp",
+                    "https://lzd-img-global.slatic.net/g/icms/images/ims-web/468240cf-9638-4cde-bc35-057eb68b5fd3.jpg_2200x2200q90.jpg_.webp",
+                    "https://lzd-img-global.slatic.net/g/icms/images/ims-web/553f4c7c-777e-4ec8-99ec-4f6614148595.jpg_2200x2200q90.jpg_.webp",
+                    "https://lzd-img-global.slatic.net/g/icms/images/ims-web/4468e660-a4ab-4175-b869-7eb2803eee94.jpg_2200x2200q90.jpg_.webp",
+                    "https://lzd-img-global.slatic.net/g/icms/images/ims-web/2c8f1780-cb78-434e-9c96-51e5906a997a.jpg_2200x2200q90.jpg_.webp"
+                ];
+                document.getElementById('img').src = imgs[index];
+                index++;
+                if(index==5){
+                    index = 0;
+                }
+                
+            }
+            setInterval(changeImage
+               
+                ,1000);
+        </script>
     </header>
-    <div>dsdas</div>
 </body>
 
 </html>
