@@ -44,6 +44,7 @@
         font-size: 19px;
         margin-right: 10px;
         color: #000;
+        font-weight: initial;
       }
       strong + b {
           color:  #3e382b;
@@ -131,6 +132,27 @@
           justify-content: center;
           text-decoration: none;
       }
+      .so-luong {
+          display: flex;
+      list-style: none;
+      align-items: center;
+      text-align: center;
+      margin: 11px 0;
+      padding-left: 10px;
+      }
+      .so-luong > li {
+        padding: 5px 10px;
+        width: 20px;
+        border: 1px solid #ccc;
+        cursor: pointer;
+      }
+      .so-luong > li:nth-child(2) {
+        width: 28px;
+      }
+      .amount {
+        font-size: 16px;
+        margin-left: 10px
+      }
     </style>
   </head>
   <body>
@@ -156,6 +178,15 @@
               <div class="pot pot-right">Không chậu</div>
               <div class="pot pot-left ">Chậu thủy tinh</div>
           </div>
+          <div class="content-pot">
+            <div><strong>Số lượng</strong> </div>
+            <ul class="so-luong">
+              <li>-</li>
+              <li>1</li>
+              <li>+</li>
+            </ul>
+            <span class="amount"> 9999 sản phẩm có sẵn</span>
+        </div>
           <button>Mua Hàng</button>
         </div>
       </div>
