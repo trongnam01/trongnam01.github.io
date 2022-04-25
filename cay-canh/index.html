@@ -20,11 +20,11 @@
             text-align: center;
             color: #669633;
             font-size: 30px;
-            margin: 20px 0 0 0;
+            margin-top: 20px;
         }
 
         .item {
-            width: 33%;
+            /* width: 33%; */
             height: auto;
             border: 1px solid gray;
             justify-content: center;
@@ -49,9 +49,12 @@
         }
 
         .container {
-            display: flex;
-            justify-content: center;
+            
             padding: 20px;
+            grid-template-columns:  1fr 1fr 1fr;
+            display: grid;
+            justify-content: center;
+            
         }
 
         .span {
@@ -80,12 +83,24 @@
         }
 
 
-        @media only screen and (max-width: 550px) {
+        @media only screen and (max-width: 400px) {
             .container {
-                display: flow-root;
+                /* display: flow-root; */
+                grid-template-columns: 1fr ;
             }
-            .item {
-                border: none;
+            /* .item {
+                display: block;
+                margin: 0 0 39px 0;
+                width: 100%;
+            }
+            h1 {
+                font-size: 23px;
+            } */
+        }
+
+        @media only screen and (min-width: 400px) and (max-width: 700px) {
+            .container {
+                grid-template-columns: 1fr 1fr;
             }
         }
     </style>
@@ -126,9 +141,9 @@
             </div>
         </a>
 
-    </div>
+    
 
-    <div class="container c">
+  
         <a class="item" href="caycanh4.html">
 
             <div class="img">
@@ -161,7 +176,20 @@
             </div>
         </a>
 
-    </div>
+        
+        <a class="item" href="caycanh4.html">
+
+            <div class="img">
+                <img src="./img/cay4.jpg" alt="Cây đại tứ lan" />
+            </div>
+            <div class="name">
+                <div class="phoduct">Cây đại tứ lan</div>
+                <div class="price"> 200.000 VND</div>
+            </div>
+        </a>
+
+      
+
     </div>
 </body>
 
