@@ -22,7 +22,7 @@ const album = [
     {
         title: "Umbrella",
         path: 'song1.mp3',
-        image: "https://scontent.fhan5-9.fna.fbcdn.net/v/t39.30808-6/278509942_2299438550221339_7959471600928145795_n.jpg?stp=dst-jpg_p960x960&_nc_cat=109&ccb=1-5&_nc_sid=8bfeb9&_nc_ohc=gahub5GALiMAX-75Kov&_nc_oc=AQn-QlDDDeVsP_hLq9kmR2TPCzNwc8MzSr3bOrqz29pga_yDrQHnkdJv-276tuLoWmA&_nc_ht=scontent.fhan5-9.fna&oh=00_AT_e7RcPWFaX7LUn38ny_BSQGk0aR_A0pkkepAiLrQYQmw&oe=6268079C"
+        image: "https://scontent.fhan5-7.fna.fbcdn.net/v/t39.30808-6/279293375_2301662969998897_8578093888471334818_n.jpg?_nc_cat=100&ccb=1-5&_nc_sid=0debeb&_nc_ohc=dOoBK3-s8rQAX_kP-_Q&_nc_oc=AQmgpxileJubLALFvJ-Vzpl7ZT5TnCrLteYaVKLMzM9uxrpuVcBInlZeNJ7_glbs-64&tn=99qhMv8J0MkYXCOG&_nc_ht=scontent.fhan5-7.fna&oh=00_AT_Ma0PLe4p_pWppIble9zDIrZr8S3hEfMDS_uBNe0JP9Q&oe=626E708C"
     },
     {
         title: "Holo",
