@@ -33,6 +33,11 @@ const album = [
         title: "SUPERNATURAL",
         path : 'song3.mp3',
         image: "https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-6/279109046_3274444906159818_2594413331058915142_n.jpg?_nc_cat=110&ccb=1-5&_nc_sid=5cd70e&_nc_ohc=aPBA1AvqaaIAX85RTCL&tn=99qhMv8J0MkYXCOG&_nc_ht=scontent.fhan5-8.fna&oh=00_AT_EuaBObn6606u1Ddva7P5MayP5-6K19XAuTC4ohpZCAw&oe=6269D1EB"
+    },
+    {
+        title: "Boy Phố",
+        path : 'song4.mp3',
+        image: "https://scontent.fhan5-2.fna.fbcdn.net/v/t39.30808-6/278897047_3554460528168551_5292843952317537720_n.jpg?_nc_cat=102&ccb=1-5&_nc_sid=8bfeb9&_nc_ohc=yslsZkAmdQcAX-EopdC&_nc_ht=scontent.fhan5-2.fna&oh=00_AT__OSwzwudb7ewA69VsPUn8oq-T09OJ6Gjm0QpxR0ygaQ&oe=626EE163"
     }
 ]
 
