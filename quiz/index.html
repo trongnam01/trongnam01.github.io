@@ -39,17 +39,14 @@
     }
 
     button {
+      color: white;
       width: 80px;
+      border: none;
+      height: 30px;
+      background: linear-gradient(180deg , rgb(255, 0, 255) , rgb(0, 132, 255));
     }
 
-    .reset:hover,
-    .continue:hover,
-    .stop:hover,
-    .start:hover,
-    button:hover {
-      background: rgb(37, 34, 34);
-      color: white;
-    }
+    
 
     #quiz-content {
       margin-bottom: 15px;
@@ -119,19 +116,62 @@
     .stop,
     .start {
       width: 100px;
-      background: #efefef;
+      background: linear-gradient(180deg , rgb(255, 0, 255) , rgb(0, 132, 255));
       height: 30px;
       display: flex;
       justify-content: center;
       align-items: center;
-      border: 1px solid;
+      border: 1px solid #42FBF2;
       margin: 10px auto 10px;
+      /* box-shadow: inset 0 0 0 0 rgb(95, 4, 91); */
+      /* outline: none; */
+      transition: ease-in 0.3s;
+      border: none;
+      color: white;
+      position: relative;
+      z-index: 1;
 
     }
 
-    /* .stop {
-      display: none;
-    } */
+    .reset:before,
+    .continue:before,
+    .stop:before,
+    .start:before {
+
+      position: absolute;
+      top: 0;
+      left: 50%;
+      right: 50%;
+      bottom: 0;
+      content: "";
+      transition: 0.5s all ease;
+      background: rgb(0, 162, 255);
+      opacity: 0;
+      color: white;
+
+
+    }
+
+    .reset:hover:before,
+    .continue:hover:before,
+    .stop:hover:before,
+    .start:hover:before,
+    button:hover:before  {
+      transition: 0.5s all ease;
+      left: 0;
+      right: 0;
+      opacity: 1;
+      z-index: -1;
+    }
+
+  
+    button:hover {
+      opacity: 0.8;
+      background: #06c1f0;
+      color: white;
+    }
+
+   
 
     #time {
       align-items: center;
