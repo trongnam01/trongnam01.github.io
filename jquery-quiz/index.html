@@ -215,7 +215,7 @@
             align-items: center;
             justify-content: center;
             border-radius: 50%;
-            margin-top: -117px
+            margin-top: -70px;
         }
 
         .icon i {
@@ -231,8 +231,9 @@
             font-size: 31px;
             font-family: cursive;
         }
-
+        
         .succser,
+        .come-back,
         .load {
             margin-top: 20px;
             height: 40px;
@@ -248,16 +249,20 @@
             background: #06c1f0;
             cursor: pointer;
         }
-
         .succser i,
         .load i {
             margin-left: 10px;
         }
-
+        .come-back:hover,
         .succser:hover .load:hover {
             transition: .5s all ease;
             opacity: 0.8;
         }
+
+        .come-back {
+            display: none;
+        }
+
     </style>
 </head>
 
@@ -283,9 +288,8 @@
                         <div class="icon"></div>
                         <h2 class="title"></h2>
                         <div class="result">total score: <span id="do"></span> /<span id="total"></span></div>
-                        <div class="load"> Đến Trang Chúc Mừng
-                            <i class="fa-solid fa-arrows-rotate"></i>
-                        </div>
+                        <div class="load"> </div>
+                        <div class="come-back">Quay lại</div>
                     </div>
                 </div>
             </div>
@@ -413,6 +417,7 @@
                 $("#total").text(lengList)
                 $(".load").attr("class", "succser")
                 $(".succser").text("Đến Trang Chúc Mừng")
+                $(".come-back").css("display","flex")
 
                 $(".succser").click(function () {
                     window.location = "index2.html";
@@ -506,6 +511,9 @@
 
         //   
         $(".load").click(function () {
+            location.reload()
+        })
+        $(".come-back").click(function() {
             location.reload()
         })
 
