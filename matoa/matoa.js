@@ -23,7 +23,7 @@ tabs.forEach((tab, index) => {
       pane.classList.add("active");
     };
 });
-
+//  chừ 
 $("#reduction").onclick = function() {
     result = +($("#quantity").textContent) - 1
     if(result <= 0){
@@ -35,21 +35,32 @@ $("#reduction").onclick = function() {
 $("#more").onclick = function() {
     result = +($("#quantity").textContent) + 1
     $("#quantity").textContent = result
-    console.log(result);
 }
 
-
+//  cộng 
 $(".btn-add-cart").onclick = function () {
     let textCart = $("#cart-quantity").textContent
     if(result) {
         $("#cart-quantity").textContent = result + +(textCart)
-        console.log(1);
     } else {
         $("#cart-quantity").textContent = 0
     }
 
     $("#quantity").textContent = 0
-    
+}
+//  ẩn modal
+$(".incon-delete-modal").onclick = function() {
+    $("#modal-cart").style.display = "none"
+}
+$(".modal-cantainer").onclick = function(e) {
+    e.stopPropagation()
+}
+
+$("#modal-cart").onclick = function(e) {
+    $("#modal-cart").style.display = "none"
+}
+$(".cart-border").onclick = function () {
+    $("#modal-cart").style.display = "flex"
 }
 
 
