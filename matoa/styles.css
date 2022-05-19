@@ -505,6 +505,7 @@
 .modal-cantainer {
   background: #FFFFFF;
   width: 800px;
+  max-width: calc(100% - 16px);
   min-height: 200px;
   padding: 10px 25px 0;
   position: relative;
