@@ -7,7 +7,9 @@ const panes = $$(".tab-pane");
 
 const tabActive = $(".tab-item.active");
 const line = $(".tabs .tabs-line");
+let quantity = $("#quantity")
 let result;
+let modal = $(".modal-cart")
 
 tabs.forEach((tab, index) => {
     const pane = panes[index];
@@ -25,43 +27,47 @@ tabs.forEach((tab, index) => {
 });
 //  chừ 
 $("#reduction").onclick = function() {
-    result = +($("#quantity").textContent) - 1
+    result = +(quantity.textContent) - 1
     if(result <= 0){
-        $("#quantity").textContent = 0
+        quantity.textContent = 0
     }else{
-        $("#quantity").textContent = result
+        quantity.textContent = result
     }
 }
 $("#more").onclick = function() {
-    result = +($("#quantity").textContent) + 1
-    $("#quantity").textContent = result
+    result = +(quantity.textContent) + 1
+    quantity.textContent = result
 }
 
 //  cộng 
 $(".btn-add-cart").onclick = function () {
-    let textCart = $("#cart-quantity").textContent
+    let textCart = quantity.textContent
     if(result) {
-        $("#cart-quantity").textContent = result + +(textCart)
+        quantity.textContent = result + +(textCart)
     } else {
-        $("#cart-quantity").textContent = 0
+        quantity.textContent = 0
     }
 
-    $("#quantity").textContent = 0
+    quantity.textContent = 0
 }
 //  ẩn modal
 $(".incon-delete-modal").onclick = function() {
-    $("#modal-cart").style.display = "none"
+    modal.classList.remove("open")
 }
+
+modal.onclick = function() {
+    modal.classList.remove("open")
+}
+
+$(".cart-border").onclick = function () {
+    modal.classList.add("open")
+}
+
 $(".modal-cantainer").onclick = function(e) {
     e.stopPropagation()
 }
 
-$("#modal-cart").onclick = function(e) {
-    $("#modal-cart").style.display = "none"
-}
-$(".cart-border").onclick = function () {
-    $("#modal-cart").style.display = "flex"
-}
+
 
 
 

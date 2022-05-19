@@ -489,7 +489,7 @@
   align-items: center;
   color: white;
 }
-#modal-cart {
+.modal-cart {
   position: fixed;
   top: 0;
   right: 0;
@@ -660,4 +660,8 @@
 .incon-delete-modal i {
   font-size: 18px;
   color: #000000;
+}
+
+.open {
+  display: flex !important;
 }
