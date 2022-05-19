@@ -509,7 +509,18 @@
   min-height: 200px;
   padding: 10px 25px 0;
   position: relative;
+  animation: modalFakeIn  ease .5s;
 }
+ @keyframes modalFakeIn {
+   from {
+     opacity: 0;
+     transform: translateY(-100px);
+   }
+   to {
+     opacity: 1;
+     transform: translateY(0);
+   }
+ }
 
 .item-product-cart {
   padding: 20px 0;
