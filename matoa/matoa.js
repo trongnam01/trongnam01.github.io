@@ -25,21 +25,30 @@ tabs.forEach((tab, index) => {
 });
 
 $("#reduction").onclick = function() {
-    result = +($("#quantity").textContent)
+    result = +($("#quantity").textContent) - 1
     if(result <= 0){
-        $("#quantity").textContent = result
+        $("#quantity").textContent = 0
     }else{
-        $("#quantity").textContent = result - 1
+        $("#quantity").textContent = result
     }
 }
 $("#more").onclick = function() {
-    result = +($("#quantity").textContent)
-    $("#quantity").textContent = result + 1
+    result = +($("#quantity").textContent) + 1
+    $("#quantity").textContent = result
+    console.log(result);
 }
 
 
 $(".btn-add-cart").onclick = function () {
- 
+    let textCart = $("#cart-quantity").textContent
+    if(result) {
+        $("#cart-quantity").textContent = result + +(textCart)
+        console.log(1);
+    } else {
+        $("#cart-quantity").textContent = 0
+    }
+
+    $("#quantity").textContent = 0
     
 }
 
