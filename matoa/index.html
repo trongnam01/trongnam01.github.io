@@ -15,337 +15,8 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
   <link rel="stylesheet" href="./styles.css">
-  <!-- <style>
-    body {
-      background-color: #f7f6f4;
-    }
-
-    form {
-      align-items: center;
-      gap: 11px;
-    }
-
-
-    .cart {
-      width: 46px;
-      height: 46px;
-      left: 1229px;
-      top: 30px;
-      border-radius: 50%;
-      background: #F1DDC9;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .nav-item {
-      margin: 15px;
-    }
-
-    .slide-item {
-      background-color: #f1ddc9;
-      height: 60vh;
-      position: relative;
-
-    }
-
-    .slide-img {
-      position: absolute;
-      bottom: -76px;
-    }
-
-    .slide-text {
-      font-family: 'Taviraj';
-      font-style: normal;
-      font-weight: 400;
-      font-size: 60px;
-      line-height: 80px;
-      letter-spacing: 0.02em;
-      margin-bottom: 0;
-    }
-
-    .slide-text+p {
-      width: 529px;
-      height: 66px;
-      left: 545px;
-      top: 408px;
-
-      font-family: 'Nunito';
-      font-style: normal;
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 22px;
-      letter-spacing: 0.03em;
-
-      color: #333333;
-    }
-
-    .line {
-      width: 95px;
-      height: 0px;
-      left: 545px;
-      top: 384px;
-      border-top: 2px solid #000000;
-      margin-bottom: 8px;
-    }
-
-    .cover {
-      width: 74px;
-      height: 27px;
-      left: 545px;
-      top: 482px;
-
-      font-family: 'Taviraj';
-      font-style: normal;
-      font-weight: 600;
-      font-size: 16px;
-      line-height: 27px;
-      letter-spacing: 0.03em;
-      margin: 0;
-      color: #333333;
-    }
-
-    .slide-btn1 {
-      width: 208px;
-      height: 62px;
-      left: 545px;
-      top: 553px;
-      border: none;
-      background: #D84727;
-      color: white;
-
-      font-family: 'Taviraj';
-      font-style: normal;
-      font-weight: 400;
-      font-size: 20px;
-      line-height: 34px;
-      letter-spacing: 0.02em;
-    }
-
-    .slide-btn2 {
-      width: 140px;
-      height: 62px;
-      left: 769px;
-      top: 553px;
-      box-sizing: border-box;
-      background: #F1DDC9;
-      border: 2px solid #D84727;
-      color: #D84727;
-    }
-
-    .section-item {
-      background: white;
-      padding: 32px 8px 0 32px;
-
-    }
-
-    .section-item>p {
-      width: 345px;
-      height: 50px;
-      left: 197px;
-      top: 948px;
-
-      font-family: 'Nunito';
-      font-style: normal;
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 24px;
-
-      letter-spacing: 0.03em;
-
-      color: #777777;
-    }
-
-    .section-item>a {
-      width: 115px;
-      height: 27px;
-      left: 197px;
-      top: 1002px;
-
-      font-family: 'Taviraj';
-      font-style: normal;
-      font-weight: 600;
-      font-size: 16px;
-      line-height: 27px;
-      letter-spacing: 0.03em;
-      color: #333333;
-      padding-bottom: 5px;
-      border-bottom: 1px solid #333333;
-
-    }
-
-    .img-section2,
-    .img-section1 {
-      float: right;
-    }
-
-    .line-h2 {
-      position: relative;
-    }
-
-    .line-h2::after {
-      position: absolute;
-      width: 115px;
-      height: 0px;
-      left: 197px;
-      top: 1029px;
-      border: 1px solid #333333;
-    }
-
-    .card {
-      border: none;
-    }
-
-    p {
-      color: #777777;
-    }
-
-    .old-price {
-      text-decoration: line-through red;
-    }
-
-    .cart-icon {
-      height: 100%;
-      border: 1px solid #d84727;
-      width: 15%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .cart-btn {
-      width: 100%;
-      margin-left: 10px;
-      text-align: center;
-      background: #d84727;
-      color: white;
-    }
-
-    .cart-add {
-      margin-top: 10px;
-      display: none;
-    }
-
-    .card:hover .cart-add {
-      display: flex;
-    }
-
-    .btn-news {
-      border: 2px solid #D84727;
-      width: 114px;
-      height: 44px;
-      background: white;
-      color: #D84727;
-      margin-top: 40px;
-    }
-
-    .img-news {
-      width: 30em;
-      height: 20em;
-      animation: imagemove 5s infinite;
-      z-index: 1;
-    }
-
-    .background-fake {
-      background-color: #f1ddc9;
-      width: 30em;
-      height: 20em;
-      position: absolute;
-      right: 0;
-      bottom: 4em;
-      z-index: -1;
-    }
-
-    h3 {
-      font-weight: 400;
-    }
-
-    .product-img {
-      width: 100%;
-    }
-
-    .product-text {
-      font-weight: 400;
-      font-size: 24px;
-      line-height: 32px;
-      letter-spacing: 0.02em;
-      color: #333333;
-      margin-bottom: 0;
-    }
-
-    .product-item {
-      margin-top: 15px;
-    }
-
-    .product-item:nth-child(3n + 3) {
-      margin-top: 30px;
-    }
-
-    .line1 {
-      width: 100%;
-      height: 0;
-      border-top: 1px solid #ccc;
-    }
-
-    .see-more {
-      color: #d84727;
-      border: 1px solid #d84727;
-      height: 50px;
-      min-width: 10em;
-      background-color: rgba(119, 119, 119, 0);
-      margin: 15px;
-      font-weight: 500;
-      font-size: 20px;
-      line-height: 34px;
-      letter-spacing: 0.09em;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-    }
-
-    .item-see {
-      position: absolute;
-      top: -36px;
-      background: #f7f6f4;
-      left: 50%;
-      transform: translateX(-50px);
-    }
-
-    .comment img {
-      margin-top: 50px;
-    }
-
-    .background-fake2 {
-      background-color: #f1ddc9;
-      width: 30em;
-      height: 20em;
-      position: absolute;
-      left: -80px;
-      z-index: -1;
-    }
-
-    .comment-icon i:first-child {
-      color: rgb(150, 142, 142);
-      margin-right: 5px;
-    }
-
-    .comment-icon i {
-      font-size: 3rem;
-      cursor: pointer;
-    }
-
-    .instagram img {
-      height: 100%;
-      width: 100%;
-    }
-    .foorter-frames {
-      padding: 40px 0;
-    }
-    .foorter-outstanding {
-      color: white;
-    }
-  </style> -->
+  <link rel="stylesheet" href="./media.css">
+ 
 </head>
 
 <body>
@@ -376,13 +47,13 @@
               <a class="nav-link" href="#">News</a>
             </li>
           </ul>
-          <ul class="navbar-nav mt-2 mt-lg-0">
-            <li class="nav-item"> <i class="bi bi-search" style="font-size: 19px;"></i></li>
+          <ul class="navbar-nav mt-2 mt-lg-0"style="align-items: center;">
+            <li class="nav-item" > <i class="bi bi-search" style="font-size: 19px;"></i></li>
             <li class="nav-item d-flex">
-              <i class="bi bi-person" style="margin-right: 4px;"></i>
+              <i class="bi bi-person" style="margin-right: 4px;font-size: 19px"></i>
               <a class="nav-link" href="#" style="padding: 0;">Log In</a>
             </li>
-            <li class="nav-item"><i class="bi bi-bag-dash"></i></li>
+            <li class="nav-item cart-border" s><i class="bi bi-bag-dash" tyle="font-size: 19px;"></i></li>
           </ul>
         </div>
      
@@ -445,11 +116,10 @@
     <div class="row" style="margin: 6rem 0;">
       <div class="col-lg-3 col-6">
         <div class="card" style="padding: 15px;">
-          <img src="https://loan9202.github.io/bootstrap_project/source/images/section3.1.png
-          " class="card-img-top" alt="...">
+          <img src="./src/img1.png" class="card-img-top" alt="...">
           <div class="">
             <h5 class="card-title">Singo Maple</h5>
-            <p class="sale-off">20% Off</p>
+            <p class="sale-off1">20% Off</p>
             <p style="margin-bottom: 0;" class="old-price">Rp 1.500.000</p>
             <div style="font-size: 20px;">Rp 1.264.000</div>
             <div class=" cart-add" style="height: 30px;">
@@ -463,11 +133,10 @@
       </div>
       <div class="col-lg-3 col-6">
         <div class="card" style="padding: 15px;">
-          <img src="https://loan9202.github.io/bootstrap_project/source/images/section3.1.png
-          " class="card-img-top" alt="...">
+          <img src="./src/img3.png" class="card-img-top" alt="...">
           <div class="">
             <h5 class="card-title">Singo Ebony</h5>
-            <p class="sale-off">20% Off</p>
+            <p class="sale-off1">20% Off</p>
             <p style="margin-bottom: 0;" class="old-price">Rp 1.264.000</p>
             <div style="font-size: 20px;">Rp 1.264.000</div>
             <div class=" cart-add" style="height: 30px;">
@@ -482,11 +151,10 @@
       </div>
       <div class="col-lg-3 col-6">
         <div class="card" style="padding: 15px;">
-          <img src="https://loan9202.github.io/bootstrap_project/source/images/section3.1.png
-          " class="card-img-top" alt="...">
+          <img src="./src/img4.png" class="card-img-top" alt="...">
           <div class="">
             <h5 class="card-title">Singo Maple</h5>
-            <p class="sale-off">20% Off</p>
+            <p class="sale-off1">20% Off</p>
             <p style="margin-bottom: 0;" class="old-price">Rp 1.500.000</p>
             <div style="font-size: 20px;">Rp 1.118.000</div>
             <div class=" cart-add" style="height: 30px;">
@@ -500,11 +168,10 @@
       </div>
       <div class="col-lg-3 col-6">
         <div class="card" style="padding: 15px;">
-          <img src="https://loan9202.github.io/bootstrap_project/source/images/section3.1.png
-          " class="card-img-top" alt="...">
+          <img src="./src/img2.png" class="card-img-top" alt="...">
           <div class="">
             <h5 class="card-title">Singo Maple</h5>
-            <p class="sale-off">10% Off</p>
+            <p class="sale-off1">10% Off</p>
             <p style="margin-bottom: 0;" class="old-price">Rp 1.500.000</p>
             <div style="font-size: 20px;">Rp 1.024.000</div>
             <div class=" cart-add" style="height: 30px;">
