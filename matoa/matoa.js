@@ -46,10 +46,8 @@ $(".btn-add-cart").onclick = function () {
     if(result) {
         console.log(result);
         $("#cart-quantity").textContent = result + +(textCart)
-    } else {
-        $("#cart-quantity").textContent = 0
     }
-
+    result = undefined
     quantity.textContent = 0
 }
 
