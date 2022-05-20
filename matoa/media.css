@@ -53,6 +53,9 @@
         font-size: 16px;
         padding: 0;
     }
+    /* .modal-cart {
+        display: none;
+    } */
 }
 @media (max-width: 576px) {
     .tab-item {

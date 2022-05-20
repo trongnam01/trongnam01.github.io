@@ -37,32 +37,36 @@ $("#reduction").onclick = function() {
 $("#more").onclick = function() {
     result = +(quantity.textContent) + 1
     quantity.textContent = result
+    console.log(result);
 }
 
 //  cộng 
 $(".btn-add-cart").onclick = function () {
-    let textCart = quantity.textContent
+    let textCart = $("#cart-quantity").textContent
     if(result) {
-        quantity.textContent = result + +(textCart)
+        console.log(result);
+        $("#cart-quantity").textContent = result + +(textCart)
     } else {
-        quantity.textContent = 0
+        $("#cart-quantity").textContent = 0
     }
 
     quantity.textContent = 0
-}
-//  ẩn modal
-$(".incon-delete-modal").onclick = function() {
-    modal.classList.remove("open")
-}
-
-modal.onclick = function() {
-    modal.classList.remove("open")
 }
 
 $(".cart-border").onclick = function () {
     modal.classList.add("open")
 }
 
+//  ẩn modal
+$(".incon-delete-modal").onclick = function() {
+    modal.classList.remove("open")
+}
+
+modal.onclick = function() {
+    console.log(1);
+
+    modal.classList.remove("open")
+}
 $(".modal-cantainer").onclick = function(e) {
     e.stopPropagation()
 }

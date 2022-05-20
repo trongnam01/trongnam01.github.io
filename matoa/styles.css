@@ -674,6 +674,6 @@
   color: #000000;
 }
 
-.open {
-  display: flex !important;
+.modal-cart.open {
+  display: flex;
 }
