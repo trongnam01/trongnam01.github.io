@@ -8,9 +8,11 @@ const panes = $$(".tab-pane");
 const tabActive = $(".tab-item.active");
 const line = $(".tabs .tabs-line");
 let quantity = $("#quantity")
+let quantity2 = $("#quantity2")
 let result;
 let modal = $(".modal-cart")
 let addItemCart = $(".add-item-cart")
+let clearItemCart = $$(".icon-trash-cart")
 
 
 tabs.forEach((tab, index) => {
@@ -27,6 +29,9 @@ tabs.forEach((tab, index) => {
       pane.classList.add("active");
     };
 });
+
+
+
 //  chừ 
 $("#reduction").onclick = function() {
     result = +(quantity.textContent) - 1
@@ -36,11 +41,22 @@ $("#reduction").onclick = function() {
         quantity.textContent = result
     }
 }
+
+
 $("#more").onclick = function() {
     result = +(quantity.textContent) + 1
     quantity.textContent = result
     console.log(result);
 }
+
+// $("#reduction2").onclick = function() {
+//     result = +(quantity2.textContent) - 1
+//     if(result <= 0){
+//         quantity2.textContent = 0
+//     }else{
+//         quantity2.textContent = result
+//     }
+// }
 
 $(".cart-border").onclick = function () {
     modal.classList.add("open")
@@ -108,6 +124,13 @@ $(".btn-add-cart").onclick = function () {
     totalCart()
 }
 
+for(let i = 0 ; i < clearItemCart.length ; i++) {
+
+    clearItemCart[i].onclick = function(e) {
+        alert(1)
+    }
+}
+
 function totalCart(){
     let  priceProductCart = $$(".js-price-product-cart")
     let totalPrice = $(".total-cart span").textContent
@@ -160,6 +183,6 @@ window.onload = function() {
   line.style.left = tabs[0].offsetLeft + "px";
   line.style.width = tabs[0].offsetWidth + "px";
 
-  
+
   totalCart()
 }
