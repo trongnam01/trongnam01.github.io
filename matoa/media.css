@@ -53,6 +53,9 @@
         font-size: 16px;
         padding: 0;
     }
+    .item-product-right input {
+        width: 250px;
+    }
     /* .modal-cart {
         display: none;
     } */
@@ -69,5 +72,8 @@
     }
     .product-revew-img img {
         width: 25%;
+    }
+    .item-product-right input {
+        width: 200px;
     }
 }
