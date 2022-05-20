@@ -10,6 +10,8 @@ const line = $(".tabs .tabs-line");
 let quantity = $("#quantity")
 let result;
 let modal = $(".modal-cart")
+let addItemCart = $(".add-item-cart")
+
 
 tabs.forEach((tab, index) => {
     const pane = panes[index];
@@ -40,17 +42,6 @@ $("#more").onclick = function() {
     console.log(result);
 }
 
-//  cộng 
-$(".btn-add-cart").onclick = function () {
-    let textCart = $("#cart-quantity").textContent
-    if(result) {
-        console.log(result);
-        $("#cart-quantity").textContent = result + +(textCart)
-    }
-    result = undefined
-    quantity.textContent = 0
-}
-
 $(".cart-border").onclick = function () {
     modal.classList.add("open")
 }
@@ -59,15 +50,79 @@ $(".cart-border").onclick = function () {
 $(".incon-delete-modal").onclick = function() {
     modal.classList.remove("open")
 }
-
+//                             ?????????????????????????????
 modal.onclick = function() {
-    console.log(1);
-
     modal.classList.remove("open")
 }
 $(".modal-cantainer").onclick = function(e) {
     e.stopPropagation()
 }
+
+$(".btn-add-cart").onclick = function () {
+    let textCart = $("#cart-quantity").textContent
+    let revewImg = $(".revew-img").getAttribute("src")
+    let slideText = $(".slide-text").textContent
+    let SaleOff = $(".js-sale-off").textContent
+    let PriceProduct = $(".js-price-product span").textContent
+    if(result) {
+        $("#cart-quantity").textContent = 1 + +(textCart)
+        let itemCart = document.createElement('div')
+        itemCart.setAttribute("class", "item-product-cart")
+        itemCart.innerHTML = `
+            <div class="item-product-left">
+                <div style="width: 110px">
+                    <img class="item-product-img" src="${revewImg}" alt="">
+                </div>
+                <div class="item-product-text" style="margin-left: 20px;">
+                    <p>${slideText}</p>
+                    <p style="margin-bottom: 0;" class="old-price">${SaleOff}</p>
+                    <div style="font-size: 20px; font-weight: 600;">Rp <span> ${PriceProduct}</span></div>
+                    <p style="font-size: 16px;">Custom Engrave</p>
+                    <p style="font-size: 16px;font-weight: 300;">“Happy | Birthday | from”
+                    </p>
+                </div>
+            </div>
+            <div class="item-product-right">
+                <p>Select Packaging</p>
+                <input type="text" placeholder="Wooden Packaging (Rp 50.000)">
+                <i class="bi bi-chevron-down icon-input-cart"></i>
+                <div class="d-sm-flex justify-content-end">
+                    <div>
+                        <button id="reduction2" style="width: 30px;">-</button>
+                        <span id="quantity2">0</span>
+                        <button id="more2">+</button>
+                    </div>
+                    <div class="d-flex">
+                        <div  style="font-size: 20px; font-weight: 600; margin: 0 10px;"> <span class="js-price-product-cart">${PriceProduct} </span></div>
+                        <div class="icon-trash-cart">
+                            <i class="bi bi-trash"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `
+        addItemCart.appendChild(itemCart)
+    }
+    result = undefined
+    quantity.textContent = 0
+    totalCart()
+}
+
+function totalCart(){
+    let  priceProductCart = $$(".js-price-product-cart")
+    let totalPrice = $(".total-cart span").textContent
+    let resultPrice = 0
+    console.log(totalPrice);
+ 
+    for(let i = 0 ; i < priceProductCart.length; i++) {
+        resultPrice += Number.parseFloat(priceProductCart[i].textContent)
+    }
+    $(".total-cart span").textContent = resultPrice + ".000"
+}
+
+
+
+
 
 
 
@@ -100,7 +155,11 @@ $(".modal-cantainer").onclick = function(e) {
 
 
 window.onload = function() {
+    
   
   line.style.left = tabs[0].offsetLeft + "px";
   line.style.width = tabs[0].offsetWidth + "px";
+
+  
+  totalCart()
 }

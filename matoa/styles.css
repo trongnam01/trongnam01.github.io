@@ -506,10 +506,12 @@
   background: #FFFFFF;
   width: 800px;
   max-width: calc(100% - 16px);
-  min-height: 200px;
+  max-height: 100%;
   padding: 10px 25px 0;
   position: relative;
   animation: modalFakeIn  ease .5s;
+  overflow-y:auto;
+
 }
  @keyframes modalFakeIn {
    from {
@@ -612,7 +614,6 @@
 }
 .into-money {
   padding: 15px 0;
-  display: flex;
   justify-content: space-between;
 }
 .into-origin {
@@ -676,4 +677,8 @@
 
 .modal-cart.open {
   display: flex;
+}
+.total-cart {
+  font-size: 20px;
+  font-weight: 600;
 }

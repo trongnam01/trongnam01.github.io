@@ -56,9 +56,22 @@
     .item-product-right input {
         width: 250px;
     }
-    /* .modal-cart {
-        display: none;
-    } */
+    .tatol-mone-text {
+        display: flex;
+    }
+    .into-origin {
+        justify-content: space-between;
+    }
+    .tatol-mone {
+        justify-content: end;
+        margin-top: 10px;
+    }
+    .tatol-mone-text {
+        align-items: center;
+    }
+    .js-old-price {
+        margin-right: 20px;
+    }
 }
 @media (max-width: 576px) {
     .tab-item {
@@ -76,4 +89,7 @@
     .item-product-right input {
         width: 200px;
     }
+    
+    
+  
 }
