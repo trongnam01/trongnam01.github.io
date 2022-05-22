@@ -8,139 +8,360 @@ const panes = $$(".tab-pane");
 const tabActive = $(".tab-item.active");
 const line = $(".tabs .tabs-line");
 let quantity = $("#quantity")
-let quantity2 = $("#quantity2")
 let result;
 let modal = $(".modal-cart")
 let addItemCart = $(".add-item-cart")
-let clearItemCart = $$(".icon-trash-cart")
+
+let arrItems = JSON.parse(window.localStorage.getItem("itemCart")) || []
+
+let arrAvailable = [
+    {
+        id: 1,
+        image: "http://127.0.0.1:5500/trongnam01.github.io-wibsite-ban-hang/matoa/src/image%2041.png",
+        nameProduct: "product9999",
+        content: "Way Kambas Mini Ebony",
+        SaleOff: "2.000.000",
+        PriceProduct: "1.264.000",
+        qty: 1
+    },
+    {
+        id: 2,
+        image: "http://127.0.0.1:5500/trongnam01.github.io-wibsite-ban-hang/matoa/src/img1.png",
+        nameProduct: "product999",
+        content: "Way Kambas Mini Ebony",
+        SaleOff: "1.000.000",
+        PriceProduct: "1.264.000",
+        qty: 1
+    }
+]
+
+// thêm object vào arr arrItems  khi length === 0 
+if (arrItems.length === 0) {
+    arrItems.push(...arrAvailable)
+}
 
 
 tabs.forEach((tab, index) => {
     const pane = panes[index];
-  
+
     tab.onclick = function () {
-      $(".tab-item.active").classList.remove("active");
-      $(".tab-pane.active").classList.remove("active");
-  
-      line.style.left = this.offsetLeft + "px";
-      line.style.width = this.offsetWidth + "px";
-  
-      this.classList.add("active");
-      pane.classList.add("active");
+        $(".tab-item.active").classList.remove("active");
+        $(".tab-pane.active").classList.remove("active");
+
+        line.style.left = this.offsetLeft + "px";
+        line.style.width = this.offsetWidth + "px";
+
+        this.classList.add("active");
+        pane.classList.add("active");
     };
 });
 
 
 
 //  chừ 
-$("#reduction").onclick = function() {
-    result = +(quantity.textContent) - 1
-    if(result <= 0){
-        quantity.textContent = 0
-    }else{
+if ($("#reduction") || $("#more")) {
+    $("#reduction").onclick = function () {
+        result = +(quantity.textContent) - 1
+        if (result <= 0) {
+            quantity.textContent = 0
+        } else {
+            quantity.textContent = result
+        }
+    }
+    $("#more").onclick = function () {
+        result = +(quantity.textContent) + 1
         quantity.textContent = result
     }
 }
 
 
-$("#more").onclick = function() {
-    result = +(quantity.textContent) + 1
-    quantity.textContent = result
-    console.log(result);
-}
-
-// $("#reduction2").onclick = function() {
-//     result = +(quantity2.textContent) - 1
-//     if(result <= 0){
-//         quantity2.textContent = 0
-//     }else{
-//         quantity2.textContent = result
-//     }
-// }
-
 $(".cart-border").onclick = function () {
     modal.classList.add("open")
+    render()
+    clearItem()
+    qtyItem()
 }
 
 //  ẩn modal
-$(".incon-delete-modal").onclick = function() {
+$(".incon-delete-modal").onclick = function () {
     modal.classList.remove("open")
 }
 //                             ?????????????????????????????
-modal.onclick = function() {
+modal.onclick = function () {
     modal.classList.remove("open")
 }
-$(".modal-cantainer").onclick = function(e) {
-    e.stopPropagation()
+//  bỏ click đến thẻ a
+$(".cart-add").onclick = function (e) {
+    // e.preventDefault()
 }
 
-$(".btn-add-cart").onclick = function () {
-    let textCart = $("#cart-quantity").textContent
-    let revewImg = $(".revew-img").getAttribute("src")
-    let slideText = $(".slide-text").textContent
-    let SaleOff = $(".js-sale-off").textContent
-    let PriceProduct = $(".js-price-product span").textContent
-    if(result) {
-        $("#cart-quantity").textContent = 1 + +(textCart)
-        let itemCart = document.createElement('div')
-        itemCart.setAttribute("class", "item-product-cart")
-        itemCart.innerHTML = `
-            <div class="item-product-left">
-                <div style="width: 110px">
-                    <img class="item-product-img" src="${revewImg}" alt="">
-                </div>
-                <div class="item-product-text" style="margin-left: 20px;">
-                    <p>${slideText}</p>
-                    <p style="margin-bottom: 0;" class="old-price">${SaleOff}</p>
-                    <div style="font-size: 20px; font-weight: 600;">Rp <span> ${PriceProduct}</span></div>
-                    <p style="font-size: 16px;">Custom Engrave</p>
-                    <p style="font-size: 16px;font-weight: 300;">“Happy | Birthday | from”
-                    </p>
-                </div>
-            </div>
-            <div class="item-product-right">
-                <p>Select Packaging</p>
-                <input type="text" placeholder="Wooden Packaging (Rp 50.000)">
-                <i class="bi bi-chevron-down icon-input-cart"></i>
-                <div class="d-sm-flex justify-content-end">
-                    <div>
-                        <button id="reduction2" style="width: 30px;">-</button>
-                        <span id="quantity2">0</span>
-                        <button id="more2">+</button>
-                    </div>
-                    <div class="d-flex">
-                        <div  style="font-size: 20px; font-weight: 600; margin: 0 10px;"> <span class="js-price-product-cart">${PriceProduct} </span></div>
-                        <div class="icon-trash-cart">
-                            <i class="bi bi-trash"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `
-        addItemCart.appendChild(itemCart)
+//  bỏ click vào modal-cantai
+$(".modal-cantainer").onclick = function (e) {
+    e.stopPropagation()
+}
+// đk có btn-add-cart  --> " Product"
+if ($(".btn-add-cart")) {
+    $(".btn-add-cart").onclick = function () {
+        let textCart = $("#cart-quantity").textContent   // get số lượng cart hiện tại 
+
+        let PriceProduct = $(".js-price-product span").textContent   // get giá hiện tại
+        let SaleOff = $(".js-sale-off").textContent          //get giá sp cũ
+        let slideText = $(".slide-text").textContent              // get title
+        let revewImg = $(".revew-img").getAttribute("src")         // get img 
+        let nameProduct = $(".js-revew-product").getAttribute("id-data") // get id-data
+        let numqty = +(quantity.textContent)
+        //khi quantity > 0 thì mới add
+        if (result) {
+
+            let objProduct = {
+                id: arrItems.length + 1,
+                image: revewImg,
+                nameProduct: nameProduct,
+                content: slideText,
+                SaleOff: SaleOff,
+                PriceProduct: PriceProduct,
+                qty: numqty
+            }
+
+            checkItem(objProduct, numqty)
+        }
+
+        result = undefined
+        quantity.textContent = 0
+
     }
-    result = undefined
-    quantity.textContent = 0
+}
+// đk có thì set quantity không thì add 
+function checkItem(objProduct, numqty) {
+    if (arrItems.findIndex(arrItem => arrItem.nameProduct === objProduct.nameProduct) == -1) {
+        objProduct.qty = numqty
+        arrItems.push(objProduct)
+        $("#cart-quantity").textContent = arrItems.length
+        window.localStorage.setItem("itemCart", JSON.stringify(arrItems))
+    } else {
+        arrItems.find((arrItem, index) => {
+            if (arrItem.nameProduct === objProduct.nameProduct) {
+                arrItem.qty = arrItem.qty + numqty
+            }
+            // return arrItem.nameProduct === objProduct.nameProduct ? arrItem.qty = arrItem.qty + numqty : undefined
+        })
+        window.localStorage.setItem("itemCart", JSON.stringify(arrItems))
+    }
+    // render()
     totalCart()
 }
 
-for(let i = 0 ; i < clearItemCart.length ; i++) {
+let itemProducts = document.querySelectorAll(".item-products")
+//  lặp qua và event đến từng item producs
+let cartBtn = $$(".cart-btn")
+for (let i = 0; i < cartBtn.length; i++) {
+    cartBtn[i].onclick = (e) => {
+        let parse = itemProducts[i]
 
-    clearItemCart[i].onclick = function(e) {
-        alert(1)
+        let PriceProduct = parse.querySelector(".card-body div span").textContent // get giá hiện tại
+        //  đk có giá sale thì get
+        let SaleOff = '';
+        if (parse.querySelector(".card-body .old-price")) {
+            SaleOff = parse.querySelector(".card-body .old-price").textContent  // get giá ban đầu 
+        }
+
+        let slideText = parse.querySelector(".card-title").textContent   // title   
+        let revewImg = parse.querySelector("img").getAttribute("src") //   get img
+        let nameProduct = parse.getAttribute("id-data") // gét id-data
+        let numqty = 1
+
+        let objProduct = {
+            id: arrItems.length + 1,
+            image: revewImg,
+            nameProduct: nameProduct,
+            content: slideText,
+            SaleOff: SaleOff,
+            PriceProduct: PriceProduct,
+            qty: numqty,
+        }
+        checkItem(objProduct, numqty)
+
     }
 }
 
-function totalCart(){
-    let  priceProductCart = $$(".js-price-product-cart")
-    let totalPrice = $(".total-cart span").textContent
-    let resultPrice = 0
-    console.log(totalPrice);
- 
-    for(let i = 0 ; i < priceProductCart.length; i++) {
-        resultPrice += Number.parseFloat(priceProductCart[i].textContent)
+
+
+
+
+
+
+
+
+
+
+// hàm load lại các item trong modal
+function render() {
+
+    if (arrItems.length >= 1) {
+
+        let itemCart = arrItems.map(function (arrItem) {
+            return `
+                <div class="item-product-cart" id-item-cart="${arrItem.nameProduct}">
+                <div class="item-product-left">
+                    <div >
+                        <img class="item-product-img" src="${arrItem.image}" alt="">
+                    </div>
+                    <div class="item-product-text" style="margin-left: 20px;">
+                        
+                        <p>${arrItem.content}</p>
+                        <p style="margin-bottom: 0;" class="old-price"> ${arrItem.SaleOff}</p>
+                        <div style="font-size: 20px; font-weight: 600;">Rp <span>${arrItem.PriceProduct}</span></div>
+                        <p style="font-size: 16px;">Custom Engrave</p>
+                        <p style="font-size: 16px;font-weight: 300;">“Happy | Birthday | from”
+                        </p>
+                    </div>
+                </div>
+                <div class="item-product-right">
+                    <div> 
+                    <p>Select Packaging</p>
+                    <div class="input-cart">
+                    <input type="text" placeholder="Wooden Packaging (Rp 50.000)">
+                    </div>
+                    <i class="bi bi-chevron-down icon-input-cart"></i>
+                    </div>
+                    <div class="d-flex justify-content-end ">
+                        <div>
+                            <button class="reduction2" style="width: 30px;">-</button>
+                            <span class="quantity2">${arrItem.qty}</span>
+                            <button class="more2">+</button>
+                        </div>
+                        <div class="d-flex">
+                            <div  style="font-size: 20px; font-weight: 600; margin: 0 10px;">
+                                Rp <span class="js-price-product-cart">${arrItem.PriceProduct}</span> </div>
+                            <div class="icon-trash-cart">
+                                <i class="bi bi-trash"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                `
+        })
+        addItemCart.innerHTML = itemCart.join('')
     }
-    $(".total-cart span").textContent = resultPrice + ".000"
+    clearItem()
+
+}
+
+// xóa item product
+function clearItem() {
+    let idItemcart = $$(".item-product-cart")   // get tất cả các item-product
+    let clearItemCart = $$(".icon-trash-cart") // get trash-cart
+
+    if (clearItemCart.length > 0) {
+        for (let i = 0; i < clearItemCart.length; i++) {
+            clearItemCart[i].onclick = function (e) {
+                let id = idItemcart[i].getAttribute("id-item-cart")
+                idItemcart[i].remove() //Xóa trên HTML
+
+                let idName = arrItems.findIndex((arrItem) => id === arrItem.nameProduct)  // lấy index 
+
+                if (idName >= 0) {
+                    arrItems.splice(idName, 1)
+                    window.localStorage.setItem("itemCart", JSON.stringify(arrItems))
+                }
+                $("#cart-quantity").textContent = arrItems.length
+                totalCart()
+            }
+        }
+    }
+
+}
+// hàm hiện thị số lượng từng sản phẩm
+function qtyItem() {
+    let idItemcart = $$(".item-product-cart")   // get tất cả các item-product
+
+    let quantity2 = $$(".quantity2")
+    let reduction2 = $$(".reduction2")
+    let more2 = $$(".more2")
+
+    for (let i = 0; i < reduction2.length; i++) {
+
+        // chừ quantity
+        reduction2[i].onclick = () => {
+            const num = +(quantity2[i].textContent) - 1
+            // đk khi dưới 1 sản phẩm thì remove
+            if (num <= 0) {
+                let id = idItemcart[i].getAttribute("id-item-cart")
+                idItemcart[i].remove() //Xóa trên HTML
+
+                let idName = arrItems.findIndex((arrItem) => id === arrItem.nameProduct)  // lấy index 
+
+                if (idName >= 0) {
+                    arrItems.splice(idName, 1)
+                    window.localStorage.setItem("itemCart", JSON.stringify(arrItems))
+                }
+                $("#cart-quantity").textContent = arrItems.length
+                totalCart()
+
+            } else {
+                let id = idItemcart[i].getAttribute("id-item-cart")
+                quantity2[i].textContent = num
+
+                arrItems.find((arrItem) => {
+                    if (arrItem.nameProduct === id) {
+                        arrItem.qty = num
+                    }
+                })
+                totalCart()
+                window.localStorage.setItem("itemCart", JSON.stringify(arrItems))
+            }
+
+        }
+        // cộng quantity
+        more2[i].onclick = () => {
+            const num = +(quantity2[i].textContent) + 1
+            let id = idItemcart[i].getAttribute("id-item-cart")
+            quantity2[i].textContent = num
+
+            arrItems.find((arrItem) => {
+                if (arrItem.nameProduct === id) {
+                    arrItem.qty = num
+                }
+            })
+            totalCart()
+            window.localStorage.setItem("itemCart", JSON.stringify(arrItems))
+        }
+    }
+}
+
+// hàm cộng tổng
+function totalCart() {
+    let resultTotalSale = 0
+
+    let resultTotal = arrItems.reduce((total, arrItem) => {
+        // đk khi không có giá sale 
+        // tính tổng giá sale ở cart
+        if (arrItem.SaleOff == '') {
+            resultTotalSale += 0
+        } else {
+            resultTotalSale += Number.parseFloat(arrItem.SaleOff.replace(/Rp /g, '')) * arrItem.qty
+        }
+        // tổng giá hiện ở cart
+        return total + (Number.parseFloat(arrItem.PriceProduct) * arrItem.qty)
+    }, 0)
+
+
+    resultTotalSale === 0 ? $(".js-old-price").textContent = '0VNĐ' : $(".js-old-price").textContent = 'Rp ' + resultTotalSale.toFixed(3) + '.000'
+
+    resultTotal === 0 ? $(".total-cart span").textContent = '0VNĐ' : $(".total-cart span").textContent = resultTotal.toFixed(3) + '.000'
+
+    if (arrItems.length === 0) {
+        $(".img-cart-no-product").style.display = "flex"
+        $(".into-money").style.display = "none"
+        $(".footer-modal").style.display = "none"
+    } else {
+        $(".img-cart-no-product").style.display = "none"
+        $(".into-money").style.display = "flex"
+        $(".footer-modal").style.display = "flex"
+    }
+
+
 }
 
 
@@ -177,12 +398,21 @@ function totalCart(){
 
 
 
-window.onload = function() {
-    
-  
-  line.style.left = tabs[0].offsetLeft + "px";
-  line.style.width = tabs[0].offsetWidth + "px";
 
 
-  totalCart()
+
+
+window.onload = function () {
+
+    if (line) {
+        line.style.left = tabs[0].offsetLeft + "px";
+        line.style.width = tabs[0].offsetWidth + "px";
+    }
+
+
+
+
+    $("#cart-quantity").textContent = arrItems.length
+    // render()
+    totalCart()
 }

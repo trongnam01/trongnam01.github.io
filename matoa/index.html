@@ -16,47 +16,83 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
   <link rel="stylesheet" href="./styles.css">
   <link rel="stylesheet" href="./media.css">
- 
+
 </head>
 
 <body>
   <div class="container">
 
     <nav class="navbar navbar-expand-lg navbar-light ">
-      
-        <div class="logo">
-          <a href=""><img src="https://loan9202.github.io/bootstrap_project/source/images/image_5.png" alt=""></a>
+
+      <div class="logo">
+        <a href=""><img src="https://loan9202.github.io/bootstrap_project/source/images/image_5.png" alt=""></a>
+      </div>
+      <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId"
+        aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="collapsibleNavId">
+        <ul class="navbar-nav mt-2 mt-lg-0" style="margin: auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Watches </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Eyewear</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Accessories</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">News</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav mt-2 mt-lg-0 align-items-lg-center">
+          <li class="nav-item"> <i class="bi bi-search" style="font-size: 19px;"></i></li>
+          <li class="nav-item d-flex">
+            <i class="bi bi-person" style="margin-right: 4px;font-size: 19px"></i>
+            <a class="nav-link" href="#" style="padding: 0;">Log In</a>
+          </li>
+          <li class="nav-item cart-border position-relative">
+            <i class="bi bi-cart-plus" style="font-size: 22px;"></i>
+            <div id="cart-quantity">0</div>
+          </li>
+        </ul>
+      </div>
+      <div class="modal-cart">
+        <div class="modal-cantainer">
+          <div class="incon-delete-modal">
+            <i class="bi bi-x-lg "></i>
+          </div>
+          <div class="add-item-cart">
+
+          </div>
+          <div class="img-cart-no-product">
+            <div class="content-no-product">
+              <img src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/cart/9bdd8040b334d31946f49e36beaf32db.png
+                  " alt="">
+              <p>Giỏ hàng của bạn còn trống</p>
+            </div>
+          </div>
+          <div class="into-money ">
+            <div class="d-flex into-origin">
+              <div>Kode Promo</div>
+              <div class="country">INDONESIA</div>
+              <div style="color: #01522D;font-weight: 500;">35% OFF</div>
+            </div>
+            <div class="tatol-mone ">
+              <p>Subtotal</p>
+              <div class="tatol-mone-text ms-4">
+                <p class=" mb-0 old-price d-flex justify-content-end js-old-price">Rp 1.264.000</p>
+                <div class="total-cart"> Rp <span>1.264.000</span> </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer-modal">
+            <button>Checkout</button>
+          </div>
         </div>
-        <button class="navbar-toggler " type="button" data-bs-toggle="collapse"
-          data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
-          aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="collapsibleNavId">
-          <ul class="navbar-nav mt-2 mt-lg-0" style="margin: auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#">Watches </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Eyewear</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Accessories</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">News</a>
-            </li>
-          </ul>
-          <ul class="navbar-nav mt-2 mt-lg-0 align-items-lg-center">
-            <li class="nav-item" > <i class="bi bi-search" style="font-size: 19px;"></i></li>
-            <li class="nav-item d-flex">
-              <i class="bi bi-person" style="margin-right: 4px;font-size: 19px"></i>
-              <a class="nav-link" href="#" style="padding: 0;">Log In</a>
-            </li>
-            <li class="nav-item cart-border" s><i class="bi bi-bag-dash" tyle="font-size: 19px;"></i></li>
-          </ul>
-        </div>
-     
+      </div>
     </nav>
   </div>
 
@@ -77,7 +113,8 @@
             <p class="cover">Discover</p>
             <div class="line" style="width: 74px"></div>
             <div class="side-btn">
-              <button type="button" class=" slide-btn1"> <i class="bi bi-cart3" style="margin-right: 5px"></i> Add to
+              <button type="button" onclick="window.location.href='./product.html'" class=" slide-btn1"> <i
+                  class="bi bi-cart3" style="margin-right: 5px"></i> Add to
                 cart</button>
               <button type="button" class=" slide-btn2"> cicill</button>
             </div>
@@ -113,7 +150,75 @@
     <h2 class="line-h2">Monthly Deals</h2>
     <div class="line"></div>
 
-    <div class="row" style="margin: 6rem 0;">
+    <div class="row" style="margin: 6rem 0; ">
+      <div class="col-6 col-md-3 position-relative">
+        <div class="card item-products" style="padding: 30px 15px 0; " id-data="product2">
+          <img src="./src/img1.png" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Singo Maple</h5>
+            <p style="margin-bottom: 0;" class="old-price">Rp 1.264.000</p>
+            <div class="" style="font-size: 20px;"> Rp <span>1.264.000 </span></div>
+            <div class=" cart-add" style="height: 30px;">
+              <div class="cart-icon">
+                <i class="bi bi-heart" style="color: #d84727;"></i>
+              </div>
+              <div class="cart-btn">Add to cart</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3 position-relative">
+        <div class="card item-products" style="padding: 30px 15px 0; " id-data="product3">
+          <img src="./src/img4.png" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Sikka (Ebony & Maple)</h5>
+            <div style="font-size: 20px;">Rp <span>1.264.000</span></div>
+            <div class=" cart-add" style="height: 30px;">
+              <div class="cart-icon">
+                <i class="bi bi-heart" style="color: #d84727;"></i>
+              </div>
+              <div class="cart-btn">Add to cart</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="card item-products" style="padding: 30px 15px 0; " id-data="product4">
+          <img src="./src/img3.png" class="card-img-top" alt="...">
+          <div class="card-body ">
+            <h5 class="card-title">Singo Maple</h5>
+            <p style="margin-bottom: 0;" class="old-price">Rp 1.264.000</p>
+            <div style="font-size: 20px;">Rp <span>1.264.000</span></div>
+            <div class=" cart-add" style="height: 30px;">
+              <div class="cart-icon">
+                <i class="bi bi-heart" style="color: #d84727;"></i>
+              </div>
+              <div class="cart-btn">Add to cart</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-6 col-md-3 position-relative">
+        <div class="card item-products" style="padding: 30px 15px 0; " id-data="product5">
+          <img src="./src/img2.png" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Sunda</h5>
+            <p style="margin-bottom: 0;" class="old-price">Rp 1.264.000</p>
+            <div style="font-size: 20px;">Rp <span>1.264.000</span></div>
+            <div class=" cart-add" style="height: 30px;">
+              <div class="cart-icon">
+                <i class="bi bi-heart" style="color: #d84727;"></i>
+              </div>
+              <div class="cart-btn">Add to cart</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- <div class="row" style="margin: 6rem 0;">
       <div class="col-lg-3 col-6">
         <a href="./product.html">
           <div class="card" style="padding: 15px;">
@@ -195,7 +300,7 @@
         </a>
       </div>
 
-    </div>
+    </div> -->
 
     <h2>Recent News</h2>
     <div class="line"></div>
@@ -216,20 +321,20 @@
       <div class="row">
         <div class="col-4">
           <h3 class="col">Maple Series</h3>
-        <div class="line" style="width: 67px;"></div>
+          <div class="line" style="width: 67px;"></div>
         </div>
         <div class="col-4">
           <h3 class="col">Ebony Series</h3>
-        <div class="line" style="width: 67px;"></div>
+          <div class="line" style="width: 67px;"></div>
         </div>
         <div class="col-4">
           <h3 class="col">Featured</h3>
-        <div class="line" style="width: 67px;"></div>
+          <div class="line" style="width: 67px;"></div>
         </div>
       </div>
-      
+
       <div class="col-4">
-        
+
         <div class="row product-item">
           <div class="col-lg-5" style="padding-right: 0;">
             <img class="product-img" src="https://loan9202.github.io/bootstrap_project/source/images/section4.1.png"
@@ -276,7 +381,7 @@
         </div>
       </div>
       <div class="col-4">
-       
+
         <div class="row product-item">
           <div class="col-lg-5" style="padding-right: 0;">
             <img class="product-img" src="https://loan9202.github.io/bootstrap_project/source/images/section4.1.png"
@@ -362,36 +467,46 @@
 
       <div class="row">
         <div class="col">
-          <img class="section-card" src="	https://loan9202.github.io/bootstrap_project/source/images/image%2027.png" alt="">
+          <img class="section-card" src="	https://loan9202.github.io/bootstrap_project/source/images/image%2027.png"
+            alt="">
         </div>
         <div class="col">
-          <img class="section-card" src="	https://loan9202.github.io/bootstrap_project/source/images/image%2027.png" alt="">
+          <img class="section-card" src="	https://loan9202.github.io/bootstrap_project/source/images/image%2027.png"
+            alt="">
         </div>
         <div class="col">
-          <img class="section-card" src="	https://loan9202.github.io/bootstrap_project/source/images/image%2027.png" alt="">
+          <img class="section-card" src="	https://loan9202.github.io/bootstrap_project/source/images/image%2027.png"
+            alt="">
         </div>
         <div class="col">
-          <img class="section-card" src="	https://loan9202.github.io/bootstrap_project/source/images/image%2027.png" alt="">
+          <img class="section-card" src="	https://loan9202.github.io/bootstrap_project/source/images/image%2027.png"
+            alt="">
         </div>
         <div class="col">
-          <img class="section-card"  src="	https://loan9202.github.io/bootstrap_project/source/images/image%2027.png" alt="">
+          <img class="section-card" src="	https://loan9202.github.io/bootstrap_project/source/images/image%2027.png"
+            alt="">
         </div>
       </div>
       <div class="row">
         <div class="col">
-          <img class="section-card" src="	https://loan9202.github.io/bootstrap_project/source/images/image%2027.png" alt="">
+          <img class="section-card" src="	https://loan9202.github.io/bootstrap_project/source/images/image%2027.png"
+            alt="">
         </div>
         <div class="col">
-          <img class="section-card" src="	https://loan9202.github.io/bootstrap_project/source/images/image%2027.png" alt="">
+          <img class="section-card" src="	https://loan9202.github.io/bootstrap_project/source/images/image%2027.png"
+            alt="">
         </div>
         <div class="col">
-          <img class="section-card" src="	https://loan9202.github.io/bootstrap_project/source/images/image%2027.png" alt="">
+          <img class="section-card" src="	https://loan9202.github.io/bootstrap_project/source/images/image%2027.png"
+            alt="">
         </div>
         <div class="col">
-          <img class="section-card" src="	https://loan9202.github.io/bootstrap_project/source/images/image%2027.png" alt="">
+          <img class="section-card" src="	https://loan9202.github.io/bootstrap_project/source/images/image%2027.png"
+            alt="">
         </div>
         <div class="col">
-          <img class="section-card" src="	https://loan9202.github.io/bootstrap_project/source/images/image%2027.png" alt="">
+          <img class="section-card" src="	https://loan9202.github.io/bootstrap_project/source/images/image%2027.png"
+            alt="">
         </div>
       </div>
     </div>
@@ -399,27 +514,33 @@
 
   <footer style="background: #d84727;">
     <div class="container">
-       <div class="row">
-         <div class="col-md-3 col-6 foorter-frames">
-           <div style="margin-bottom: 10px">
-             <img src="https://loan9202.github.io/bootstrap_project/source/images/image%2030.png" alt="">
-           </div>
-           <ul>
-             <li>Address</li>
-             <li>Store & Office Jl.</li>
-             <li>Setrasari Kulon III, No.</li>
-             <li>10-12, Sukarasa,</li>
-             <li>Sukasari, Bandung, Jawa</li>
-             <li>Barat, Indonesia 40152</li>
-           </ul>
-         </div>
-         <div class="col-md-3 col-6 foorter-frames">
-           <h4 class="foorter-outstanding">Get in touch</h4>
-           <div class="line" style="width: 50px;border-top: 1px solid #Ccc;"></div>
-           <ul>
-            <li class="call"><div>Phone</div> 022-20277564</li>
-            <li class="call"><div>Store & Office Jl.</div> 0811-233-8899</li>
-            <li class="call"> <div>10-12, Sukarasa</div> 0811-235-9988</li>
+      <div class="row">
+        <div class="col-md-3 col-6 foorter-frames">
+          <div style="margin-bottom: 10px">
+            <img src="https://loan9202.github.io/bootstrap_project/source/images/image%2030.png" alt="">
+          </div>
+          <ul>
+            <li>Address</li>
+            <li>Store & Office Jl.</li>
+            <li>Setrasari Kulon III, No.</li>
+            <li>10-12, Sukarasa,</li>
+            <li>Sukasari, Bandung, Jawa</li>
+            <li>Barat, Indonesia 40152</li>
+          </ul>
+        </div>
+        <div class="col-md-3 col-6 foorter-frames">
+          <h4 class="foorter-outstanding">Get in touch</h4>
+          <div class="line" style="width: 50px;border-top: 1px solid #Ccc;"></div>
+          <ul>
+            <li class="call">
+              <div>Phone</div> 022-20277564
+            </li>
+            <li class="call">
+              <div>Store & Office Jl.</div> 0811-233-8899
+            </li>
+            <li class="call">
+              <div>10-12, Sukarasa</div> 0811-235-9988
+            </li>
             <div class=" channel-icon">
               <i class="bi bi-facebook"></i>
               <i class="bi bi-youtube"></i>
@@ -427,8 +548,8 @@
               <i class="bi bi-skype"></i>
             </div>
           </ul>
-         </div>
-         <div class="col-md-3 col-6 foorter-frames">
+        </div>
+        <div class="col-md-3 col-6 foorter-frames">
           <h4 class="foorter-outstanding">Useful Link</h4>
           <div class="line" style="width: 50px;border-top: 1px solid #Ccc;"></div>
           <ul>
@@ -439,8 +560,8 @@
             <li>Sukasari, Bandung, Jawa</li>
             <li>Barat, Indonesia 40152</li>
           </ul>
-         </div>
-         <div class="col-md-3 col-6 foorter-frames">
+        </div>
+        <div class="col-md-3 col-6 foorter-frames">
           <h4 class="foorter-outstanding">Campaign</h4>
           <div class="line" style="width: 50px;border-top: 1px solid #Ccc;"></div>
           <ul>
@@ -451,8 +572,8 @@
             <li>Sukasari, Bandung, Jawa</li>
             <li>Barat, Indonesia 40152</li>
           </ul>
-         </div>
-       </div>
+        </div>
+      </div>
     </div>
   </footer>
 
@@ -473,6 +594,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
     integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
     crossorigin="anonymous"></script>
+  <script src="./matoa.js"></script>
 </body>
 
 </html>

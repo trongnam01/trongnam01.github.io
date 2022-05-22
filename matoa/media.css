@@ -72,6 +72,9 @@
     .js-old-price {
         margin-right: 20px;
     }
+    .into-money {
+        display: block !important;
+    }
 }
 @media (max-width: 576px) {
     .tab-item {
@@ -86,10 +89,31 @@
     .product-revew-img img {
         width: 25%;
     }
-    .item-product-right input {
-        width: 200px;
-    }
+   
     
-    
-  
+  .section-item {
+    padding: 15px 8px 0 15px;
+  }  
+  .item-product-cart { 
+      display: block;
+  }
+  .item-product-left {
+    width: 100%;
+  }
+ .item-product-right {
+        position: relative;
+        /* display: flex; */
+        justify-content: space-between;
+        /* flex-direction: row-reverse; */
+  }
+  .input-cart {
+      display: flex;
+      justify-content: end;
+  }
+  .justify-content-end div:first-child {
+      height: 50%;
+  }
+  .item-product-left div:first-child {
+    width: 140px;
+  }
 }
