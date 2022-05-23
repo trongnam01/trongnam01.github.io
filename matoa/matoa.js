@@ -353,11 +353,11 @@ function totalCart() {
 
     if (arrItems.length === 0) {
         $(".img-cart-no-product").style.display = "flex"
-        $(".into-money").style.display = "none"
+        $(".into-moneys").style.display = 'none'
         $(".footer-modal").style.display = "none"
     } else {
         $(".img-cart-no-product").style.display = "none"
-        $(".into-money").style.display = "flex"
+        $(".into-moneys").style.display = "block"
         $(".footer-modal").style.display = "flex"
     }
 
