@@ -152,7 +152,7 @@ function checkItem(objProduct, numqty) {
 }
 
 let itemProducts = document.querySelectorAll(".item-products")
-//  lặp qua và event đến từng item producs
+//  lặp qua và event đến từng item producs khi click vào các add các item khác 
 let cartBtn = $$(".cart-btn")
 for (let i = 0; i < cartBtn.length; i++) {
     cartBtn[i].onclick = (e) => {
@@ -282,7 +282,7 @@ function qtyItem() {
 
     for (let i = 0; i < reduction2.length; i++) {
 
-        // chừ quantity
+        // chừ quantity1
         reduction2[i].onclick = () => {
             const num = +(quantity2[i].textContent) - 1
             // đk khi dưới 1 sản phẩm thì remove
@@ -313,7 +313,7 @@ function qtyItem() {
             }
 
         }
-        // cộng quantity
+        // cộng quantity2
         more2[i].onclick = () => {
             const num = +(quantity2[i].textContent) + 1
             let id = idItemcart[i].getAttribute("id-item-cart")
@@ -351,6 +351,7 @@ function totalCart() {
 
     resultTotal === 0 ? $(".total-cart span").textContent = '0VNĐ' : $(".total-cart span").textContent = resultTotal.toFixed(3) + '.000'
 
+    // khi không có prosuct thì ẩn hiện img ko sản phẩm
     if (arrItems.length === 0) {
         $(".img-cart-no-product").style.display = "flex"
         $(".into-moneys").style.display = 'none'
