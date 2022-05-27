@@ -74,7 +74,7 @@ if ($("#reduction") || $("#more")) {
     }
 }
 
-
+// click vào cart
 $(".cart-border").onclick = function () {
     modal.classList.add("open")
     render()
@@ -91,9 +91,9 @@ modal.onclick = function () {
     modal.classList.remove("open")
 }
 //  bỏ click đến thẻ a
-$(".cart-add").onclick = function (e) {
-    // e.preventDefault()
-}
+// $(".cart-add").onclick = function (e) {
+//     // e.preventDefault()
+// }
 
 //  bỏ click vào modal-cantai
 $(".modal-cantainer").onclick = function (e) {
@@ -152,7 +152,7 @@ function checkItem(objProduct, numqty) {
 }
 
 let itemProducts = document.querySelectorAll(".item-products")
-//  lặp qua và event đến từng item producs khi click vào các add các item khác 
+//  lặp qua và event đến từng item producs khi click vào các add các sản phẩm khác 
 let cartBtn = $$(".cart-btn")
 for (let i = 0; i < cartBtn.length; i++) {
     cartBtn[i].onclick = (e) => {
@@ -365,7 +365,34 @@ function totalCart() {
 
 }
 
+ /// ============================   ===========================
 
+ let paneCheckout = $$(".tabs-pane-checkout")
+ let pane = $$(".pane2")
+
+
+ if($(".play-order")) {
+    $(".play-order").onclick = function() {
+        paneCheckout[0].style.display = "none"
+        paneCheckout[1].style.display = "block"
+
+        $(".pane2.active").classList.remove("active")
+
+        pane[1].classList.add("active")
+
+    }
+ }
+
+ if($(".proceed-payment button")) {
+    $(".proceed-payment button").onclick = () => {
+        paneCheckout[1].style.display = "none"
+        paneCheckout[2].style.display = "block"
+
+        $(".pane2.active").classList.remove("active")
+
+        pane[2].classList.add("active")
+    }
+ }
 
 
 
