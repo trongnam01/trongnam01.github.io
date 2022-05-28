@@ -889,7 +889,7 @@
   cursor: pointer;
 }
 .copy,
-.payment-price {
+.payment-time {
   color: #D84727 !important;
   font-size: 18px !important;
   font-weight: 500 !important;
@@ -953,9 +953,7 @@ color: #333333;
 .delivery-time div:first-child {
   margin: 0 20px;
 }
-.total-items-checkout {
-  margin: 20px 0;
-}
+
 .shipping-address2 + p,
 .total-items-checkout p {
   font-family: 'Taviraj';
@@ -976,15 +974,13 @@ letter-spacing: 0.02em;
 color: #777777;
 }
 
-.shipping-address {
+/* .shipping-address {
   width: 100% !important;
   max-width: 45%;
   font-size: 20px;
   font-weight: 400;
-}
-/* .checkout-content > div:first-child {
-  width: 50%;
 } */
+
 .track-page {
   margin-top: 30px;
   width: 100%;
@@ -999,6 +995,19 @@ color: #777777;
 .tabs-pane-checkout:last-child hr{
   margin: 5px 0;
 }
+/* .js-checkout {
+  display: none;
+} */
 .tabs-pane-checkout:last-child .checkout-content {
   padding: 5px 0;
+}
+.js-contents.open {
+  display: none;
+}
+
+.js-checkout.open {
+ display: none;
+}
+.dateDay {
+  margin-right: 10px;
 }

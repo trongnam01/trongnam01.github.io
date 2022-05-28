@@ -102,14 +102,14 @@ $(".modal-cantainer").onclick = function (e) {
 // đk có btn-add-cart  --> " Product"
 if ($(".btn-add-cart")) {
     $(".btn-add-cart").onclick = function () {
-        let textCart = $("#cart-quantity").textContent   // get số lượng cart hiện tại 
+        let textCart = $("#cart-quantity").innerText   // get số lượng cart hiện tại 
 
-        let PriceProduct = $(".js-price-product span").textContent   // get giá hiện tại
-        let SaleOff = $(".js-sale-off").textContent          //get giá sp cũ
-        let slideText = $(".slide-text").textContent              // get title
+        let PriceProduct = $(".js-price-product span").innerText   // get giá hiện tại
+        let SaleOff = $(".js-sale-off").innerText          //get giá sp cũ
+        let slideText = $(".slide-text").innerText              // get title
         let revewImg = $(".revew-img").getAttribute("src")         // get img 
         let nameProduct = $(".js-revew-product").getAttribute("id-data") // get id-data
-        let numqty = +(quantity.textContent)
+        let numqty = +(quantity.innerText)
         //khi quantity > 0 thì mới add
         if (result) {
 
@@ -158,14 +158,14 @@ for (let i = 0; i < cartBtn.length; i++) {
     cartBtn[i].onclick = (e) => {
         let parse = itemProducts[i]
 
-        let PriceProduct = parse.querySelector(".card-body div span").textContent // get giá hiện tại
+        let PriceProduct = parse.querySelector(".card-body div span").innerText // get giá hiện tại
         //  đk có giá sale thì get
         let SaleOff = '';
         if (parse.querySelector(".card-body .old-price")) {
-            SaleOff = parse.querySelector(".card-body .old-price").textContent  // get giá ban đầu 
+            SaleOff = parse.querySelector(".card-body .old-price").innerText  // get giá ban đầu 
         }
 
-        let slideText = parse.querySelector(".card-title").textContent   // title   
+        let slideText = parse.querySelector(".card-title").innerText   // title   
         let revewImg = parse.querySelector("img").getAttribute("src") //   get img
         let nameProduct = parse.getAttribute("id-data") // gét id-data
         let numqty = 1
@@ -315,7 +315,7 @@ function qtyItem() {
         }
         // cộng quantity2
         more2[i].onclick = () => {
-            const num = +(quantity2[i].textContent) + 1
+            const num = +(quantity2[i].innerText) + 1
             let id = idItemcart[i].getAttribute("id-item-cart")
             quantity2[i].textContent = num
 
@@ -365,14 +365,20 @@ function totalCart() {
 
 }
 
- /// ============================   ===========================
+/// ============================   ===========================
 
- let paneCheckout = $$(".tabs-pane-checkout")
- let pane = $$(".pane2")
+let orderApi = "https://6290441a27f4ba1c65b64525.mockapi.io/api/product"
 
+let paneCheckout = $$(".tabs-pane-checkout")
+let pane = $$(".pane2")
+let dataLength
+let comeBack = false
 
- if($(".play-order")) {
-    $(".play-order").onclick = function() {
+if ($(".play-order")) {
+    $(".play-order").onclick = function () {
+
+        comeBack = true
+
         paneCheckout[0].style.display = "none"
         paneCheckout[1].style.display = "block"
 
@@ -380,10 +386,11 @@ function totalCart() {
 
         pane[1].classList.add("active")
 
+        getList(rendenList)
     }
- }
+}
 
- if($(".proceed-payment button")) {
+if ($(".proceed-payment button")) {
     $(".proceed-payment button").onclick = () => {
         paneCheckout[1].style.display = "none"
         paneCheckout[2].style.display = "block"
@@ -392,18 +399,187 @@ function totalCart() {
 
         pane[2].classList.add("active")
     }
- }
+}
+
+$(".continue-shopping").onclick = () => {
+    $('.js-contents').classList.remove("open")
+    $(".js-checkout").classList.add("open")
+
+    handleDeleteobj()
+}
+
+$(".track-page").onclick = function () {
+    window.location.href = './index.html'
+}
+
+function getList(callback) {
+    fetch(orderApi)
+        .then(function (response) {
+            return response.json()
+        })
+        .then(callback)
+}
+
+function rendenList(data) {
+    let indexData = data.length - 1
+
+    for (let i = 0; i < 3; i++) {
+        $$(".subtotal span")[i].textContent = data[indexData].payment.total
+        $$(".shipping-cost span")[i].textContent = data[indexData].payment.shippingCost
+        $$(".packaging span")[i].textContent = data[indexData].payment.packaging
+        $$(".grand-total span")[i].textContent = data[indexData].payment.totalPrice
+    }
+
+    $(".fullname span").textContent = data[indexData].address.fullname
+    $(".email-address span").textContent = data[indexData].address.email
+    $(".phone-number span").textContent = data[indexData].address.phone
+    $(".shipping-address span").textContent = data[indexData].address.address
+    $(".shipping-address2 p").textContent = data[indexData].address.address
+    $(".shipping-address2 ~ p").textContent = data[indexData].address.address
+    $('.phone span').textContent = data[indexData].address.phone
+    $(".email p").textContent = data[indexData].address.email
+    $(".payment-time").textContent = data[indexData].payment.str
+    $(".dateDay").textContent = data[indexData].payment.str2
+    $(".dateDay ~ p").textContent = data[indexData].payment.str + "s"
 
 
+    let qtyItems = data[indexData].detai_oder.itemsCheckout
+    let htmlqtyCheckout = qtyItems.map(function (item) {
+        return `
+        <div class="js-items-checkout">
+            <p>${item.name}</p>
+            <span>${item.qty} x IDR ${item.price}</span>
+       </div>
+        `
+    })
+
+    for (let j = 0; j < $$(".total-items-checkout").length; j++) {
+
+        $$(".total-items-checkout")[j].innerHTML = htmlqtyCheckout.join('')
+    }
+
+}
+function createFormCheckout(data, callback) {
+    let options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    }
+    fetch(orderApi, options)
+        .then(function (response) {
+            return response.json()
+        })
+        .then(callback)
+}
+
+function handleDeleteobj() {
+
+    let options = {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+    }
+    fetch(orderApi + "/" + dataLength, options)
+        .then(function (response) {
+            return response.json()
+        })
+
+    dataLength = undefined
+}
+
+(function handlePosh() {
+    $(".checkout-modal").onclick = () => {
+        if (dataLength) {
+            handleDeleteobj()
+            dataLength = undefined
+        }
+
+        $('.js-contents').classList.add("open")
+        if ($(".js-checkout.open")) {
+
+            $(".js-checkout").classList.remove("open")
+        }
+        modal.classList.remove("open")
+
+        let date = new Date();
+        let seconds = date.getSeconds();
+        let hours = date.getHours();
+        let minnutes = date.getMinutes();
+        let year = date.getFullYear();
+        let month = date.getMonth() + 1;
+        let day = date.getDate();
+        let str = `${hours}:${minnutes}:${seconds}`;
+        let str2 = `${year}-${month}-${day} `;
+
+        let subtotal = $(".total-cart span").innerText
+        let shippingCost = "500.000"
+        let country = $(".country").innerText
+        let packaging = "50.000"
+        let zipCode = Math.floor(Math.random() * 90000) + 10000;
+
+        let numbertotal = Number.parseFloat(subtotal.replace(/\./, '')) + Number.parseFloat(packaging) + Number.parseFloat(shippingCost)
+        let totalPrice = numbertotal.toLocaleString() + ".000"
+
+        let address = {
+            fullname: "Bơ Bé Bỏng",
+            email: "bobebong00@gmail.com",
+            address: "Xuân Thủy, Cầu Giấy, Hà Nội",
+            phone: "113"
+        }
+
+        let itemsCheckout = []
+        let detai_oder = {
+            itemsCheckout
+        }
+        for (let key of arrItems) {
+            let obj = {
+                id: key.id,
+                name: key.content,
+                qty: key.qty,
+                price: key.PriceProduct
+            }
+            itemsCheckout.push(obj)
+        }
+
+        let payment = {
+            method: "credit card",
+            total: subtotal,
+            country,
+            zipCode,
+            packaging,
+            shippingCost,
+            totalPrice,
+            str,
+            str2
+        }
 
 
+        let formDate = {
+            address,
+            detai_oder,
+            payment,
+
+        }
+
+        createFormCheckout(formDate, (dataform) => {
+            getList(rendenList)
+            dataLength = dataform.id
+        })
 
 
+        if (comeBack) {
+            paneCheckout[0].style.display = "block"
+            paneCheckout[1].style.display = "none"
+            paneCheckout[2].style.display = "none"
+            $(".pane2.active").classList.remove("active")
 
-
-
-
-
+            pane[0].classList.add("active")
+        }
+    }
+})()
 
 
 

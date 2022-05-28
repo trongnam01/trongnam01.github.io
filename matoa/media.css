@@ -26,7 +26,7 @@
          line-height: 40px;
     }
 }
-@media (max-width: 767px) {
+@media (max-width: 768px) {
     
     
     .slide-btn1 {
@@ -75,6 +75,23 @@
     .into-money {
         display: block ;
     }
+
+    /* .checkout-content > div:first-child {
+        width: 100%;
+    } */
+    /* .checkout-content {
+        display: block;
+    } */
+    .pane2::after {
+        width: 40px;
+        right: -50px
+    }
+    .pane2+.pane2 {
+        margin-left: 60px;
+    }
+   .tabs-pane-checkout:last-child > div {
+    flex-wrap: wrap-reverse;
+   }
 }
 @media (max-width: 576px) {
     .tab-item {
