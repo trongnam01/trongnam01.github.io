@@ -617,6 +617,5 @@ window.onload = function () {
 
 
     $("#cart-quantity").textContent = arrItems.length
-    // render()
     totalCart()
 }

@@ -1,0 +1,727 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+
+  <!-- Bootstrap CSS v5.2.0-beta1 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./media.css">
+
+</head>
+
+<body>
+
+  <header>
+    <div class="container">
+      <nav class="navbar navbar-expand-lg header">
+        <div class="container-fluid header-container">
+          <div class="header-logo">
+            <img src="./img/logo.png" alt="ảnh logo">
+          </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse header-title" id="navbarSupportedContent">
+            <ul class="navbar-nav navbar-nav-title mb-lg-0">
+              <li class="nav-item ">
+                <a href="./home.html">TRANG CHỦ</a>
+              </li>
+              <li class="nav-item">
+                <a href="#">GIỚI THIỆU</a>
+              </li>
+              <li class="nav-item home-page">
+                <a href="./products.html">SẢN PHẨM</a>
+              </li>
+              <li class="nav-item">
+                <a href="#">KÊNH SỈ/DỰ ÁN/CTV</a>
+              </li>
+              <li class="nav-item">
+                <a href="#">LIÊN HỆ</a>
+              </li>
+            </ul>
+
+            <ul class="navbar-nav mb-lg-0">
+              <li class="nav-item">
+                <span class="header-img-user">
+                  <i class="fa-solid fa-user"></i>
+                </span>
+                <p>Đăng nhập</p>
+              </li>
+              <li class="nav-item header-cart">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span>0</span>
+              </li>
+
+            </ul>
+
+          </div>
+        </div>
+
+        <!-- modal -->
+        <div class="modal-cart">
+
+          <div class="modal-cantainer">
+            <div class="modal-tite">
+              <span>Giỏ Hàng</span>
+              <div class="icon-delete-modal">
+                <i class="bi bi-x-lg "></i>
+              </div>
+            </div>
+
+            <div class="add-item-cart">
+              <div class="item-product-cart">
+                <div class="item-product-left">
+                  <img src="./img/c4.png" alt="">
+                  <div class="item-product-text">
+                    <p>Chậu Xi Măng Fiber Trứng Xám Viền Trắng Vàng Gold Kim Tiền</p>
+                    <span>Cây + Chậu nhựa đen (LC3018-1)</span>
+                  </div>
+                </div>
+                <div class="item-product-right">
+                  <div class="item-moneys">
+                    <span class="item-save-moneys">1.335.000₫</span>
+                    <span class="item-into-money">1.335.000₫</span>
+                  </div>
+                  <div class="d-flex justify-content-end">
+                    <div class="d-flex">
+                      <button class="reduction2">-</button>
+                      <span class="quantity2">0</span>
+                      <button class="more2">+</button>
+                    </div>
+                    <span class="item-into-money2">1.335.000₫</span>
+                    <div class="icon-trash-cart">
+                      <i class="bi bi-trash"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="item-product-cart">
+                <div class="item-product-left">
+                  <img src="./img/c4.png" alt="">
+                  <div class="item-product-text">
+                    <p>Chậu Xi Măng Fiber Trứng Xám Viền Trắng Vàng Gold Kim Tiền</p>
+                    <span>Cây + Chậu nhựa đen (LC3018-1)</span>
+                  </div>
+                </div>
+                <div class="item-product-right">
+                  <div class="item-moneys">
+                    <span class="item-save-moneys">1.335.000₫</span>
+                    <span class="item-into-money">1.335.000₫</span>
+                  </div>
+                  <div class="d-flex justify-content-end">
+                    <div class="d-flex">
+                      <button class="reduction2">-</button>
+                      <span class="quantity2">0</span>
+                      <button class="more2">+</button>
+                    </div>
+                    <span class="item-into-money2">1.335.000₫</span>
+                    <div class="icon-trash-cart">
+                      <i class="bi bi-trash"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="img-cart-no-product" style="display: none;">
+              <div class="content-no-product">
+                <img src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/cart/9bdd8040b334d31946f49e36beaf32db.png
+                            " alt="">
+                <p>Giỏ hàng của bạn còn trống</p>
+              </div>
+            </div>
+
+            <div class="into-moneys">
+              <p>Tổng thanh toán (<span>2</span> Sản Phẩm):</p>
+              <div class="save">
+                <span class="into-money">5.340.000₫</span>
+                <p>Tiết kiệm <span class="save-moneys">0₫</span></p>
+              </div>
+            </div>
+
+            <div class="footer-modal">
+              <button class="checkout-modal">Mua Hàng</button>
+            </div>
+          </div>
+
+          <div class="modal-login">
+            <div class="modal-login-tabs">
+              <div class="btn-login">Đăng nhập</div>
+              <div class="btn-register"> Đăng ký</div>
+            </div>
+
+            <form action="" class="form-1">
+
+              <div class="form-group">
+                <label for="email" class="form-label">Nhập email</label>
+                <input id="email" name="email" type="text" placeholder="VD: hung@gmail.com" class="form-control">
+                <span class="form-message"></span>
+              </div>
+              <div class="form-group">
+                <label for="password" class="form-label">Mật khẩu</label>
+                <input id="password" name="password" type="text" placeholder="VD: 123456" class="form-control">
+                <span class="forgot-password">Quên mật khẩu</span>
+                <span class="form-message"></span>
+              </div>
+            </form>
+            <div class="footer-login d-flex justify-content-between">
+              <div class="d-flex align-items-center">
+                <input id="remember-password" type="checkbox">
+                <label for="remember-password"> Nhớ mật khẩu</label>
+              </div>
+              <button id="login">Đăng nhập</button>
+            </div>
+          </div>
+
+          <div class="modal-information-user">
+            <span class="modal-user-title">Thêm địa chỉ</span>
+            <form action="" class="form-2">
+              <div class="d-flex justify-content-between">
+                <input id="name" name="name" type="text" placeholder="Họ và  tên">
+                <input id="phone" name="phone" type="text" placeholder="Số điện thoại">
+              </div>
+              <input id="city" name="city" type="text" placeholder="Tỉnh/Thành phố">
+              <input id="district" name="district" type="text" placeholder="Quận/Huyện">
+              <input id="ward" name="ward" type="text" placeholder="Phường/xã">
+              <input id="address" name="address" type="text" placeholder="Địa chỉ cụ thể">
+            </form>
+            <div class="address-type">
+              <p>Loại địa chỉ:</p>
+              <div class="d-flex ms-5">
+                <div class="address-type-group">
+                  <input type="radio" name="type_group" id="home">
+                  <label for="home">Nhà riêng / Chung cư</label>
+                </div>
+                <div class="address-type-group ms-5">
+                  <input type="radio" name="type_group" id="company">
+                  <label for="company">Cơ quan / Công ty</label>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex justify-content-end">
+              <button class="btn come-back">TRỞ LẠI</button>
+              <button class="btn next">TIẾP TỤC</button>
+            </div>
+          </div>
+
+        </div>
+      </nav>
+
+    </div>
+  </header>
+
+  <content>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-xl-3 d-none d-lg-block">
+          <div class="sidebar">
+
+            <div class="sidebar-title">
+              <i class="fa-solid fa-bars"></i>
+              <h3>DANH MỤC SẢN PHẨM</h3>
+            </div>
+
+            <ul>
+              <li class="sidebar-items">
+                <i class="fa-solid fa-circle"></i>
+                <a href="#">TỔNG KHO CÂY GIẢ TRANG TRÍ NỘI THẤT</a>
+              </li>
+              <li class="sidebar-items-text">
+                <a href="#">Cây trang trí quán cafe, văn phòng, cửa hàng</a>
+              </li>
+              <li class="sidebar-items-text">
+                <a href="#">Chậu cây xương rồng, sen đá</a>
+              </li>
+              <li class="sidebar-items-text">
+                <a href="#">Cây để bàn (cao dưới 1m)</a>
+              </li>
+              <li class="sidebar-items-text">
+                <a href="#">Cây có hoa</a>
+              </li>
+              <li class="sidebar-items-text">
+                <a href="#">Giỏ cây ốp tường, cây dây leo</a>
+              </li>
+              <li class="sidebar-items-text">
+                <a href="#">Trúc trang trí nhà, tiểu cảnh</a>
+              </li>
+            </ul>
+            <ul>
+              <li class="sidebar-items">
+                <i class="fa-solid fa-circle"></i>
+                <a href="#">BÌNH HOA TRANG TRÍ NHÀ</a>
+              </li>
+              <li class="sidebar-items-text">
+                <a href="#">Bình hoa trang trí</a>
+              </li>
+              <li class="sidebar-items-text">
+                <a href="#">Lựu, cành quả trang trí phòng khách</a>
+              </li>
+            </ul>
+            <ul>
+              <li class="sidebar-items">
+                <i class="fa-solid fa-circle"></i>
+                <a href="#">BÌNH LỌ CẮM HOA</a>
+              </li>
+              <li class="sidebar-items-text">
+                <a href="#">Bình gốm sứ cắm hoa</a>
+              </li>
+              <li class="sidebar-items-text">
+                <a href="#">Lọ thủy tinh, bình cắm hoa khác</a>
+              </li>
+            </ul>
+            <ul>
+              <li class="sidebar-items">
+                <i class="fa-solid fa-circle"></i>
+                <a href="#">CÂY HOA LÁ GIẢ CÁC LOẠI</a>
+              </li>
+              <li class="sidebar-items-text">
+                <a href="#">Hoa lụa, hoa vải</a>
+              </li>
+              <li class="sidebar-items-text">
+                <a href="#">Cỏ, lá các loại</a>
+              </li>
+              <li class="sidebar-items-text">
+                <a href="#">Xương rồng, sen đá, rêu trang trí</a>
+              </li>
+              <li class="sidebar-items-text">
+                <a href="#">Thân nhựa làm cây giả</a>
+              </li>
+            </ul>
+            <ul>
+              <li class="sidebar-items">
+                <i class="fa-solid fa-circle"></i>
+                <a href="#">THI CÔNG TƯỜNG CÂY GIẢ, HOA GIẢ</a>
+              </li>
+              <li class="sidebar-items-text">
+                <a href="#">Tường cây hỗn hợp</a>
+              </li>
+              <li class="sidebar-items-text">
+                <a href="#">Bồn cây giả, bục cây giả, hộp cây giả
+                </a>
+              </li>
+              <li class="sidebar-items-text">
+                <a href="#">Giàn hoa, dây leo, backdrop hoaí</a>
+              </li>
+              <li class="sidebar-items-text">
+                <a href="#">Trang trí ban công chung cư</a>
+              </li>
+            </ul>
+            <ul>
+              <li class="sidebar-items">
+                <i class="fa-solid fa-circle"></i>
+                <a href="#">KHÁCH HÀNG REVIEW VỀ SẢN PHẨM</a>
+              </li>
+            </ul>
+            <ul>
+              <li class="sidebar-items">
+                <i class="fa-solid fa-circle"></i>
+                <a href="#">CẦU THỦY TINH TREO, ĐỂ BÀN TRANG TRÍ</a>
+              </li>
+            </ul>
+
+          </div>
+
+          <div class="filter-price">
+            <span>LỌC GIÁ</span>
+            <div>
+              <input type="checkbox" name="filter-check " id="checkbox1">
+              <label for="checkbox1">Giá dưới 200.000đ</label>
+            </div>
+            <div>
+              <input type="checkbox" name="filter-check " id="checkbox2">
+              <label for="checkbox2">200.000đ - 500.000đ</label>
+            </div>
+            <div>
+              <input type="checkbox" name="filter-check " id="checkbox3">
+              <label for="checkbox3">500.000đ - 1.000.000đ</label>
+            </div>
+
+            <div>
+              <input type="checkbox" name="filter-check " id="checkbox4">
+              <label for="checkbox4">1.000.000đ - 1.500.000đ</label>
+            </div>
+
+            <div>
+              <input type="checkbox" name="filter-check " id="checkbox5">
+              <label for="checkbox5">1.500.000đ - 2.000.000đ</label>
+            </div>
+
+            <div>
+              <input type="checkbox" name="" id="checkbox6">
+              <label for="checkbox6">Giá trên 2.000.000đ</label>
+            </div>
+
+          </div>
+          <div class="filter-price">
+            <span>LOẠI CÂY</span>
+            <div>
+              <input type="checkbox" name="filter-classify " id="checkbox7">
+              <label for="checkbox7"> Cây có Hoa</label>
+            </div>
+            <div>
+              <input type="checkbox" name="filter-classify " id="checkbox8">
+              <label for="checkbox8">Cây không Hoa</label>
+            </div>
+          </div>
+          <div class="filter-price">
+            <span>KÍCH THƯỚC</span>
+            <div>
+              <input type="checkbox" name="filter-size " id="checkbox9">
+              <label for="checkbox9"> Dưới 0.5m</label>
+            </div>
+            <div>
+              <input type="checkbox" name="filter-size " id="checkbox10">
+              <label for="checkbox10">Cao 0.5m - 1m</label>
+            </div>
+            <div>
+              <input type="checkbox" name="filter-size " id="checkbox11">
+              <label for="checkbox11">Cao 1m - 1m5</label>
+            </div>
+
+            <div>
+              <input type="checkbox" name="filter-size " id="checkbox12">
+              <label for="checkbox12">Cao 1m5 - 2m</label>
+            </div>
+
+            <div>
+              <input type="checkbox" name="filter-size " id="checkbox1">
+              <label for="checkbox1">Trên 2m</label>
+            </div>
+
+          </div>
+
+          <div class="information-support">
+            <div>
+              <img src="./img/img01.png" alt="">
+              <div>
+                <p>HỖ TRỢ TRỰC TUYẾN</p>
+                <span>0969 999 999</span>
+              </div>
+            </div>
+
+            <div>
+              <img src="./img/img02.png" alt="">
+              <div>
+                <p>GIAO HÀNG TOÀN QUỐC</p>
+                <span>Liên hệ với Shop để biết phí ship</span>
+              </div>
+            </div>
+
+            <div>
+              <img src="./img/img03.png" alt="">
+              <div>
+                <p>ĐẢM BẢO HÀNG GỬI 100%</p>
+                <span>Đảm bảo hàng gửi trong mọi trường hợp hàng thiếu, bể vỡ trong quá trình vận chuyển</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-lg-8 col-xl-9 col-12">
+          <div id="products">
+            <div class="product-tabs">
+              <a href="./home.html">Trang chủ</a>
+              <i class="fa-solid fa-angle-right"></i>
+              <a href="#">Tất cả sản phẩm</a>
+            </div>
+
+            <div class="product-filter">
+              <div class="product-search">
+                <input class="slider-input-search" type="text" placeholder="Tìm kiếm"
+                  style="border: 1px solid #dadada;">
+                <div class="slider-search-icon">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+              </div>
+              <span>TẤT CẢ SẢN PHẨM</span>
+              <div>
+                <div class="product-sort">
+                  <div>
+                    <span>Sắp xếp:</span>
+                    <ul>
+                      <li>
+                        <p>Thứ tự</p>
+                        <ul class="list-menu">
+                          <li>Mặc định</li>
+                          <li>A <i class="fa-solid fa-arrow-right"></i> Z</li>
+                          <li>Z <i class="fa-solid fa-arrow-right"></i> A</li>
+                          <li>Gía tăng dần</li>
+                          <li>Gía giảm dần</li>
+                          <li>Hàng mới nhất</li>
+                        </ul>
+                      </li>
+                    </ul>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="products">
+
+              <div class="row gy-4">
+                <div class="col-12 col-sm-6 col-lg-4">
+                  <a href="./product-detai.html">
+                    <div class="card">
+                      <img src="./img/img7.png" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title">Cây dừa giả cao 120 cm</h5>
+                        <span class="price">1.100.000 ₫</span>
+                      </div>
+                      <span class="sale-off">-9%</span>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4">
+                  <div class="card">
+                    <img src="./img/img8.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Cây táo nở hoa Bonsai giả decor</h5>
+                      <span class="price">1.350.000 ₫</span>
+                    </div>
+                    <span class="sale-off">-19%</span>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4">
+                  <div class="card">
+                    <img src="./img/img9.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Cây lựu giả cao cấp</h5>
+                      <span class="price">3565.000 ₫</span>
+                    </div>
+                    <span class="sale-off">-13%</span>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4">
+                  <div class="card">
+                    <img src="./img/img10.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Cây hoa Anh Đào giả</h5>
+                      <span class="price">1.225.000 ₫</span>
+                      <span class="sale-off">-5%</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4">
+                  <div class="card">
+                    <img src="./img/img11.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Cây hoa Anh Đào giả</h5>
+                      <span class="price">455.000₫</span>
+                      <span class="sale-off">-7%</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4">
+                  <div class="card">
+                    <img src="./img/img12.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Cây giáng hương cảnh</h5>
+                      <span class="price">1.765.000 ₫</span>
+                    </div>
+                    <span class="sale-off">-8%</span>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4">
+                  <div class="card">
+                    <img src="./img/img13.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Cây chầu bà leo cột giả</h5>
+                      <span class="price">765.000 ₫</span>
+                    </div>
+                    <span class="sale-off">-10%</span>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4">
+                  <div class="card">
+                    <img src="./img/img14.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Cây Bonsai giả dáng đẹp hợp phong thủy</h5>
+                      <span class="price">3765.000 ₫</span>
+                    </div>
+                    <span class="sale-off">-8%</span>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4">
+                  <div class="card">
+                    <img src="./img/img15.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Cây nguyệt quế Bonsai giả cao 150cm</h5>
+                      <span class="price">3765.000 ₫</span>
+                    </div>
+                    <span class="sale-off">-30%</span>
+                  </div>
+                </div>
+              </div>
+              <div class="product-item-tabs ">
+                <button class="btn-product-top"><i class="bi bi-chevron-double-left"></i></button>
+                <button class="btn-product-top">1</button>
+                <button class="btn-product-top">2</button>
+                <button class="btn-product-top">3</button>
+                <button class="btn-product-top">4</button>
+                <button class="btn-product-top">...</button>
+                <button class="btn-product-top">36</button>
+                <button class="btn-product-top"><i class="bi bi-chevron-double-right"></i></button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="map" style="margin-top: 40px;">
+      <div class="map-content">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14061.016895477505!2d105.77019218230939!3d21.02140310171292!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454ab30540137%3A0x35ac90387f094f93!2zU8O0bmcgxJDDoCBUb3dlcg!5e0!3m2!1sen!2s!4v1657271970137!5m2!1sen!2s"
+          width="50%" height="450px" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+
+        <div class="map-text">
+          <strong>CHÂM NGÔN SỐNG CÒN CỦA DOANH NGHIỆP:</strong>
+          <p>
+            “Chữ tín Quý hơn Vàng”.Cây Cảnh Decor vô cùng tân trọng sự tín nhiệm của Quý Khách
+            hàng. Chúng tôi đánh cược sự nghiệp của mình trong tay Quý vị bằng chất lượng, sự
+            uy tín, độ chuyên nghiệp và giá cả cạnh tranh hàng đầu. Hãy tới và trải nghiệm!
+          </p>
+          <span>NGUYỄN THỊ THƯ/ ADMIN</span>
+        </div>
+      </div>
+    </div>
+  </content>
+
+  <footer>
+    <div class="container">
+        <div class="row gx-5">
+            <div class="col-12 col-md-4">
+                <div class="footer-logo-img">
+                    <img src="./img/log2.png" width="207px" alt="">
+                </div>
+                <p class="footer-text">
+                    <span>CÂY DERCOR</span> là thương hiệu dẫn đầu trong lĩnh vực cây giả trang trí nội thất, cây lá
+                    giả cao cấp có độ tự nhiên cao và giống như cây thật. Được biết đến là nhà phân phối cây hoa giả
+                    uy tín, chất lượng số 1 tại Việt Nam. <span>CÂY DERCOR</span> luôn đảm bảo sản phẩm đẹp tự
+                    nhiên, độc đáo và khác biệt, kho hàng bán sỉ với số lượng lớn luôn đáp ứng mọi yêu cầu khắt khe
+                    nhất về chủng loại, mẫu mã và thời gian giao hàng. Sản phẩm về Cây hoa giả của <span>CÂY
+                        DERCOR</span> đã vươn tới đông đảo khách hàng tại các thành phố lớn như Hà Nội, Tp. Hồ Chí
+                    Minh, Đà Nẵng,…
+                </p>
+
+            </div>
+            <div class="col-12 col-md-8">
+                <div>
+                    <div class="row">
+                        <div class="col-sm-4 col-6">
+                            <ul class="footer-outstanding">
+                                <li> <span>TÀI KHOẢN</span></li>
+                                <li><a href="#">Trang chủ</a></li>
+                                <li><a href="#">Sản phẩm</a> </li>
+                                <li><a href="#">Bán sỉ</a></li>
+                                <li><a href="#">Liên hệ</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-4 col-6">
+                            <ul class="footer-outstanding">
+                                <li> <span>TIN TỨC</span></li>
+                                <li><a href="#">Hình ảnh feedback của khách hàng</a></li>
+                                <li><a href="#">Tạp chí </a></li>
+                                <li><a href="#">Hướng dẫn đặt hàng và thanh toán</a> </li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-4 col-6">
+                            <ul class="footer-outstanding">
+                                <li> <span>CHÍNH SÁCH</span></li>
+                                <li><a href="#">Chính sách thanh toán</a> </li>
+                                <li><a href="#">Chính sách vận chuyển</a></li>
+                                <li><a href="#">Chính sách đổi trả</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <p class="social-network">
+                    Kết nối với chúng tôi
+                    <span class="social-icon">
+                        <a href="#">
+
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fa-brands fa-youtube-square"></i>
+                        </a>
+
+                        <a href="#">
+                            <i class="fa-brands fa-tiktok"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fa-brands fa-twitter"></i>
+                        </a>
+                    </span>
+                </p>
+                <div class="information">
+                    <p>
+                        <span>Công ty TNHH XNK và TM CÂY DECOR</strong>
+                    </p>
+                    <p class="information-content">
+                        <span>
+                            <i class="fa-solid fa-location-dot"></i>
+                        </span>
+                        Kho Hà Nội: số 52 đường 23, thành phố Giao lưu, Bắc Từ Liêm, Hà Nội
+                    </p>
+                    <p class="information-content">
+                        <span>
+                            <i class="fa-solid fa-location-dot"></i>
+                        </span>
+                        Kho TP HCM: Số 75 Hoa Đào, quận Phú Nhuận, tp. Hồ Chí Minh
+                    </p>
+                    <p class="information-content">
+                        <span>
+                            <i class="fa-solid fa-phone"></i>
+                        </span>
+                        0968988525 (bán lẻ) - 0968988215 (bán sỉ)
+                    </p>
+                    <p class="information-content">
+                        <span>
+                            <i class="fa-solid fa-envelope"></i>
+                        </span>
+                        <a href="#">caydecor.sale@gmail.com</a>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <p class="license">© Bản quyền thuộc về Công ty TNHH XNK và TM CÂY DECOR | Cung cấp bởi Sapo</p>
+</footer>
+
+
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+    integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+    integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
+    crossorigin="anonymous"></script>
+  <script src="./main.js"></script>
+</body>
+
+</html>

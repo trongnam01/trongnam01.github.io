@@ -513,7 +513,6 @@
   position: relative;
   animation: modalFakeIn  ease .5s;
   overflow-y:auto;
-
 }
  @keyframes modalFakeIn {
    from {

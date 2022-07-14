@@ -1,0 +1,223 @@
+@media (max-width: 1200px) {
+    .header-title {
+        width: 85%;
+    }
+
+    /*         product detai          */
+    .classification-pots > span {
+        font-size: 15px;
+    }
+    .btn-hotline {
+        margin-top: 15px;
+        margin-left: unset;
+    }
+    .products-products-title > div + div {
+        margin-top: 15px;
+    }
+    .title-pdoduct-detai {
+        font-size: 20px;
+        line-height: 24px;
+        height: 48px;
+    }
+    .product-code {
+        font-size: 16px;
+    }
+    .classification-pots p,
+    .amount-text,
+    .social-network-title {
+        font-style: 18px;
+    }
+    .products-price {
+        font-size: 20px;
+    }
+    
+}
+
+@media (max-width: 992px) {
+    .header-title ul:last-child li:last-child span{
+     left: 30px;
+     right: unset;
+    }
+    .comments-title span {
+        font-size: 17px;
+    }
+    .map-text {
+        padding: 38px 38px 0 0;
+    }
+    .assessor {
+        display: block;
+    }
+    .comment-content {
+        width: 100%;
+        margin-top: 16px;
+    }
+
+    /* modal */
+    .item-save-moneys {
+        font-size: 14px;
+    }
+    .item-into-money2 {
+        margin: 0 15px;
+    }
+    .item-into-money2, 
+    .item-into-money {
+        font-size: 18px;
+    }
+
+    /* detai */
+
+    .product-tabs a {
+        font-size: 16px;
+    }
+
+    /* payment */
+    .delivery-address {
+        padding: 14px 5px 14px 15px;
+    }
+    
+}
+@media (max-width: 768px) {
+    .slider-search-icon {
+        width: 30%;
+    }
+    .map-content > iframe {
+        width: 100%;
+    }
+    .map-content {
+        display: block;
+    }
+    .map-content > .map-text {
+        width: 100%;
+        padding: 30px;
+
+    }
+    .map-text::after{
+        display: none;
+    }
+    .footer-logo-img {
+        text-align: initial;
+        margin-bottom: 35px;
+    }
+    .footer-text {
+        margin-bottom: 35px;
+    }
+
+    /* button tabs */
+    .btn-product-top {
+        width: 40px;
+        height: 40px;
+    }
+
+    /* commoment */
+
+    .comments-title span{
+        font-size: 13px;
+        width: 265px;  
+        text-align: center;
+        padding: 7px 9px;
+    }
+
+
+    /* modal */
+
+    .item-product-right {
+        display: block;
+    }
+    .item-moneys {
+        text-align: end;
+        margin-bottom: 20px;
+    }
+    .item-save-moneys {
+        text-align: unset;
+    }
+    .item-product-left {
+        width: 50%;
+    }
+    .item-product-text {
+        margin-left: 20px;
+    }
+    .save-moneys,
+    .into-money, 
+    .into-moneys p:first-child {
+        font-size: 20px;
+    }
+    .save p {
+        font-size: 18px;
+    }
+     
+    /* đetai */
+
+    .product-tabs a:last-child {
+        width: 157px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        display: block;
+        overflow: hidden;
+    }
+    .product-tabs i {
+        padding: 0 5px;
+    }
+    .products-top-title p,
+    .detai-content-title,
+    .pots-products-title p ,
+    .all-products-title p{
+        font-size: 18px;
+    }
+}
+@media (max-width: 576px) {
+    .slider-content {
+        height: 36px;
+    }
+    .slider-input-search {
+        font-size: 13px;
+    }
+    
+    /* comment */
+    .assessor {
+        display: flex;
+        margin-bottom: 25px;
+    }
+    
+    .comment-content {
+        width: calc(100% - 100px);
+        margin-top: 0;
+    }
+    #comments {
+        margin-bottom: calc(57px - 25px);
+    }
+    .item-product-cart {
+        display: block;
+    }
+    .item-product-left,
+    .item-product-right {
+        width: 100%;
+    }
+
+    /* modal */
+    .into-money, .into-moneys p:first-child {
+        font-size: 16px;
+    }
+
+    /* đetai */
+    .product-tabs a {
+        font-size: 14px;
+    }
+    .products-detai-content > p  {
+        font-size: 15px;
+    }
+
+    /* payment */
+
+
+    .user-name ,
+    .payment-address{
+        height: 48px;
+        overflow: hidden;
+        display: block;
+        display: block;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+    }
+
+}
