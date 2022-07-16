@@ -1598,3 +1598,8 @@ figcaption {
 .payment-products-quantity > span{
     margin-left: 5px;
 }
+.header-payments {
+    display: flex;
+    align-items: center;
+    height: 100px;
+}
