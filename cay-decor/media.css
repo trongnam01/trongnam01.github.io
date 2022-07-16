@@ -74,7 +74,39 @@
     .delivery-address {
         padding: 14px 5px 14px 15px;
     }
-    
+    .payment-products-left p {
+        width: 180px;
+        height: 48px;
+        overflow: hidden;
+        display: block;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+    }
+    .payment-producst-code {
+
+        display: block;
+        border: none;
+    }
+    .payment-delivery {
+        display: flex;
+        justify-content: end;
+        border: none;
+        padding: 20px 0;
+    }
+    .payment-delivery p {
+        margin-right: 30px;
+    }
+    .enter-discount-code {
+        justify-content: end;
+        padding: 20px 0;
+    }
+    .enter-discount-code input {
+        margin-right: 10px;
+    }
+    .pay-order p{
+        width: 300px;
+    }
 }
 @media (max-width: 768px) {
     .slider-search-icon {
@@ -163,6 +195,19 @@
     .all-products-title p{
         font-size: 18px;
     }
+    .payment-footer-text {
+        width: 100%;
+    }
+    .payment-products-right {
+        justify-content: end;
+    }
+    .payment-products-quantity, 
+    .payment-products-price {
+        justify-content: end;
+    }
+    .payment-products-price {
+        font-weight: 500;
+    }
 }
 @media (max-width: 576px) {
     .slider-content {
@@ -214,10 +259,98 @@
         height: 48px;
         overflow: hidden;
         display: block;
-        display: block;
         display: -webkit-box;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 2;
     }
-
+    .change-address {
+        display: none;
+    }
+    .delivery-address {
+        padding-right: 15px;
+    }
+    .delivery-address > div {
+        display: block;
+        margin-top: 5px;
+    }
+    .user-name {
+        height: auto;
+        padding: 5px 0;
+    }
+    .payment-address {
+        width: auto;
+        margin: 0;
+    }
+    .icon-right {
+        display: flex;
+    }
+    .pay-order {
+        display: block;
+    }
+    .pay-order p {
+        width: auto;
+        margin-bottom: 10px;
+        font-size: 14px;
+    }
+    .btn-pay-order {
+        padding: 10px;
+    }
+    .payment-footer-text {
+        font-size: 16px;
+    }
+    .pay-font {
+     font-size: 18px;
+    }
+    .all-price-products, .total-price-payment {
+        font-size: 18px;
+    }
+    .method-bank p {
+        font-size: 14px;
+    }
+    .method-bank p:first-child {
+        font-size: 16px;
+    }
+    .payment-delivery-price,
+    .method-products-title {
+        font-size: 18px;
+    }
+    .method-products-title,
+    .pay-order,
+    .payment-footer {
+        padding: 15px 20px;
+    }
+    .payments-method {
+        padding-left: 20px;
+    }
+    .payment-products-container {
+        padding: 15px 20px 0;
+    }
+    .the-total-amount > p,
+    .the-total-amount span {
+        display: flex;
+        justify-content: end;
+    }
+    .the-total-amount {
+        display: block;
+    }
+    .the-total-amount > p{
+        margin: 0 0 10px;
+    }
+    .enter-discount-code button {
+        font-size: 14px;
+    }
+    .enter-discount-code input {
+        margin-right: 5px;
+        width: 172px;
+    }
+    .payment-delivery p {
+        font-size: 14px;
+        margin-right: 15px;
+    }
+    .payment-delivery div {
+        padding: 5px 10px;
+    }
+    .payment-products-quantity {
+        font-size: 16px;
+    }
 }
