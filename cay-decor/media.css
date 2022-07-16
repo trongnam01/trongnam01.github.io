@@ -208,6 +208,9 @@
     .payment-products-price {
         font-weight: 500;
     }
+    .header-payments {
+        height: 70px;
+    }
 }
 @media (max-width: 576px) {
     .slider-content {
@@ -353,4 +356,5 @@
     .payment-products-quantity {
         font-size: 16px;
     }
+    
 }
