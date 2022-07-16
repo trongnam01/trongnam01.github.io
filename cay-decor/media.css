@@ -92,14 +92,14 @@
         display: flex;
         justify-content: end;
         border: none;
-        padding: 20px 0;
+        padding: 10px 0;
     }
     .payment-delivery p {
         margin-right: 30px;
     }
     .enter-discount-code {
         justify-content: end;
-        padding: 20px 0;
+        padding: 8px 0;
     }
     .enter-discount-code input {
         margin-right: 10px;
@@ -356,5 +356,8 @@
     .payment-products-quantity {
         font-size: 16px;
     }
-    
+    .payment-products-left > img {
+        width: 80px;
+        margin-right: 12px;
+    }
 }
