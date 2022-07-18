@@ -387,7 +387,7 @@ function toast({
     typeo = '',
     duration = 3000
 }) {
-    const main = document.getElementById('toast')
+    const main = document.getElementById('notification')
 
     if (main) {
         // tạo thẻ div 

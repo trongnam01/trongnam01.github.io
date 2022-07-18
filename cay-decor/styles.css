@@ -1660,7 +1660,7 @@ figcaption {
 /* /                          toast                      */
 
 
-#toast {
+#notification {
     position: fixed;
     top: 32px;
     right: 32px;
