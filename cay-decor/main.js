@@ -46,8 +46,8 @@ let modalCart = document.querySelector(".modal-cart")               // gio hang
 let btnOder = document.querySelector(".btn-pay-order")              // btn order
 let btnHotline = document.querySelector(".btn-hotline")              // btn order
 let btnOderCard = document.querySelector(".btn-order")              // btn order
-let indexProdDetai = document.querySelector(".js-products-detai")              // btn order
-let indexProducts = document.querySelector(".js-products")              // btn order
+let indexProdDetai = document.querySelector(".js-products-detai")              // trang produc detai
+let indexProducts = document.querySelector(".js-products")              // trang produc
 
 if (modalCart)
     modalCart.onclick = (e) => {
@@ -476,7 +476,9 @@ if (document.querySelector(".js-index")) {
 }
 
 // 
-if(contaiProducts) {
+if(indexProducts) {
+
+    console.log(arrItemPoducts);
 
 }
 
