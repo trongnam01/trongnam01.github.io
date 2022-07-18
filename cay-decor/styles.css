@@ -1040,9 +1040,7 @@ form label {
 .come-back:hover::before {
     transform: translateX(0);
 }
-.home-page {
-    background-color: rgba(0, 0, 0, 0.4);
-}
+
 .navbar-nav-title li:hover{
     background-color: rgba(0, 0, 0, 0.4);
 }
@@ -1718,7 +1716,7 @@ figcaption {
 
 .toast__title {
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 500;
     color: #333;
     margin-bottom: 0;
 }

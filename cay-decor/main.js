@@ -1,12 +1,12 @@
 // 
 let ar = document.querySelectorAll(".card-title")
 
-console.log(ar[0].parentElement.parentElement.parentElement);
-let a = ar[1].parentElement.parentElement.parentElement
-
-a.onclick = () => {
-    console.log(a);
-}
+// console.log(ar[0].parentElement.parentElement.parentElement);
+// let a = ar[1].parentElement.parentElement.parentElement
+// 
+// a.onclick = () => {
+//     console.log(a);
+// }
 
 
 
@@ -21,7 +21,7 @@ let arrTitlCard = Array.from(document.querySelectorAll(".card-title"))
 
 let formProducts = Array.from(document.querySelectorAll(".card-title"))
 
-
+let indexProduct = document.querySelectorAll(".products")               //  trang index
 let cart = document.querySelector(".header-cart")                     // gio hang
 let deleteCart = document.querySelector(".icon-delete-modal")         // xóa modal
 let detaiContent = document.querySelector(".products-detai-content")   // xem thêm 
@@ -45,6 +45,9 @@ let tabsproducts = document.querySelector("#products .product-item-tabs ")      
 let modalCart = document.querySelector(".modal-cart")               // gio hang
 let btnOder = document.querySelector(".btn-pay-order")              // btn order
 let btnHotline = document.querySelector(".btn-hotline")              // btn order
+let btnOderCard = document.querySelector(".btn-order")              // btn order
+let indexProdDetai = document.querySelector(".js-products-detai")              // btn order
+let indexProducts = document.querySelector(".js-products")              // btn order
 
 if (modalCart)
     modalCart.onclick = (e) => {
@@ -307,6 +310,7 @@ function showCard(data) {
                     <h5 class="card-title">${el.title}</h5>
                     <span class="price">${el.price}</span>
                 </div>
+                <span class="sale-off">${el.sale}</span>
             </div>
          </div>
      `
@@ -314,6 +318,13 @@ function showCard(data) {
 
     if (document.querySelector(".js-index"))
         contaiShowCard.innerHTML = htmlCard
+
+    let saleProduct = document.querySelectorAll(".sale-off")
+    saleProduct.forEach(e => {
+        if (e.innerText = ' ') {
+            e.style.display = "none"
+        }
+    });
 }
 
 
@@ -352,7 +363,7 @@ function dataCard(keywCard, valueinput) {
         showCard(keywCard)
     }
 }
-if(btnOder) {
+if (btnOder) {
     btnOder.onclick = () => {
         toast({
             title: 'Thành Công',
@@ -360,12 +371,12 @@ if(btnOder) {
             typeo: 'success',
             duration: 3000
         })
-    
+
         btnOder.disabled = true;
-    
+
         setTimeout(() => {
-            // window.location = "index.html";
-        }, 3000)
+            window.location = "index.html";
+        }, 2500)
     }
 }
 
@@ -421,5 +432,98 @@ function toast({
         // đưa toast vào thẻ main
         main.appendChild(toast)
 
+    }
+}
+
+
+
+
+let arrItemPoducts
+arrItemPoducts = JSON.parse(window.localStorage.getItem("itemProduct"))
+
+if (document.querySelector(".js-index")) {
+    arrItemPoducts = {}
+
+    for (let i = 0; i < indexProduct.length; i++) {
+        let card = indexProduct[i].querySelectorAll(".card")
+        let nameArr = indexProduct[i].getAttribute("id")
+        let arr = []
+
+        card.forEach((e) => {
+            let id = e.getAttribute("id-data")
+            let img = e.querySelector("img").getAttribute("src")
+            let title = e.querySelector(".card-title").innerText
+            let price = e.querySelector(".price").innerText
+            let sale = ''
+            if (e.querySelector(".sale-off")) {
+
+                sale = e.querySelector(".sale-off").innerText
+            }
+
+           let objContent = {
+                id: id,
+                img: img,
+                title: title,
+                price: price,
+                sale: sale,
+            }
+
+            arr.push(objContent)
+        })
+        arrItemPoducts[nameArr] = arr
+    }
+    window.localStorage.setItem("itemProduct", JSON.stringify(arrItemPoducts))
+}
+
+// 
+if(contaiProducts) {
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+if(indexProdDetai) {
+    btnOderCard.onclick = () => {
+        toast({
+            title: 'Thành Công',
+            message: 'Sản phẩm đã được thêm vào giỏ hàng',
+            typeo: 'success',
+            duration: 3000
+        })
+    
     }
 }
