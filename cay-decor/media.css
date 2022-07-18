@@ -360,4 +360,18 @@
         width: 80px;
         margin-right: 12px;
     }
+    .toasts {
+        min-width: 300px;
+        max-width: 300px;
+        padding: 5px 0;
+    }
+    #toast {
+        right: 20px;
+    }
+    .toast__icon, .toast__close {
+        padding: 0 14px;
+    }
+    .toast__close {
+        padding: 20px 14px;
+    }
 }

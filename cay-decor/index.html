@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="./media.css">
 </head>
 
-<body>
+<body class="js-index">
 
     <header>
         <div class="container">
@@ -136,6 +136,7 @@
                                     </div>
                                 </div>
                             </div>
+                            
                         </div>
 
 
@@ -229,12 +230,21 @@
     </header>
 
     <div id="silder">
-        <img src="./img/img-slide.png" alt="">
+        <div>
+            <img src="./img/img-slide.png" alt="">
+        </div>
         <div class="slider-content">
-            <input class="slider-input-search" type="text" placeholder="Tìm kiếm">
+            <div>
+                <input class="slider-input-search" type="text" placeholder="Tìm kiếm">
+                <div class="slider-content-ul">
+                    <ul style="margin-bottom: 0;">  
+                    </ul>
+                </div>
+            </div>
             <div class="slider-search-icon">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </div>
+           
         </div>
     </div>
 
@@ -375,7 +385,13 @@
                       </div>
                 </div>
                 <div class="col-lg-8 col-xl-9 col-12">
-                    <div id="products">
+                    <div class="js-search">
+                        <p>Kết quả được từ tìm thấy với từ khóa "<span class="keyword-search">.</span>"</p>
+                        <div class="row  gy-4">
+                            
+                        </div>
+                    </div>
+                    <div id="all-products">
                         <div class="row">
                             <div class="col-4">
                                 <img class="img-style" src="./img/bst1.png" alt="">
@@ -394,7 +410,7 @@
                             </div>
                             <div class="row gy-4">
                                 <div class="col-12 col-sm-6 col-lg-4">
-                                    <div class="card">
+                                    <div class="card" id-data="product1">
                                         <img src="./img/img1.png" class="card-img-top" alt="...">
                                         <div class="card-body">
                                             <h5 class="card-title">Cây trúc phát lộc để bàn</h5>
@@ -404,7 +420,7 @@
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6 col-lg-4">
-                                    <div class="card">
+                                    <div class="card" id-data="product2">
                                         <img src="./img/img2.png" class="card-img-top" alt="...">
                                         <div class="card-body">
                                             <h5 class="card-title">Cây si nhật decor trang trí chậu sứ S16</h5>
@@ -414,7 +430,7 @@
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6 col-lg-4">
-                                    <div class="card">
+                                    <div class="card" id-data="product3">
                                         <img src="./img/img3.png" class="card-img-top" alt="...">
                                         <div class="card-body">
                                             <h5 class="card-title">Tiểu cảnh hạnh phúc mix xương rồng và cẩm nhung decor
@@ -425,7 +441,7 @@
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6 col-lg-4">
-                                    <div class="card">
+                                    <div class="card" id-data="product4">
                                         <img src="./img/img4.png" class="card-img-top" alt="...">
                                         <div class="card-body">
                                             <h5 class="card-title">Đô la cẩm thạch chậu sứ (cây khuy áo)</h5>
@@ -435,7 +451,7 @@
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6 col-lg-4">
-                                    <div class="card">
+                                    <div class="card" id-data="product5">
                                         <img src="./img/img5.png" class="card-img-top" alt="...">
                                         <div class="card-body">
                                             <h5 class="card-title">Tiểu cảnh hạnh phúc mix xương rồng và cẩm nhung decor
@@ -445,7 +461,7 @@
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6 col-lg-4">
-                                    <div class="card">
+                                    <div class="card" id-data="product6">
                                         <img src="./img/img6.png" class="card-img-top" alt="...">
                                         <div class="card-body">
                                             <h5 class="card-title">Xương rồng sao biển chậu sứ để bàn</h5>
@@ -465,13 +481,13 @@
                                 <button class="btn-product-top"><i class="bi bi-chevron-double-right"></i></button>
                             </div>
                         </div>
-                        <div class="products">
+                        <div class="products" id="products-all-2">
                             <div class="all-products-title">
                                 <p>TỔNG KHO CÂY GIẢ TRANG TRÍ NỘI THẤT</p>
                             </div>
                             <div class="row gy-4">
                                 <div class="col-12 col-sm-6 col-lg-4">
-                                    <div class="card">
+                                    <div class="card" id-data="product-all1">
                                         <img src="./img/img7.png" class="card-img-top" alt="...">
                                         <div class="card-body">
                                             <h5 class="card-title">Cây dừa giả cao 120 cm</h5>
@@ -481,7 +497,7 @@
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6 col-lg-4">
-                                    <div class="card">
+                                    <div class="card" id-data="product-all2">
                                         <img src="./img/img8.png" class="card-img-top" alt="...">
                                         <div class="card-body">
                                             <h5 class="card-title">Cây táo nở hoa Bonsai giả decor</h5>
@@ -491,7 +507,7 @@
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6 col-lg-4">
-                                    <div class="card">
+                                    <div class="card" id-data="product-all3">
                                         <img src="./img/img9.png" class="card-img-top" alt="...">
                                         <div class="card-body">
                                             <h5 class="card-title">Cây lựu giả cao cấp</h5>
@@ -501,17 +517,17 @@
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6 col-lg-4">
-                                    <div class="card">
+                                    <div class="card" id-data="product-all4">
                                         <img src="./img/img10.png" class="card-img-top" alt="...">
                                         <div class="card-body">
-                                            <h5 class="card-title">Cây hoa Anh Đào giả</h5>
+                                            <h5 class="card-title">Cây dừa phối tiểu cảnh trang trí</h5>
                                             <span class="price">1.225.000 ₫</span>
                                             <span class="sale-off">-5%</span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6 col-lg-4">
-                                    <div class="card">
+                                    <div class="card" id-data="product-all5">
                                         <img src="./img/img11.png" class="card-img-top" alt="...">
                                         <div class="card-body">
                                             <h5 class="card-title">Cây hoa Anh Đào giả</h5>
@@ -521,7 +537,7 @@
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6 col-lg-4">
-                                    <div class="card">
+                                    <div class="card" id-data="product-all6">
                                         <img src="./img/img12.png" class="card-img-top" alt="...">
                                         <div class="card-body">
                                             <h5 class="card-title">Cây giáng hương cảnh</h5>
@@ -531,7 +547,7 @@
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6 col-lg-4">
-                                    <div class="card">
+                                    <div class="card" id-data="product-all7">
                                         <img src="./img/img13.png" class="card-img-top" alt="...">
                                         <div class="card-body">
                                             <h5 class="card-title">Cây chầu bà leo cột giả</h5>
@@ -541,7 +557,7 @@
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6 col-lg-4">
-                                    <div class="card">
+                                    <div class="card" id-data="product-all8">
                                         <img src="./img/img14.png" class="card-img-top" alt="...">
                                         <div class="card-body">
                                             <h5 class="card-title">Cây Bonsai giả dáng đẹp hợp phong thủy</h5>
@@ -551,7 +567,7 @@
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6 col-lg-4">
-                                    <div class="card">
+                                    <div class="card" id-data="product-all9">
                                         <img src="./img/img15.png" class="card-img-top" alt="...">
                                         <div class="card-body">
                                             <h5 class="card-title">Cây nguyệt quế Bonsai giả cao 150cm</h5>
@@ -578,7 +594,7 @@
                             </div>
                             <div class="row gy-4">
                                 <div class="col-12 col-sm-6 col-lg-4">
-                                    <div class="card">
+                                    <div class="card" id-data="product-p1">
                                         <img src="./img/c1.png" class="card-img-top" alt="...">
                                         <div class="card-body">
                                             <h5 class="card-title">Chậu xi măng đá mài chữ nhật</h5>
@@ -587,7 +603,7 @@
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6 col-lg-4">
-                                    <div class="card">
+                                    <div class="card" id-data="product-p2">
                                         <img src="./img/c2.png" class="card-img-top" alt="...">
                                         <div class="card-body">
                                             <h5 class="card-title">Chậu Xi Măng Nhẹ Fiber bầu trứng full đen</h5>
@@ -596,7 +612,7 @@
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6 col-lg-4">
-                                    <div class="card">
+                                    <div class="card" id-data="product-p3">
                                         <img src="./img/c3.png" class="card-img-top" alt="...">
                                         <div class="card-body">
                                             <h5 class="card-title">Chậu Xi Măng Fiber Trứng Họa Tiết Sọc Ngang Gold</h5>
@@ -605,17 +621,16 @@
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6 col-lg-4">
-                                    <div class="card">
+                                    <div class="card" id-data="product-p4">
                                         <img src="./img/c4.png" class="card-img-top" alt="...">
                                         <div class="card-body">
-                                            <h5 class="card-title">Chậu Xi Măng Fiber Trứng Xám Viền Trắng Vàng Gold Kim
-                                                Tiền</h5>
+                                            <h5 class="card-title">Chậu Xi Măng Fiber Trứng Xám Viền Trắng Vàng Gold Kim Tiền</h5>
                                             <span class="price">1.225.000 ₫</span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6 col-lg-4">
-                                    <div class="card">
+                                    <div class="card" id-data="product-p5">
                                         <img src="./img/c5.png" class="card-img-top" alt="...">
                                         <div class="card-body">
                                             <h5 class="card-title">Cây Đế Vương trồng chậu xi măng nhẹ fiber wax đỏ đô
@@ -625,7 +640,7 @@
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6 col-lg-4">
-                                    <div class="card">
+                                    <div class="card" id-data="product-p6">
                                         <img src="./img/c6.png" class="card-img-top" alt="...">
                                         <div class="card-body">
                                             <h5 class="card-title">Chậu Xi Măng Nhẹ Fiber – bầu trứng cao full đen</h5>
@@ -634,7 +649,7 @@
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6 col-lg-4">
-                                    <div class="card">
+                                    <div class="card" id-data="product-p7">
                                         <img src="./img/c7.png" class="card-img-top" alt="...">
                                         <div class="card-body">
                                             <h5 class="card-title">Chậu Xi Măng Fiber Họa Tiết Trắng Kim Tiền</h5>
@@ -643,7 +658,7 @@
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6 col-lg-4">
-                                    <div class="card">
+                                    <div class="card" id-data="product-p8">
                                         <img src="./img/c8.png" class="card-img-top" alt="...">
                                         <div class="card-body">
                                             <h5 class="card-title">Chậu Xi Măng Fiber Cao Kim Cương Vàng Gold</h5>
@@ -652,7 +667,7 @@
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6 col-lg-4">
-                                    <div class="card">
+                                    <div class="card" id-data="product-p9">
                                         <img src="./img/c9.png" class="card-img-top" alt="...">
                                         <div class="card-body">
                                             <h5 class="card-title">Chậu Xi Măng Fiber Hoạ Tiết 3 Sọc Đen</h5>
