@@ -292,6 +292,7 @@ function qtyItem() {
 
                 let idName = arrItems.findIndex((arrItem) => id === arrItem.nameProduct)  // lấy index 
 
+                console.log(idName);
                 if (idName >= 0) {
                     arrItems.splice(idName, 1)
                     window.localStorage.setItem("itemCart", JSON.stringify(arrItems))

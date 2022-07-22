@@ -2,12 +2,15 @@
 <html lang="en">
 
 <head>
-    <title>Title</title>
+    <title>Chi tiết sản phẩm</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon"
+        href="https://images.pexels.com/photos/2137388/pexels-photo-2137388.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
 
@@ -82,7 +85,7 @@
                         </div>
 
                         <div class="add-item-cart">
-                            <div class="item-product-cart">
+                            <!-- <div class="item-product-cart">
                                 <div class="item-product-left">
                                     <img src="./img/c4.png" alt="">
                                     <div class="item-product-text">
@@ -107,42 +110,15 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-
-                            <div class="item-product-cart">
-                                <div class="item-product-left">
-                                    <img src="./img/c4.png" alt="">
-                                    <div class="item-product-text">
-                                        <p>Chậu Xi Măng Fiber Trứng Xám Viền Trắng Vàng Gold Kim Tiền</p>
-                                        <span>Cây + Chậu nhựa đen (LC3018-1)</span>
-                                    </div>
-                                </div>
-                                <div class="item-product-right">
-                                    <div class="item-moneys">
-                                        <span class="item-save-moneys">1.335.000₫</span>
-                                        <span class="item-into-money">1.335.000₫</span>
-                                    </div>
-                                    <div class="d-flex justify-content-end">
-                                        <div class="d-flex">
-                                            <button class="reduction2">-</button>
-                                            <span class="quantity2">0</span>
-                                            <button class="more2">+</button>
-                                        </div>
-                                        <span class="item-into-money2">1.335.000₫</span>
-                                        <div class="icon-trash-cart">
-                                            <i class="bi bi-trash"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            </div> -->
                         </div>
 
 
                         <div class="img-cart-no-product" style="display: none;">
                             <div class="content-no-product">
-                                <img src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/cart/9bdd8040b334d31946f49e36beaf32db.png
-                              " alt="">
-                                <p>Giỏ hàng của bạn còn trống</p>
+                                <img src="https://salt.tikicdn.com/desktop/img/mascot@2x.png" alt="">
+                                <p>Không có sản phẩm nào trong giỏ hàng của bạn <span>😢</span> </p>
+                                <button class="btn-shopping"><a href="./products.html">Tiếp Tục Mua Hàng</a> </button>
                             </div>
                         </div>
 
@@ -150,8 +126,9 @@
                             <p>Tổng thanh toán (<span>2</span> Sản Phẩm):</p>
                             <div class="save">
                                 <span class="into-money">5.340.000₫</span>
-                                <p>Tiết kiệm <span class="save-moneys">0₫</span></p>
+                                <p> <span>Tiết kiệm :</span> <span class="save-moneys">0₫</span></p>
                             </div>
+
                         </div>
 
                         <div class="footer-modal">
@@ -177,17 +154,17 @@
                                 <label for="password" class="form-label">Mật khẩu</label>
                                 <input id="password" name="password" type="text" placeholder="VD: 123456"
                                     class="form-control">
-                                <span class="forgot-password">Quên mật khẩu</span>
                                 <span class="form-message"></span>
+                                <span class="forgot-password">Quên mật khẩu</span>
+                            </div>
+                            <div class="footer-login d-flex justify-content-between">
+                                <div class="d-flex align-items-center">
+                                    <input id="remember-password" type="checkbox">
+                                    <label for="remember-password"> Nhớ mật khẩu</label>
+                                </div>
+                                <button id="login">Đăng nhập</button>
                             </div>
                         </form>
-                        <div class="footer-login d-flex justify-content-between">
-                            <div class="d-flex align-items-center">
-                                <input id="remember-password" type="checkbox">
-                                <label for="remember-password"> Nhớ mật khẩu</label>
-                            </div>
-                            <button id="login">Đăng nhập</button>
-                        </div>
                     </div>
 
                     <div class="modal-information-user">
@@ -380,7 +357,7 @@
 
                         <div class="col-md-6 col-12">
                             <div class="img-product-detai">
-                                <img src="./img/c6.png" alt="">
+                                <img class="imgProDetai" src="" alt="">
                                 <div class="d-flex justify-content-between mt-3">
                                     <img src="./img/c1.png" alt="">
                                     <img src="./img/c2.png" alt="">
@@ -391,17 +368,16 @@
                             </div>
                         </div>
                         <div class="col-md-6 col-12">
-                            <div class="products-products-title">
+                            <div class="products-products-title" id-product="productsHot">
 
                                 <div>
-                                    <p class="title-pdoduct-detai">Chậu Xi Măng Fiber Trứng Xám Viền Trắng Vàng Gold Kim
-                                        Tiền</p>
+                                    <p class="title-pdoduct-detai" id-data=""></p>
                                     <p class="product-code">Mã sản phẩm : <span style="font-weight: 400;">
                                             LC3018-1</span>
                                     </p>
                                 </div>
                                 <div class="d-flex align-items-center">
-                                    <span class="products-price">1.335.000₫</span>
+                                    <span class="products-price"></span>
                                     <span class="old-price">1.335.000₫</span>
                                 </div>
                                 <div class="classification-pots">
@@ -412,7 +388,7 @@
                                 <div class="d-flex align-items-center">
                                     <p class="amount-text">Số lượng:</p>
                                     <button class="reduction">-</button>
-                                    <span class="quantity">0</span>
+                                    <span class="quantity">1</span>
                                     <button class="more">+</button>
                                 </div>
                                 <div>
@@ -521,12 +497,12 @@
                             </div>
                         </div>
 
-                        <div class="products">
+                        <div class="products" id="products-detai">
                             <div class="pots-products-title">
-                                <p >Sản phẩm tương tự</p>
+                                <p>Sản phẩm tương tự</p>
                             </div>
                             <div class="row gy-4">
-                                <div class="col-12 col-sm-6 col-lg-4">
+                                <!-- <div class="col-12 col-sm-6 col-lg-4">
                                     <div class="card">
                                         <img src="./img/c1.png" class="card-img-top" alt="...">
                                         <div class="card-body">
@@ -608,7 +584,7 @@
                                             <span class="price">3765.000 ₫</span>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="product-item-tabs ">
                                 <button class="btn-product-top"><i class="bi bi-chevron-double-left"></i></button>
@@ -755,7 +731,7 @@
         <p class="license">© Bản quyền thuộc về Công ty TNHH XNK và TM CÂY DECOR | Cung cấp bởi Sapo</p>
     </footer>
 
-    <!-- <div id="toast"></div> -->
+    <div id="notification"></div>
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
         integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
