@@ -30,7 +30,9 @@
     .products-price {
         font-size: 20px;
     }
-    
+   .product-search {
+       width: 60%;
+   }
 }
 
 @media (max-width: 992px) {
@@ -107,6 +109,10 @@
     .pay-order p{
         width: 300px;
     }
+    .header-logo img{
+       margin: 10px 0;
+     }
+
 }
 @media (max-width: 768px) {
     .slider-search-icon {
@@ -211,10 +217,14 @@
     .header-payments {
         height: 70px;
     }
+    .slider-content {
+        width: 38%;
+    }
 }
 @media (max-width: 576px) {
     .slider-content {
         height: 36px;
+        width: 40%;
     }
     .slider-input-search {
         font-size: 13px;
@@ -396,5 +406,8 @@
     }
     .title-pdoduct-detai {
         font-size: 18px;
+    }
+    #silder img {
+        height: 180px;
     }
 }

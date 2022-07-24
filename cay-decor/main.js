@@ -171,10 +171,12 @@ let copyCard
 // input search
 if (inputSearch) {
     inputSearch.onkeyup = (e) => {
+       
         let valueinput = e.target.value
         let keywCard = []
         let arrelement = []
         if (valueinput) {
+       
             arrelement = titleProducts.filter(data => {
                 return data.toLowerCase().replace(/ /g, '').startsWith(valueinput.toLowerCase().replace(/ /g, ''))
             })
@@ -183,6 +185,7 @@ if (inputSearch) {
             })
 
             if (document.querySelector(".js-index")) {
+                inputSearch.style.borderRadius = "30px 30px 0 0"
                 document.querySelector("#all-products").style.display = "none"
                 document.querySelector(".js-search").style.display = "block"
 
@@ -243,11 +246,13 @@ if (inputSearch) {
 
 
         } else {
+
             //  khi ko onkeyup
 
             if (formSearch)
                 formSearch.classList.remove("active")
 
+                inputSearch.style.borderRadius = "30px"
 
             if (prodCard) {
 
