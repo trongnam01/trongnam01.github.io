@@ -584,7 +584,6 @@ footer {
     align-items: center;
 }
 .social-icon {
-    margin-left: 40px;
     display: flex;
     font-size:25px ;
 }
@@ -610,6 +609,7 @@ footer {
     align-items: center;
     height: 35px;
     display: flex;
+    border-radius: 50%;
    
 }
 .social-icon a:nth-child(3) {
@@ -624,12 +624,11 @@ footer {
 .information-content {
     display: flex;
     align-items: center;
-    margin-top: 17px;
     cursor: pointer;
 }
 .information-content span {
-    width: 30px;
-    height: 30px;
+    min-width: 30px;
+    min-height: 30px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -916,10 +915,10 @@ span.form-message {
     line-height: 23px;
 }
 
-.btn-register {
+.btn-login {
     color: #000;
     border-bottom: unset;
-    margin-left: 34px;
+    margin-right: 34px;
 
 }
 .btn-register:hover {
@@ -953,6 +952,39 @@ span.form-message {
     color: #000000;
     margin-left: 10px;
 }
+.modal-information-user select{
+    width: 100%;
+    height: 40px;
+    border: 1px solid #dadada;
+    margin-top: 10px;
+    font-size: 16px;
+    line-height: 19px;
+    color: #777777;
+    font-weight: 500;
+    padding-left: 10px;
+}
+select:focus-visible {
+    outline: none;
+    
+}
+textarea {
+    width: 100%;
+    margin-top: 10px;
+    border: 1px solid #dadada;
+    outline: none;
+    height: 69px;
+    display: flex;
+    padding-left: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #777777;
+}
+
+option {
+    font-size: 16px;
+    line-height: 19px;
+    color: #777777;
+}
 .forgot-password {
     font-weight: 400;
     font-size: 16px;
@@ -969,8 +1001,9 @@ form label {
     line-height: 24px;
     color: #000000;
 }
-.form-group {
-    margin-bottom: 20px;
+.footer-login ,
+.footer-information{
+    margin-top: 20px;
 }
 .form-2 > input {
     width: 100%;
@@ -985,24 +1018,28 @@ form label {
     color: #777777;
     padding-left: 12px;
 }
-#phone:focus,
-#name:focus,
+#phone input:focus,
+#name input:focus,
 .form-2  input:focus {
     border-bottom: 2px solid #08B34C;
 }
 #phone,
 #name {
     width: 48%;
+    /* min-height: 40px; */
+}
+#phone input,
+#name input {
     height: 40px;
+    border: 1px solid #dadada;
+    width: 100%;
     font-weight: 500;
     border-radius: 3px;
     font-size: 16px;
     line-height: 19px;
-    color: #777777;
+    color: #777777 ;
     padding-left: 12px;
     outline: none;
-    border: 1px solid #C7C7C7;
-
 }
 .address-type > p {
     font-weight: 400;
@@ -1025,6 +1062,17 @@ form label {
     margin: 30px 0;
 }
 
+.user-use {
+    display: none;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 120px;
+    text-overflow:ellipsis;
+}
+.header-img-user.active {
+    border-radius: 50%;
+    background-color: rgba(250, 237, 237, 0.863);
+}
 .btn {
     height: 36px;
     width: 126px;
@@ -1199,10 +1247,10 @@ form label {
 }
 .img-product-detai div img {
     width: 22%;
-    opacity: 0.6;
+    opacity: 0.4;
     cursor: pointer;
 }
-.img-product-detai div img:first-child {
+.img-product-detai .opacity {
     opacity: 1;
 }
 .title-pdoduct-detai {

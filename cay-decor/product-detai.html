@@ -39,7 +39,7 @@
 
                     <div class="collapse navbar-collapse header-title" id="navbarSupportedContent">
                         <ul class="navbar-nav navbar-nav-title mb-lg-0">
-                            <li class="nav-item home-page">
+                            <li class="nav-item home-page" >
                                 <a href="./index.html">TRANG CHỦ</a>
                             </li>
                             <li class="nav-item">
@@ -57,11 +57,12 @@
                         </ul>
 
                         <ul class="navbar-nav mb-lg-0">
-                            <li class="nav-item">
-                                <span class="header-img-user">
+                            <li class="nav-item login-user2">
+                                <span class="header-img-user ">
                                     <i class="fa-solid fa-user"></i>
                                 </span>
-                                <p>Đăng nhập</p>
+                                <span class="login-user">Đăng nhập</span>
+                                <span class="user-use"></span>
                             </li>
                             <li class="nav-item header-cart">
                                 <i class="fa-solid fa-cart-shopping"></i>
@@ -85,32 +86,7 @@
                         </div>
 
                         <div class="add-item-cart">
-                            <!-- <div class="item-product-cart">
-                                <div class="item-product-left">
-                                    <img src="./img/c4.png" alt="">
-                                    <div class="item-product-text">
-                                        <p>Chậu Xi Măng Fiber Trứng Xám Viền Trắng Vàng Gold Kim Tiền</p>
-                                        <span>Cây + Chậu nhựa đen (LC3018-1)</span>
-                                    </div>
-                                </div>
-                                <div class="item-product-right">
-                                    <div class="item-moneys">
-                                        <span class="item-save-moneys">1.335.000₫</span>
-                                        <span class="item-into-money">1.335.000₫</span>
-                                    </div>
-                                    <div class="d-flex justify-content-end">
-                                        <div class="d-flex">
-                                            <button class="reduction2">-</button>
-                                            <span class="quantity2">0</span>
-                                            <button class="more2">+</button>
-                                        </div>
-                                        <span class="item-into-money2">1.335.000₫</span>
-                                        <div class="icon-trash-cart">
-                                            <i class="bi bi-trash"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
+
                         </div>
 
 
@@ -152,17 +128,23 @@
                             </div>
                             <div class="form-group">
                                 <label for="password" class="form-label">Mật khẩu</label>
-                                <input id="password" name="password" type="text" placeholder="VD: 123456"
+                                <input id="password" name="password" type="password" placeholder="VD: 123456"
+                                    class="form-control">
+                                <span class="form-message"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="password2" class="form-label">Nhập lại mật khẩu</label>
+                                <input id="password2" name="password2" type="password" placeholder="VD: 123456"
                                     class="form-control">
                                 <span class="form-message"></span>
                                 <span class="forgot-password">Quên mật khẩu</span>
                             </div>
-                            <div class="footer-login d-flex justify-content-between">
+                            <div class="footer-login d-flex justify-content-between ">
                                 <div class="d-flex align-items-center">
                                     <input id="remember-password" type="checkbox">
                                     <label for="remember-password"> Nhớ mật khẩu</label>
                                 </div>
-                                <button id="login">Đăng nhập</button>
+                                <button id="login">Đăng ký</button>
                             </div>
                         </form>
                     </div>
@@ -171,31 +153,45 @@
                         <span class="modal-user-title">Thêm địa chỉ</span>
                         <form action="" class="form-2">
                             <div class="d-flex justify-content-between">
-                                <input id="name" name="name" type="text" placeholder="Họ và  tên">
-                                <input id="phone" name="phone" type="text" placeholder="Số điện thoại">
+                                <div  id="name" class="form-group">
+                                    <input  name="name" type="text" placeholder="Họ và  tên">
+                                    <span class="form-message"></span>
+                                </div>
+                                <div id="phone" class="form-group">
+                                    <input  name="phone" type="text" placeholder="Số điện thoại">
+                                    <span class="form-message"></span>
+                                </div>
                             </div>
-                            <input id="city" name="city" type="text" placeholder="Tỉnh/Thành phố">
-                            <input id="district" name="district" type="text" placeholder="Quận/Huyện">
-                            <input id="ward" name="ward" type="text" placeholder="Phường/xã">
-                            <input id="address" name="address" type="text" placeholder="Địa chỉ cụ thể">
+                            <div class="form-group">
+                                <select name="city" id="city">
+                                    <option value="" disabled="disabled" selected="selected">Tỉnh/Thành phố</option>
+                                    <option >Hà nội</option>
+                                    <option >Hồ Chí Minh</option>
+                                    <option >Quảng Ninh</option>
+                                    <option >Thanh Hóa</option>
+                                    <option >Hà Nam</option>
+                                    <option >Thái Bình</option>
+                                </select>
+                                <span class="form-message"></span>
+                            </div>
+                            <div class="form-group">
+                                <select name="district" id="district">
+                                    <option value="" disabled="disabled" selected="selected">Quận/Huyện</option>
+                                </select>
+                                <span class="form-message"></span>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="address" name="address" type="text" placeholder="Địa chỉ cụ thể ..."></textarea>
+                                <span class="form-message"></span>
+                            </div>
+
+                            
+                           
+                            <div class="d-flex justify-content-end footer-information">
+                                <button class="btn come-back">TRỞ LẠI</button>
+                                <button class="btn next">TIẾP TỤC</button>
+                            </div>
                         </form>
-                        <div class="address-type">
-                            <p>Loại địa chỉ:</p>
-                            <div class="d-flex ms-0 ms-sm-5">
-                                <div class="address-type-group">
-                                    <input type="radio" name="type_group" id="home">
-                                    <label for="home">Nhà riêng / Chung cư</label>
-                                </div>
-                                <div class="address-type-group ms-5">
-                                    <input type="radio" name="type_group" id="company">
-                                    <label for="company">Cơ quan / Công ty</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-end">
-                            <button class="btn come-back">TRỞ LẠI</button>
-                            <button class="btn next">TIẾP TỤC</button>
-                        </div>
                     </div>
 
                 </div>
@@ -203,6 +199,7 @@
 
         </div>
     </header>
+
 
     <div class="container-md">
         <div class="product-tabs" style="height: 60px;">
@@ -219,135 +216,137 @@
         <div class="container-md">
             <div class="row">
                 <div class="col-lg-4 col-xl-3 d-none d-lg-block">
-                    <div class="sidebar">
+                    <div class="contai-sidebar">
+                        <div class="sidebar">
 
-                        <div class="sidebar-title">
-                            <i class="fa-solid fa-bars"></i>
-                            <h3>DANH MỤC SẢN PHẨM</h3>
-                        </div>
-
-                        <ul>
-                            <li class="sidebar-items">
-                                <i class="fa-solid fa-circle"></i>
-                                <a href="#">TỔNG KHO CÂY GIẢ TRANG TRÍ NỘI THẤT</a>
-                            </li>
-                            <li class="sidebar-items-text">
-                                <a href="#">Cây trang trí quán cafe, văn phòng, cửa hàng</a>
-                            </li>
-                            <li class="sidebar-items-text">
-                                <a href="#">Chậu cây xương rồng, sen đá</a>
-                            </li>
-                            <li class="sidebar-items-text">
-                                <a href="#">Cây để bàn (cao dưới 1m)</a>
-                            </li>
-                            <li class="sidebar-items-text">
-                                <a href="#">Cây có hoa</a>
-                            </li>
-                            <li class="sidebar-items-text">
-                                <a href="#">Giỏ cây ốp tường, cây dây leo</a>
-                            </li>
-                            <li class="sidebar-items-text">
-                                <a href="#">Trúc trang trí nhà, tiểu cảnh</a>
-                            </li>
-                        </ul>
-                        <ul>
-                            <li class="sidebar-items">
-                                <i class="fa-solid fa-circle"></i>
-                                <a href="#">BÌNH HOA TRANG TRÍ NHÀ</a>
-                            </li>
-                            <li class="sidebar-items-text">
-                                <a href="#">Bình hoa trang trí</a>
-                            </li>
-                            <li class="sidebar-items-text">
-                                <a href="#">Lựu, cành quả trang trí phòng khách</a>
-                            </li>
-                        </ul>
-                        <ul>
-                            <li class="sidebar-items">
-                                <i class="fa-solid fa-circle"></i>
-                                <a href="#">BÌNH LỌ CẮM HOA</a>
-                            </li>
-                            <li class="sidebar-items-text">
-                                <a href="#">Bình gốm sứ cắm hoa</a>
-                            </li>
-                            <li class="sidebar-items-text">
-                                <a href="#">Lọ thủy tinh, bình cắm hoa khác</a>
-                            </li>
-                        </ul>
-                        <ul>
-                            <li class="sidebar-items">
-                                <i class="fa-solid fa-circle"></i>
-                                <a href="#">CÂY HOA LÁ GIẢ CÁC LOẠI</a>
-                            </li>
-                            <li class="sidebar-items-text">
-                                <a href="#">Hoa lụa, hoa vải</a>
-                            </li>
-                            <li class="sidebar-items-text">
-                                <a href="#">Cỏ, lá các loại</a>
-                            </li>
-                            <li class="sidebar-items-text">
-                                <a href="#">Xương rồng, sen đá, rêu trang trí</a>
-                            </li>
-                            <li class="sidebar-items-text">
-                                <a href="#">Thân nhựa làm cây giả</a>
-                            </li>
-                        </ul>
-                        <ul>
-                            <li class="sidebar-items">
-                                <i class="fa-solid fa-circle"></i>
-                                <a href="#">THI CÔNG TƯỜNG CÂY GIẢ, HOA GIẢ</a>
-                            </li>
-                            <li class="sidebar-items-text">
-                                <a href="#">Tường cây hỗn hợp</a>
-                            </li>
-                            <li class="sidebar-items-text">
-                                <a href="#">Bồn cây giả, bục cây giả, hộp cây giả
-                                </a>
-                            </li>
-                            <li class="sidebar-items-text">
-                                <a href="#">Giàn hoa, dây leo, backdrop hoaí</a>
-                            </li>
-                            <li class="sidebar-items-text">
-                                <a href="#">Trang trí ban công chung cư</a>
-                            </li>
-                        </ul>
-                        <ul>
-                            <li class="sidebar-items">
-                                <i class="fa-solid fa-circle"></i>
-                                <a href="#">KHÁCH HÀNG REVIEW VỀ SẢN PHẨM</a>
-                            </li>
-                        </ul>
-                        <ul>
-                            <li class="sidebar-items">
-                                <i class="fa-solid fa-circle"></i>
-                                <a href="#">CẦU THỦY TINH TREO, ĐỂ BÀN TRANG TRÍ</a>
-                            </li>
-                        </ul>
-
-                    </div>
-                    <div class="information-support">
-                        <div>
-                            <img src="./img/img01.png" alt="">
-                            <div>
-                                <p>HỖ TRỢ TRỰC TUYẾN</p>
-                                <span>0969 999 999</span>
+                            <div class="sidebar-title">
+                                <i class="fa-solid fa-bars"></i>
+                                <h3>DANH MỤC SẢN PHẨM</h3>
                             </div>
-                        </div>
 
-                        <div>
-                            <img src="./img/img02.png" alt="">
+                            <ul>
+                                <li class="sidebar-items">
+                                    <i class="fa-solid fa-circle"></i>
+                                    <a href="#">TỔNG KHO CÂY GIẢ TRANG TRÍ NỘI THẤT</a>
+                                </li>
+                                <li class="sidebar-items-text">
+                                    <a href="#">Cây trang trí quán cafe, văn phòng, cửa hàng</a>
+                                </li>
+                                <li class="sidebar-items-text">
+                                    <a href="#">Chậu cây xương rồng, sen đá</a>
+                                </li>
+                                <li class="sidebar-items-text">
+                                    <a href="#">Cây để bàn (cao dưới 1m)</a>
+                                </li>
+                                <li class="sidebar-items-text">
+                                    <a href="#">Cây có hoa</a>
+                                </li>
+                                <li class="sidebar-items-text">
+                                    <a href="#">Giỏ cây ốp tường, cây dây leo</a>
+                                </li>
+                                <li class="sidebar-items-text">
+                                    <a href="#">Trúc trang trí nhà, tiểu cảnh</a>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li class="sidebar-items">
+                                    <i class="fa-solid fa-circle"></i>
+                                    <a href="#">BÌNH HOA TRANG TRÍ NHÀ</a>
+                                </li>
+                                <li class="sidebar-items-text">
+                                    <a href="#">Bình hoa trang trí</a>
+                                </li>
+                                <li class="sidebar-items-text">
+                                    <a href="#">Lựu, cành quả trang trí phòng khách</a>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li class="sidebar-items">
+                                    <i class="fa-solid fa-circle"></i>
+                                    <a href="#">BÌNH LỌ CẮM HOA</a>
+                                </li>
+                                <li class="sidebar-items-text">
+                                    <a href="#">Bình gốm sứ cắm hoa</a>
+                                </li>
+                                <li class="sidebar-items-text">
+                                    <a href="#">Lọ thủy tinh, bình cắm hoa khác</a>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li class="sidebar-items">
+                                    <i class="fa-solid fa-circle"></i>
+                                    <a href="#">CÂY HOA LÁ GIẢ CÁC LOẠI</a>
+                                </li>
+                                <li class="sidebar-items-text">
+                                    <a href="#">Hoa lụa, hoa vải</a>
+                                </li>
+                                <li class="sidebar-items-text">
+                                    <a href="#">Cỏ, lá các loại</a>
+                                </li>
+                                <li class="sidebar-items-text">
+                                    <a href="#">Xương rồng, sen đá, rêu trang trí</a>
+                                </li>
+                                <li class="sidebar-items-text">
+                                    <a href="#">Thân nhựa làm cây giả</a>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li class="sidebar-items">
+                                    <i class="fa-solid fa-circle"></i>
+                                    <a href="#">THI CÔNG TƯỜNG CÂY GIẢ, HOA GIẢ</a>
+                                </li>
+                                <li class="sidebar-items-text">
+                                    <a href="#">Tường cây hỗn hợp</a>
+                                </li>
+                                <li class="sidebar-items-text">
+                                    <a href="#">Bồn cây giả, bục cây giả, hộp cây giả
+                                    </a>
+                                </li>
+                                <li class="sidebar-items-text">
+                                    <a href="#">Giàn hoa, dây leo, backdrop hoaí</a>
+                                </li>
+                                <li class="sidebar-items-text">
+                                    <a href="#">Trang trí ban công chung cư</a>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li class="sidebar-items">
+                                    <i class="fa-solid fa-circle"></i>
+                                    <a href="#">KHÁCH HÀNG REVIEW VỀ SẢN PHẨM</a>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li class="sidebar-items">
+                                    <i class="fa-solid fa-circle"></i>
+                                    <a href="#">CẦU THỦY TINH TREO, ĐỂ BÀN TRANG TRÍ</a>
+                                </li>
+                            </ul>
+
+                        </div>
+                        <div class="information-support">
                             <div>
-                                <p>GIAO HÀNG TOÀN QUỐC</p>
-                                <span>Liên hệ với Shop để biết phí ship</span>
+                                <img src="./img/img01.png" alt="">
+                                <div>
+                                    <p>HỖ TRỢ TRỰC TUYẾN</p>
+                                    <span>0969 999 999</span>
+                                </div>
                             </div>
-                        </div>
 
-                        <div>
-                            <img src="./img/img03.png" alt="">
                             <div>
-                                <p>ĐẢM BẢO HÀNG GỬI 100%</p>
-                                <span>Đảm bảo hàng gửi trong mọi trường hợp hàng thiếu, bể vỡ trong quá trình vận
-                                    chuyển</span>
+                                <img src="./img/img02.png" alt="">
+                                <div>
+                                    <p>GIAO HÀNG TOÀN QUỐC</p>
+                                    <span>Liên hệ với Shop để biết phí ship</span>
+                                </div>
+                            </div>
+
+                            <div>
+                                <img src="./img/img03.png" alt="">
+                                <div>
+                                    <p>ĐẢM BẢO HÀNG GỬI 100%</p>
+                                    <span>Đảm bảo hàng gửi trong mọi trường hợp hàng thiếu, bể vỡ trong quá trình vận
+                                        chuyển</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -358,9 +357,9 @@
                         <div class="col-md-6 col-12">
                             <div class="img-product-detai">
                                 <img class="imgProDetai" src="" alt="">
-                                <div class="d-flex justify-content-between mt-3">
+                                <div class="d-flex justify-content-between mt-3 sub-photo">
+                                    <img src="" class="opacity" alt="">
                                     <img src="https://goldviet24k.vn/pic/News/images/tranh-ma-vang/hoa-sen/tranh-hoa-sen-phong-thuy-dep(10).jpg" alt="">
-                                    <img src="./img/c2.png" alt="">
                                     <img src="./img/c3.png" alt="">
                                     <img src="./img/c4.png" alt="">
                                 </div>
@@ -628,101 +627,87 @@
 
     <footer>
         <div class="container-md">
-            <div class="row gx-0 gx-md-5">
-                <div class="col-12 col-md-4">
+            <div class="row  gy-5">
+
+
+                <div class="col-12 col-sm-6 col-lg-4">
                     <div class="footer-logo-img">
                         <img src="./img/log2.png" width="207px" alt="">
                     </div>
                     <p class="footer-text">
                         <span>CÂY DERCOR</span> là thương hiệu dẫn đầu trong lĩnh vực cây giả trang trí nội thất, cây lá
                         giả cao cấp có độ tự nhiên cao và giống như cây thật. Được biết đến là nhà phân phối cây hoa giả
-                        uy tín, chất lượng số 1 tại Việt Nam. <span>CÂY DERCOR</span> luôn đảm bảo sản phẩm đẹp tự
-                        nhiên, độc đáo và khác biệt, kho hàng bán sỉ với số lượng lớn luôn đáp ứng mọi yêu cầu khắt khe
-                        nhất về chủng loại, mẫu mã và thời gian giao hàng. Sản phẩm về Cây hoa giả của <span>CÂY
-                            DERCOR</span> đã vươn tới đông đảo khách hàng tại các thành phố lớn như Hà Nội, Tp. Hồ Chí
-                        Minh, Đà Nẵng,…
+                        uy tín, chất lượng số 1 tại Việt Nam.
                     </p>
 
                 </div>
-                <div class="col-12 col-md-8">
-                    <div>
-                        <div class="row">
-                            <div class="col-sm-4 col-6">
-                                <ul class="footer-outstanding">
-                                    <li> <span>TÀI KHOẢN</span></li>
-                                    <li><a href="#">Trang chủ</a></li>
-                                    <li><a href="#">Sản phẩm</a> </li>
-                                    <li><a href="#">Bán sỉ</a></li>
-                                    <li><a href="#">Liên hệ</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-sm-4 col-6">
-                                <ul class="footer-outstanding">
-                                    <li> <span>TIN TỨC</span></li>
-                                    <li><a href="#">Hình ảnh feedback của khách hàng</a></li>
-                                    <li><a href="#">Tạp chí </a></li>
-                                    <li><a href="#">Hướng dẫn đặt hàng và thanh toán</a> </li>
-                                </ul>
-                            </div>
-                            <div class="col-sm-4 col-6">
-                                <ul class="footer-outstanding">
-                                    <li> <span>CHÍNH SÁCH</span></li>
-                                    <li><a href="#">Chính sách thanh toán</a> </li>
-                                    <li><a href="#">Chính sách vận chuyển</a></li>
-                                    <li><a href="#">Chính sách đổi trả</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="social-network">
-                        Kết nối với chúng tôi
-                        <span class="social-icon">
-                            <a href="#">
+                <div class="col-6 col-lg-2">
+                    <ul class="footer-outstanding">
+                        <li> <span>TÀI KHOẢN</span></li>
+                        <li><a href="#">Trang chủ</a></li>
+                        <li><a href="#">Sản phẩm</a> </li>
+                        <li><a href="#">Bán sỉ</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <ul class="footer-outstanding">
+                        <li> <span>CHÍNH SÁCH</span></li>
+                        <li><a href="#">Chính sách thanh toán</a> </li>
+                        <li><a href="#">Chính sách vận chuyển</a></li>
+                        <li><a href="#">Chính sách đổi trả</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <ul class="footer-outstanding">
+                        <li> <span>LIÊN HỆ VỚI CHÚNG TÔI</span></li>
+                        <li><a href="#">
+                                <p class="information-content">
+                                    <span>
+                                        <i class="fa-solid fa-location-dot"></i>
+                                    </span>
+                                    123 Nguyễn Trãi, Thanh Xuân, Hà Nội
+                                </p>
+                            </a>
+                        </li>
+                        
+                        <li><a href="#">
+                                <p class="information-content">
+                                    <span>
+                                        <i class="fa-solid fa-phone"></i>
+                                    </span>
+                                    0968988525 (bán lẻ) - 0968988215 (bán sỉ)
+                                </p>
+                            </a> 
+                        </li>
+                        <li><a href="#">
+                                <p class="information-content">
+                                    <span>
+                                        <i class="fa-solid fa-envelope"></i>
+                                    </span>
+                                    <a href="#">caydecor.sale@gmail.com</a>
+                                </p>
+                            </a>
+                         </li>
+                        <li>
+                            <span class="social-icon">
+                                <a href="#">
 
-                                <i class="fa-brands fa-facebook-f"></i>
-                            </a>
-                            <a href="#">
-                                <i class="fa-brands fa-youtube-square"></i>
-                            </a>
+                                    <i class="fa-brands fa-facebook-f"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa-brands fa-youtube-square"></i>
+                                </a>
 
-                            <a href="#">
-                                <i class="fa-brands fa-tiktok"></i>
-                            </a>
-                            <a href="#">
-                                <i class="fa-brands fa-twitter"></i>
-                            </a>
-                        </span>
-                    </p>
-                    <div class="information">
-                        <p>
-                            <span>Công ty TNHH XNK và TM CÂY DECOR</strong>
-                        </p>
-                        <p class="information-content">
-                            <span>
-                                <i class="fa-solid fa-location-dot"></i>
+                                <a href="#">
+                                    <i class="fa-brands fa-tiktok"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa-brands fa-twitter"></i>
+                                </a>
                             </span>
-                            Kho Hà Nội: số 52 đường 23, thành phố Giao lưu, Bắc Từ Liêm, Hà Nội
-                        </p>
-                        <p class="information-content">
-                            <span>
-                                <i class="fa-solid fa-location-dot"></i>
-                            </span>
-                            Kho TP HCM: Số 75 Hoa Đào, quận Phú Nhuận, tp. Hồ Chí Minh
-                        </p>
-                        <p class="information-content">
-                            <span>
-                                <i class="fa-solid fa-phone"></i>
-                            </span>
-                            0968988525 (bán lẻ) - 0968988215 (bán sỉ)
-                        </p>
-                        <p class="information-content">
-                            <span>
-                                <i class="fa-solid fa-envelope"></i>
-                            </span>
-                            <a href="#">caydecor.sale@gmail.com</a>
-                        </p>
-
-                    </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>

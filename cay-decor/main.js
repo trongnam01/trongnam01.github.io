@@ -7,6 +7,7 @@ let titleProducts = []
 let arrPrice = []
 let resultAll
 let arrItems = JSON.parse(window.localStorage.getItem("itemCard")) || []
+let users = JSON.parse(window.localStorage.getItem("information")) || {}
 
 
 
@@ -49,7 +50,8 @@ let idProDetai = document.querySelector("#products-detai")  //          alll tab
 let reductionDetai = document.querySelector(".reduction")  //          -
 let quantityDetai = document.querySelector(".quantity")  //          kết quả
 let moreDetai = document.querySelector(".more")  //          +
-
+let imgUser = document.querySelector(".header-img-user.active")
+let userUse = document.querySelector(".user-use")
 
 
 
@@ -73,7 +75,21 @@ if (cart) {
         qtyItem()
     }
 }
+let loginHeder = document.querySelector(".login-user2")
+if(loginHeder) {
 
+    loginHeder.onclick = () => {
+
+        if(users.information?.name) {
+
+        }else {
+            document.querySelector(".modal-cart").style.display = "flex"  
+            informationUser.style.display = "none"
+            modalogin.style.display = "block"
+            modaproduct.style.display = "none"
+        }
+    }
+}
 
 
 // đóng modal
@@ -114,14 +130,14 @@ if (whenReceiving) {
 if (footerModal) {
 
     footerModal.onclick = () => {
-        if (userlogin) {
-            // khi đã đăng nhập
 
+        if(users.information?.name) {
+            window.location = "payment.html";
         } else {
             modaproduct.style.display = "none"
             modalogin.style.display = "block"
-
         }
+
     }
 }
 
@@ -140,14 +156,6 @@ if (informationUser)
     informationUser.onclick = (e) => {
         e.stopPropagation()
     }
-
-// qua trang thanh toán
-if (btnNext) {
-    btnNext.onclick = (e) => {
-        informationUser.style.display = "none"
-        window.location = "payment.html";
-    }
-}
 
 
 // push titleproduct
@@ -171,12 +179,12 @@ let copyCard
 // input search
 if (inputSearch) {
     inputSearch.onkeyup = (e) => {
-       
+
         let valueinput = e.target.value
         let keywCard = []
         let arrelement = []
         if (valueinput) {
-       
+
             arrelement = titleProducts.filter(data => {
                 return data.toLowerCase().replace(/ /g, '').startsWith(valueinput.toLowerCase().replace(/ /g, ''))
             })
@@ -252,7 +260,7 @@ if (inputSearch) {
             if (formSearch)
                 formSearch.classList.remove("active")
 
-                inputSearch.style.borderRadius = "30px"
+            inputSearch.style.borderRadius = "30px"
 
             if (prodCard) {
 
@@ -409,7 +417,7 @@ if (btnOder) {
         })
 
         window.localStorage.clear()
-        
+
         btnOder.disabled = true;
 
         setTimeout(() => {
@@ -710,6 +718,20 @@ if (indexProdDetai) {
 
     }
 
+    let imgSub = document.querySelectorAll(".sub-photo img")
+    imgSub[0].setAttribute("src", imgarr)
+
+    imgSub.forEach((img) => {
+        img.onclick = () => {
+            document.querySelector(".sub-photo img.opacity").classList.remove("opacity")
+            imgProDetai.setAttribute("src", img.getAttribute("src"))
+            img.classList.add("opacity")
+
+        }
+    })
+
+
+
 }
 
 
@@ -902,6 +924,18 @@ HandleInformation.isCommon = function (selector, message) {
         }
     }
 }
+HandleInformation.ispassword2 = (selector, valueInput, message) => {
+    return {
+        selector,
+        test: (value) => {
+            return valueInput() === value ? undefined : message || "Mật khẩu tối thiểu phải 6 kí tự"
+        }
+    }
+}
+
+
+
+
 
 if (modalogin) {
     HandleInformation({
@@ -911,13 +945,46 @@ if (modalogin) {
             HandleInformation.isemail("#email"),
             HandleInformation.isCommon("#password"),
             HandleInformation.ispassword("#password"),
+            HandleInformation.isCommon("#password2"),
+            HandleInformation.ispassword2("#password2", () => {
+                return document.querySelector("input#password").value
+            }),
 
         ],
         onSubmit: (data) => {
-            console.log(data);
+            let objData = data
+                users.login = objData
+                window.localStorage.setItem("information", JSON.stringify(users))
         }
     })
 }
+
+if (informationUser) {
+    let call = document.querySelector("#phone input")
+    if (call) {
+        call.oninput = () => {
+            call.value = call.value.replace(/[^0-9.]/g, '')
+        }
+    }
+
+    HandleInformation2({
+        idFrom: ".form-2",
+        rules: [
+            HandleInformation.isCommon("#name input"),
+            HandleInformation.isCommon("#phone input"),
+            HandleInformation.isCommon("#city"),
+            HandleInformation.isCommon("#district"),
+            HandleInformation.isCommon("#address"),
+        ],
+        onSubmit: (data) => {
+            let objData = data
+            users.information = objData
+            window.localStorage.setItem("information", JSON.stringify(users))
+        }
+    })
+
+}
+
 
 function HandleInformation(datahandle) {
     let selectorRules = {}
@@ -946,12 +1013,9 @@ function HandleInformation(datahandle) {
     let form = document.querySelector(datahandle.idFrom)
 
 
-
-
     if (form) {
         form.onsubmit = (e) => {
             e.preventDefault()
-
             let formValid = true
             datahandle.rules.forEach((rule) => {
                 let inputElement = form.querySelector(rule.selector)
@@ -961,8 +1025,6 @@ function HandleInformation(datahandle) {
                     formValid = false
                 }
             })
-
-
             if (formValid) {
 
                 let formValueInput = form.querySelectorAll("[name]")
@@ -973,10 +1035,92 @@ function HandleInformation(datahandle) {
 
                 datahandle.onSubmit(formValues)
 
+                
+
                 modalogin.style.display = "none"
                 informationUser.style.display = "block"
             }
+
         }
+
+        datahandle.rules.forEach((rule) => {
+            let inputElement = form.querySelector(rule.selector)
+
+            if (Array.isArray(selectorRules[rule.selector])) {
+                selectorRules[rule.selector].push(rule.test)
+            } else {
+                selectorRules[rule.selector] = [rule.test]
+
+            }
+            inputElement.onblur = () => {
+
+                validate(inputElement, rule)
+            }
+
+            inputElement.oninput = () => {
+                let errorInput = inputElement.parentElement.querySelector(".form-message")
+                errorInput.innerText = ''
+                inputElement.parentElement.classList.remove("invalid")
+            }
+        })
+    }
+
+}
+function HandleInformation2(datahandle) {
+    let selectorRules = {}
+
+    function validate(inputElement, rule) {
+        let errorInput = inputElement.parentElement.querySelector(".form-message");
+        let errorMessage;
+
+        let rules = selectorRules[rule.selector];
+
+        for (let i = 0; i < rules.length; i++) {
+            // lấy rules chuyền value ở input
+            errorMessage = rules[i](inputElement.value)
+            if (errorMessage) break;
+        }
+        if (errorMessage) {
+            errorInput.innerText = errorMessage
+            inputElement.parentElement.classList.add("invalid")
+        } else {
+            errorInput.innerText = ''
+            inputElement.parentElement.classList.remove("invalid")
+        }
+        return !errorMessage
+    }
+
+    let form = document.querySelector(datahandle.idFrom)
+
+
+    if (form) {
+        form.onsubmit = (e) => {
+            e.preventDefault()
+            let formValid = true
+
+            datahandle.rules.forEach((rule) => {
+                let inputElement = form.querySelector(rule.selector)
+                let isValid = validate(inputElement, rule)
+
+                if (!isValid) {
+                    formValid = false
+                }
+            })
+
+            if (formValid) {
+                let formValueInput = form.querySelectorAll("[name]")
+                let formValues = Array.from(formValueInput).reduce((values, input) => {
+                    (values[input.name] = input.value)
+                    return values
+                }, {})
+                datahandle.onSubmit(formValues)
+
+                informationUser.style.display = "none"
+                checkLogin()
+                window.location = "payment.html";
+            }
+        }
+
         datahandle.rules.forEach((rule) => {
             let inputElement = form.querySelector(rule.selector)
 
@@ -1002,10 +1146,13 @@ function HandleInformation(datahandle) {
 }
 
 
-
 if (document.querySelector(".payment-products-container")) {
-
+    
+    document.querySelector(".user-name").innerText = (users.information.name) + ' ' +  (users.information.phone)
+    document.querySelector(".payment-address").innerText = (users.information.address) + ', ' + (users.information.district) + ', ' + (users.information.city)
     itemPayment()
+
+
 
     let pricePayment = arrPrice.reduce((total, num) => {
         return total + num
@@ -1079,11 +1226,55 @@ function itemPayment() {
 }
 
 
+if (informationUser) {
+    let city = document.querySelector("#city")
+    let district = document.querySelector("#district")
+
+    city.onchange = () => {
+        let arroption = document.querySelectorAll("#district option")
+        for (let i = 1; i < arroption.length; i++) {
+            district.removeChild(arroption[i])
+        }
+
+        let getValue = city.value.replace(/ /g, "_")
+        let valueArr = arrdistrict[getValue]
+
+        for (let i = 0; i < valueArr.length; i++) {
+            let itemoption = document.createElement("option")
+            itemoption.setAttribute("itemoption", valueArr[i])
+            itemoption.innerText = valueArr[i]
+
+            district.appendChild(itemoption)
+        }
+    }
+
+    checkLogin()
+}
 
 
+let arrdistrict = {
+    Hà_nội: ["Thanh Xuân", "Hà Đông", "Cầu Giấy", "Mỹ Đình", "Thường Tín", "Phú Xuyên"],
+    Hồ_Chí_Minh: ["Quận Bình Thạnh", "Quận Thủ Đức", "Quận Phú Nhuận", "Quận Tân Bình", "Huyện Hóc Môn", "Huyện Củ Chi"],
+    Quảng_Ninh: ["Thành Phố Đồng Hới", "Huyện Bố Trạch", "Thị xã Ba Đồn", "Huyện Lệ Thủy", "Thị xã Đông Triều"],
+    Thanh_Hóa: ["Thành Phố Thanh Hóa", "Huyện Yên Định", "Huyện Thọ Xuân", "Huyện Thiệu Hóa", "Huyện Hậu Lộc"],
+    Hà_Nam: ["Thành phố Phủ Lý", "Thị xã Duy Tiên", "	Huyện Kim Bảng", "Huyện Bình Lục", "Huyện Thanh Liêm"],
+    Thái_Bình: ["Huyện Đông Hưng", "Huyện Hưng Hà", "Huyện Kiến Xương", "Huyện Tiền Hải", "Huyện Quỳnh Phụ"]
 
+}
+function checkLogin() {
+    if (users.information?.name) {
+        document.querySelector(".login-user").style.display = "none"
+        document.querySelector(".header-img-user").classList.add("active")
 
-
+        userUse.innerText = users.information.name
+        userUse.style.display = "block"
+    } else {
+        userUse.style.display = "none"
+        if (imgUser) {
+            imgUser.classList.remove("active")
+        }
+    }
+}
 
 
 
