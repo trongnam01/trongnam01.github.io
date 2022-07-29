@@ -53,7 +53,15 @@ let moreDetai = document.querySelector(".more")  //          +
 let imgUser = document.querySelector(".header-img-user.active")
 let userUse = document.querySelector(".user-use")
 
+let arrdistrict = {
+    Hà_nội: ["Thanh Xuân", "Hà Đông", "Cầu Giấy", "Mỹ Đình", "Thường Tín", "Phú Xuyên"],
+    Hồ_Chí_Minh: ["Quận Bình Thạnh", "Quận Thủ Đức", "Quận Phú Nhuận", "Quận Tân Bình", "Huyện Hóc Môn", "Huyện Củ Chi"],
+    Quảng_Ninh: ["Thành Phố Đồng Hới", "Huyện Bố Trạch", "Thị xã Ba Đồn", "Huyện Lệ Thủy", "Thị xã Đông Triều"],
+    Thanh_Hóa: ["Thành Phố Thanh Hóa", "Huyện Yên Định", "Huyện Thọ Xuân", "Huyện Thiệu Hóa", "Huyện Hậu Lộc"],
+    Hà_Nam: ["Thành phố Phủ Lý", "Thị xã Duy Tiên", "	Huyện Kim Bảng", "Huyện Bình Lục", "Huyện Thanh Liêm"],
+    Thái_Bình: ["Huyện Đông Hưng", "Huyện Hưng Hà", "Huyện Kiến Xương", "Huyện Tiền Hải", "Huyện Quỳnh Phụ"]
 
+}
 
 
 if (modalCart)
@@ -75,15 +83,16 @@ if (cart) {
         qtyItem()
     }
 }
+let isPay = true
 let loginHeder = document.querySelector(".login-user2")
-if(loginHeder) {
+if (loginHeder) {
 
     loginHeder.onclick = () => {
+        isPay = false
+        if (users.information?.name) {
 
-        if(users.information?.name) {
-
-        }else {
-            document.querySelector(".modal-cart").style.display = "flex"  
+        } else {
+            document.querySelector(".modal-cart").style.display = "flex"
             informationUser.style.display = "none"
             modalogin.style.display = "block"
             modaproduct.style.display = "none"
@@ -131,13 +140,13 @@ if (footerModal) {
 
     footerModal.onclick = () => {
 
-        if(users.information?.name) {
+        if (users.information?.name) {
             window.location = "payment.html";
         } else {
             modaproduct.style.display = "none"
             modalogin.style.display = "block"
         }
-
+        isPay = true
     }
 }
 
@@ -416,7 +425,8 @@ if (btnOder) {
             duration: 3000
         })
 
-        window.localStorage.clear()
+        // window.localStorage.clear()
+        localStorage.removeItem("itemCard");
 
         btnOder.disabled = true;
 
@@ -953,19 +963,14 @@ if (modalogin) {
         ],
         onSubmit: (data) => {
             let objData = data
-                users.login = objData
-                window.localStorage.setItem("information", JSON.stringify(users))
+            users.login = objData
+            window.localStorage.setItem("information", JSON.stringify(users))
         }
     })
 }
 
 if (informationUser) {
-    let call = document.querySelector("#phone input")
-    if (call) {
-        call.oninput = () => {
-            call.value = call.value.replace(/[^0-9.]/g, '')
-        }
-    }
+    
 
     HandleInformation2({
         idFrom: ".form-2",
@@ -1035,7 +1040,7 @@ function HandleInformation(datahandle) {
 
                 datahandle.onSubmit(formValues)
 
-                
+
 
                 modalogin.style.display = "none"
                 informationUser.style.display = "block"
@@ -1092,11 +1097,12 @@ function HandleInformation2(datahandle) {
 
     let form = document.querySelector(datahandle.idFrom)
 
-
+   
     if (form) {
         form.onsubmit = (e) => {
             e.preventDefault()
             let formValid = true
+            
 
             datahandle.rules.forEach((rule) => {
                 let inputElement = form.querySelector(rule.selector)
@@ -1117,7 +1123,13 @@ function HandleInformation2(datahandle) {
 
                 informationUser.style.display = "none"
                 checkLogin()
-                window.location = "payment.html";
+                console.log(isPay);
+                if(isPay) {
+                    window.location = "payment.html";
+                }else {
+                    checkLogin()
+                    modalCart.style.display = "none"
+                }
             }
         }
 
@@ -1147,11 +1159,21 @@ function HandleInformation2(datahandle) {
 
 
 if (document.querySelector(".payment-products-container")) {
-    
-    document.querySelector(".user-name").innerText = (users.information.name) + ' ' +  (users.information.phone)
+
+    document.querySelector(".user-name").innerText = (users.information.name) + ' ' + (users.information.phone)
     document.querySelector(".payment-address").innerText = (users.information.address) + ', ' + (users.information.district) + ', ' + (users.information.city)
     itemPayment()
 
+    document.querySelector(".change-address").onclick = () => {
+        document.querySelector(".form-2").reset()
+        let formmessage = document.querySelectorAll(".form-2 .form-message")
+        for(let i = 0 ; i < formmessage.length; i++) {
+            formmessage[i].innerText = ' '
+        }
+        
+        modalCart.style.display = "flex"
+        informationUser.style.display = "block"
+    }
 
 
     let pricePayment = arrPrice.reduce((total, num) => {
@@ -1252,31 +1274,39 @@ if (informationUser) {
 }
 
 
-let arrdistrict = {
-    Hà_nội: ["Thanh Xuân", "Hà Đông", "Cầu Giấy", "Mỹ Đình", "Thường Tín", "Phú Xuyên"],
-    Hồ_Chí_Minh: ["Quận Bình Thạnh", "Quận Thủ Đức", "Quận Phú Nhuận", "Quận Tân Bình", "Huyện Hóc Môn", "Huyện Củ Chi"],
-    Quảng_Ninh: ["Thành Phố Đồng Hới", "Huyện Bố Trạch", "Thị xã Ba Đồn", "Huyện Lệ Thủy", "Thị xã Đông Triều"],
-    Thanh_Hóa: ["Thành Phố Thanh Hóa", "Huyện Yên Định", "Huyện Thọ Xuân", "Huyện Thiệu Hóa", "Huyện Hậu Lộc"],
-    Hà_Nam: ["Thành phố Phủ Lý", "Thị xã Duy Tiên", "	Huyện Kim Bảng", "Huyện Bình Lục", "Huyện Thanh Liêm"],
-    Thái_Bình: ["Huyện Đông Hưng", "Huyện Hưng Hà", "Huyện Kiến Xương", "Huyện Tiền Hải", "Huyện Quỳnh Phụ"]
-
-}
 function checkLogin() {
+    imgUser = document.querySelector(".header-img-user.active")
     if (users.information?.name) {
-        document.querySelector(".login-user").style.display = "none"
-        document.querySelector(".header-img-user").classList.add("active")
-
-        userUse.innerText = users.information.name
-        userUse.style.display = "block"
+        console.log(1);
+        if (document.querySelector(".login-user")) {
+            document.querySelector(".login-user").style.display = "none"
+        }
+        if (document.querySelector(".header-img-user")) {
+            document.querySelector(".login-user2").classList.add("active")
+            document.querySelector(".header-img-user").classList.add("active")
+            userUse.innerText = users.information.name
+            userUse.style.display = "block"
+        }
     } else {
         userUse.style.display = "none"
         if (imgUser) {
+            document.querySelector(".login-user2.active").classList.remove("active")
             imgUser.classList.remove("active")
+            document.querySelector(".login-user").style.display = "block"
         }
     }
 }
+let loginOut = document.querySelector(".login-out")
 
+if(loginOut) {
+    loginOut.onclick = (e) => {
+        e.stopPropagation()
 
+        users = {}
+        checkLogin()
+        window.localStorage.setItem("information", JSON.stringify(users))
+    }
+}
 
 
 
@@ -1315,6 +1345,14 @@ window.onload = () => {
     if (document.querySelector(".js-index")) {
         arrProDetai = []
         window.localStorage.setItem("itemProDetai", JSON.stringify(arrProDetai))
+    }
+
+    let call = document.querySelector("#phone input")
+
+    if (call) {
+        call.oninput = () => {
+            call.value = call.value.replace(/[^0-9.]/g, '')
+        }
     }
 
     clickCard(prodCard)

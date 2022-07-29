@@ -1061,7 +1061,42 @@ form label {
 .address-type {
     margin: 30px 0;
 }
-
+.login-user2 {
+    position: relative;
+}
+.login-user2.active:hover .account {
+    display: block;
+}
+.account {
+    display: none;
+    position: absolute;
+    background: white;
+    left: 0;
+    right: 0;
+    top: 94%;
+    z-index: 999999999999999999;
+    width: 170px;
+}
+.account::after {
+    position: absolute;
+    content: "";
+    bottom: 100%;
+    left: 50%;
+    border-width: 8px 15px;
+    border-style: solid;
+    border-color: transparent transparent white transparent;
+}
+.account-text {
+    padding: 5px 10px;
+    color: #212529d9;
+    font-size: 16px;
+    font-weight: 400;
+    display: flex;
+}
+.account-text:hover {
+    background: #e4e7eb69;
+    color: #028711;
+}
 .user-use {
     display: none;
     white-space: nowrap;
