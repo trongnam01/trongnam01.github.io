@@ -52,6 +52,7 @@ let quantityDetai = document.querySelector(".quantity")  //          kết quả
 let moreDetai = document.querySelector(".more")  //          +
 let imgUser = document.querySelector(".header-img-user.active")
 let userUse = document.querySelector(".user-use")
+let loginOut = document.querySelector(".login-out")
 
 let arrdistrict = {
     Hà_nội: ["Thanh Xuân", "Hà Đông", "Cầu Giấy", "Mỹ Đình", "Thường Tín", "Phú Xuyên"],
@@ -290,10 +291,10 @@ if (inputSearch) {
                 document.querySelector(".js-search").style.display = "none"
             }
 
-            if (btntabs2.getAttribute("class") === "btn-product-top active") {
+            if (btntabs2 && btntabs2.getAttribute("class") === "btn-product-top active") {
                 showproBtn2()
             }
-            if (btntabs3.getAttribute("class") === "btn-product-top active") {
+            if (btntabs3 && btntabs3.getAttribute("class") === "btn-product-top active") {
                 showproBtn3()
             }
 
@@ -1277,7 +1278,6 @@ if (informationUser) {
 function checkLogin() {
     imgUser = document.querySelector(".header-img-user.active")
     if (users.information?.name) {
-        console.log(1);
         if (document.querySelector(".login-user")) {
             document.querySelector(".login-user").style.display = "none"
         }
@@ -1296,7 +1296,7 @@ function checkLogin() {
         }
     }
 }
-let loginOut = document.querySelector(".login-out")
+
 
 if(loginOut) {
     loginOut.onclick = (e) => {
