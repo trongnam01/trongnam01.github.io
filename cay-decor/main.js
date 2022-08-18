@@ -90,7 +90,7 @@ if (loginHeder) {
 
     loginHeder.onclick = () => {
         isPay = false
-        if (users.information?.name) {
+        if (users.information?.name && users.login?.email) {
 
         } else {
             document.querySelector(".modal-cart").style.display = "flex"
@@ -145,7 +145,7 @@ if (footerModal) {
             window.location = "payment.html";
         } else {
             modaproduct.style.display = "none"
-            modalogin.style.display = "block"
+            informationUser.style.display = "block"
         }
         isPay = true
     }
@@ -202,52 +202,51 @@ if (inputSearch) {
                 return `<li> ${data} </li> `
             })
 
-            if (document.querySelector(".js-index")) {
-                inputSearch.style.borderRadius = "30px 30px 0 0"
-                document.querySelector("#all-products").style.display = "none"
-                document.querySelector(".js-search").style.display = "block"
+            // if (document.querySelector(".js-index")) {
+            //     inputSearch.style.borderRadius = "30px 30px 0 0"
+            //     document.querySelector("#all-products").style.display = "none"
+            //     document.querySelector(".js-search").style.display = "block"
 
-                for (let i = 0; i < arrTitlCard.length; i++) {
-                    let keywtitlSearch = arrTitlCard[i].innerText
+            //     for (let i = 0; i < arrTitlCard.length; i++) {
+            //         let keywtitlSearch = arrTitlCard[i].innerText
 
-                    if (keywtitlSearch.toLowerCase().replace(/ /g, '').startsWith(valueinput.toLowerCase().replace(/ /g, ''))) {
-                        let parenkeyw = arrTitlCard[i].parentElement.parentElement.parentElement
-                        let sale = ''
+            //         if (keywtitlSearch.toLowerCase().replace(/ /g, '').startsWith(valueinput.toLowerCase().replace(/ /g, ''))) {
+            //             let parenkeyw = arrTitlCard[i].parentElement.parentElement.parentElement
+            //             let sale = ''
 
-                        if (parenkeyw.querySelector("span.sale-off")) {
-                            sale = parenkeyw.querySelector(".sale-off").innerText
-                        }
+            //             if (parenkeyw.querySelector("span.sale-off")) {
+            //                 sale = parenkeyw.querySelector(".sale-off").innerText
+            //             }
 
-                        let objProdSearch = {
-                            title: parenkeyw.querySelector(".card h5.card-title").innerText,
-                            img: parenkeyw.querySelector("img").getAttribute("src"),
-                            price: parenkeyw.querySelector(".price").innerText,
-                            sale: sale,
-                            id: parenkeyw.querySelector(".card").getAttribute("id-data")
-                        }
-                        keywCard.push(objProdSearch)
-                        document.querySelector(".js-search > p").innerHTML = ` <p>Kết quả được từ tìm thấy với từ khóa"<span class="keyword-search">${valueinput}</span>"</p>`
+            //             let objProdSearch = {
+            //                 title: parenkeyw.querySelector(".card h5.card-title").innerText,
+            //                 img: parenkeyw.querySelector("img").getAttribute("src"),
+            //                 price: parenkeyw.querySelector(".price").innerText,
+            //                 sale: sale,
+            //                 id: parenkeyw.querySelector(".card").getAttribute("id-data")
+            //             }
+            //             keywCard.push(objProdSearch)
+            //             document.querySelector(".js-search > p").innerHTML = ` <p>Kết quả được từ tìm thấy với từ khóa"<span class="keyword-search">${valueinput}</span>"</p>`
 
-                    }
-                }
-                showCard(keywCard)
-                if (keywCard.length === 0) {
-                    document.querySelector(".js-search > p").innerHTML = ` <p> Không tìm thấy kết quả nào tìm thấy với từ khóa "<span class="keyword-search">${valueinput}</span>"</p>`
-                }
+            //         }
+            //     }
+            //     showCard(keywCard)
+            //     if (keywCard.length === 0) {
+            //         document.querySelector(".js-search > p").innerHTML = ` <p> Không tìm thấy kết quả nào tìm thấy với từ khóa "<span class="keyword-search">${valueinput}</span>"</p>`
+            //     }
 
-                showLiSearch(arrelement)
-                showCard(keywCard)
-            }
+            //     showLiSearch(arrelement)
+            //     showCard(keywCard)
+            // }
 
 
             // trang products
             if (contaiProducts) {
                 // prodCard = document.querySelectorAll(" .card")           // id product
-
                 tabsproducts.style.display = "none"
                 for (let i = 0; i < prodCard.length; i++) {
                     let titleProd = prodCard[i].querySelector(".card h5.card-title").innerText
-
+                    console.log(titleProd);
                     if (titleProd.toLowerCase().replace(/ /g, '').indexOf(valueinput.toLowerCase().replace(/ /g, '')) > -1) {
                         prodCard[i].parentElement.style.display = ""
                     } else {
@@ -344,16 +343,21 @@ function showCard(data) {
 
     let htmlCard = data.map((el) => {
         return `
-        <div class="col-12 col-sm-6 col-lg-4">
-            <div class="card" id-data="${el.id}">
-                <img src="${el.img}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">${el.title}</h5>
-                    <span class="price">${el.price}</span>
-                </div>
-                <span class="sale-off">${el.sale}</span>
-            </div>
+       
+
+         <div class="col-12 col-sm-6 col-lg-4">
+         <div class="card" id-data="${el.id}">
+             <div class="card-img">
+                 <img src="${el.img}"
+                     class="card-img-top" alt="...">
+             </div>
+             <div class="card-body">
+                 <h5 class="card-title">${el.title}</h5>
+                 <span class="price">${el.price}</span>
+             </div>
+             <span class="sale-off">-${el.sale}</span>
          </div>
+     </div>
      `
     }).join('')
 
@@ -495,114 +499,74 @@ function toast({
 
 
 
-let arrItemPoducts
-arrItemPoducts = JSON.parse(window.localStorage.getItem("itemProduct"))
 
-if (document.querySelector(".js-index")) {
-    arrItemPoducts = {}
-
-    for (let i = 0; i < indexProduct.length; i++) {
-        let card = indexProduct[i].querySelectorAll(".card")
-        let nameArr = indexProduct[i].getAttribute("id")
-        let arr = []
-
-        card.forEach((e) => {
-            let id = e.getAttribute("id-data")
-            let img = e.querySelector("img").getAttribute("src")
-            let title = e.querySelector(".card-title").innerText
-            let price = e.querySelector(".price").innerText
-            let sale = ''
-            if (e.querySelector(".sale-off")) {
-
-                sale = e.querySelector(".sale-off").innerText
-            }
-
-            let objContent = {
-                id: id,
-                img: img,
-                title: title,
-                price: price,
-                sale: sale,
-            }
-
-            arr.push(objContent)
-        })
-        arrItemPoducts[nameArr] = arr
-    }
-    window.localStorage.setItem("itemProduct", JSON.stringify(arrItemPoducts))
-}
 
 
 if (indexProducts) {
-    prodCard = document.querySelectorAll(".card")
 
+    function renderProduct(data) {
+        prodCard = document.querySelectorAll(".card")
 
-    let saveCard = []
+        let saveCard = [...data]
 
-    for (let key in arrItemPoducts) {
-        arrItemPoducts[key].forEach((e) => {
-            saveCard.push(e)
+        allTabs.forEach((tab) => {
+
+            tab.onclick = function () {
+                document.querySelector(".btn-product-top.active").classList.remove("active")
+                this.classList.add("active")
+
+                let getId = document.querySelector(".btn-product-top.active").getAttribute("id")
+                switch (getId) {
+                    case "btn-products1":
+                        showproBtn1()
+                        break;
+                    case "btn-products2":
+                        showproBtn2()
+                        break;
+                    case "btn-products3":
+                        showproBtn3()
+                        break;
+                }
+                window.scrollTo(0, 0);
+            }
         })
 
-    }
+        function showproBtn1() {
+            showCard(saveCard)
+            prodCard = document.querySelectorAll(".card")
 
-    allTabs.forEach((tab) => {
-
-        tab.onclick = function () {
-            document.querySelector(".btn-product-top.active").classList.remove("active")
-            this.classList.add("active")
-
-            let getId = document.querySelector(".btn-product-top.active").getAttribute("id")
-            switch (getId) {
-                case "btn-products1":
-                    showproBtn1()
-                    break;
-                case "btn-products2":
-                    showproBtn2()
-                    break;
-                case "btn-products3":
-                    showproBtn3()
-                    break;
+            for (let i = 0; i < prodCard.length; i++) {
+                if (i >= 9) {
+                    prodCard[i].parentElement.style.display = "none"
+                }
             }
-            window.scrollTo(0, 0);
+            clickCard(prodCard)
         }
-    })
+        showproBtn1()
 
-    function showproBtn1() {
-        showCard(saveCard)
-        prodCard = document.querySelectorAll(".card")
 
-        for (let i = 0; i < prodCard.length; i++) {
-            if (i >= 9) {
-                prodCard[i].parentElement.style.display = "none"
+        function showproBtn2() {
+            showCard(saveCard)
+
+            prodCard = document.querySelectorAll(".card")
+            for (let i = 0; i < prodCard.length; i++) {
+                if (i < 9 || i >= 18) {
+                    prodCard[i].parentElement.style.display = "none"
+                }
             }
+            clickCard(prodCard)
         }
-        clickCard(prodCard)
-    }
-    showproBtn1()
+        function showproBtn3() {
+            showCard(saveCard)
 
-
-    function showproBtn2() {
-        showCard(saveCard)
-
-        prodCard = document.querySelectorAll(".card")
-        for (let i = 0; i < prodCard.length; i++) {
-            if (i < 9 || i >= 18) {
-                prodCard[i].parentElement.style.display = "none"
+            prodCard = document.querySelectorAll(".card")
+            for (let i = 0; i < prodCard.length; i++) {
+                if (i < 18 || i >= 27) {
+                    prodCard[i].parentElement.style.display = "none"
+                }
             }
+            clickCard(prodCard)
         }
-        clickCard(prodCard)
-    }
-    function showproBtn3() {
-        showCard(saveCard)
-
-        prodCard = document.querySelectorAll(".card")
-        for (let i = 0; i < prodCard.length; i++) {
-            if (i < 18 || i >= 27) {
-                prodCard[i].parentElement.style.display = "none"
-            }
-        }
-        clickCard(prodCard)
     }
 
 }
@@ -610,11 +574,6 @@ if (indexProducts) {
 arrProDetai = JSON.parse(window.localStorage.getItem("itemProDetai")) || []
 
 if (indexProdDetai) {
-    let type = document.querySelector(".products-products-title").getAttribute("id-product")
-
-    let arrProDetai = arrItemPoducts[type]
-
-    showCard(arrProDetai)
 
     reductionDetai.onclick = () => {
         let qtyNum = +(quantityDetai.textContent)
@@ -638,8 +597,10 @@ if (indexProdDetai) {
 
 
 function clickCard(prodCard) {
+
     prodCard.forEach((item) => {
         item.onclick = () => {
+
             let img = item.querySelector("img").getAttribute("src")
             let title = item.querySelector("h5.card-title").textContent
             let price = item.querySelector(".price").textContent
@@ -849,6 +810,9 @@ function qtyItem() {
                         arrItem.qty = num
                     }
                 })
+                let reduc2 = reduction2[i].parentElement.parentElement.querySelector(".item-into-money2")
+
+                // totalItemProduct(idItemcart[i], num,reduc2)
                 totalCart()
                 window.localStorage.setItem("itemCard", JSON.stringify(arrItems))
             }
@@ -865,6 +829,8 @@ function qtyItem() {
                     arrItem.qty = num
                 }
             })
+            let more2Click = more2[i].parentElement.parentElement.querySelector(".item-into-money2")
+            // totalItemProduct(idItemcart[i], num,more2Click)
             totalCart()
             window.localStorage.setItem("itemCard", JSON.stringify(arrItems))
         }
@@ -874,8 +840,11 @@ function qtyItem() {
 
 
 function totalCart() {
+    idItemcart = document.querySelectorAll(".item-product-cart")
 
-    let resultTotal = arrItems.reduce((total, arrItem) => {
+    let resultTotal = arrItems.reduce((total, arrItem, index) => {
+        let itemIntoMoney2 = idItemcart[index].querySelector(".item-into-money2")
+        let itemIntoMoney3 = idItemcart[index].querySelector(".item-into-money")
 
         let priceText = (Number.parseFloat(arrItem.priceDetai) + '')
 
@@ -883,9 +852,14 @@ function totalCart() {
             priceText = priceText + 0
         } if (priceText.length === 3 && priceText.includes(".")) {
             priceText = priceText + 00
+        } if (priceText.length === 1 && itemIntoMoney3.innerText.length === 10) {
+            priceText = priceText + "000"
         }
 
         let numItem = priceText.replace(/\./g, '')
+        let numItem2 = (+numItem * arrItem.qty)
+
+        itemIntoMoney2.innerText = (numItem2.toLocaleString()) + '.000' + '₫'
         return total + (+numItem * arrItem.qty)
     }, 0)
 
@@ -905,6 +879,23 @@ function totalCart() {
     }
 }
 
+// cộng chừ tiền từng sp
+function totalItemProduct(id, num, click) {
+    let idItemProduct = id
+    let priceItem = idItemProduct.querySelector(".item-into-money")
+
+    let priceText = (Number.parseFloat(priceItem.innerText) + '')
+
+    if (priceText.length === 4 && priceText.includes(".")) {
+        priceText = priceText + 0
+    } if (priceText.length === 3 && priceText.includes(".")) {
+        priceText = priceText + 00
+
+    }
+    let numItem = (priceText.replace(/\./g, '') * num)
+
+    click.innerText = (numItem.toLocaleString()) + '.000' + '₫'
+}
 
 HandleInformation.isemail = function (selector, message) {
     return {
@@ -971,7 +962,7 @@ if (modalogin) {
 }
 
 if (informationUser) {
-    
+
 
     HandleInformation2({
         idFrom: ".form-2",
@@ -1041,7 +1032,7 @@ function HandleInformation(datahandle) {
 
                 datahandle.onSubmit(formValues)
 
-
+                checkLogin()
 
                 modalogin.style.display = "none"
                 informationUser.style.display = "block"
@@ -1098,12 +1089,12 @@ function HandleInformation2(datahandle) {
 
     let form = document.querySelector(datahandle.idFrom)
 
-   
+
     if (form) {
         form.onsubmit = (e) => {
             e.preventDefault()
             let formValid = true
-            
+
 
             datahandle.rules.forEach((rule) => {
                 let inputElement = form.querySelector(rule.selector)
@@ -1125,12 +1116,13 @@ function HandleInformation2(datahandle) {
                 informationUser.style.display = "none"
                 checkLogin()
                 console.log(isPay);
-                if(isPay) {
+                if (isPay) {
                     window.location = "payment.html";
-                }else {
+                } else {
                     checkLogin()
                     modalCart.style.display = "none"
                 }
+                checkLogin()
             }
         }
 
@@ -1168,10 +1160,10 @@ if (document.querySelector(".payment-products-container")) {
     document.querySelector(".change-address").onclick = () => {
         document.querySelector(".form-2").reset()
         let formmessage = document.querySelectorAll(".form-2 .form-message")
-        for(let i = 0 ; i < formmessage.length; i++) {
+        for (let i = 0; i < formmessage.length; i++) {
             formmessage[i].innerText = ' '
         }
-        
+
         modalCart.style.display = "flex"
         informationUser.style.display = "block"
     }
@@ -1277,7 +1269,7 @@ if (informationUser) {
 
 function checkLogin() {
     imgUser = document.querySelector(".header-img-user.active")
-    if (users.information?.name) {
+    if (users.information?.name && users.login?.email) {
         if (document.querySelector(".login-user")) {
             document.querySelector(".login-user").style.display = "none"
         }
@@ -1288,17 +1280,20 @@ function checkLogin() {
             userUse.style.display = "block"
         }
     } else {
-        userUse.style.display = "none"
+        userUse? userUse.style.display = "none": ''
+        
         if (imgUser) {
             document.querySelector(".login-user2.active").classList.remove("active")
             imgUser.classList.remove("active")
             document.querySelector(".login-user").style.display = "block"
         }
     }
+    if (!(users.login?.email)) {
+    }
 }
 
 
-if(loginOut) {
+if (loginOut) {
     loginOut.onclick = (e) => {
         e.stopPropagation()
 
@@ -1308,26 +1303,219 @@ if(loginOut) {
     }
 }
 
+if (document.querySelector("header")) {
+    let headerNavigation = document.querySelector(".navbar-toggler")
+    let header = document.querySelector("header")
+
+
+
+    function handleScrollTop() {
+        window.scrollTo(0, 0);
+    }
+    window.onscroll = () => {
+        let scrollTop = document.querySelector(".btn-scroll-top")
+        if (document.documentElement.scrollTop > 50 || document.body.scrollTop > 50) {
+            header.style.position = "fixed";
+            header.style.top = 0;
+            header.style.left = 0;
+            header.style.right = 0;
+            header.style.paddingTop = 0;
+            header.style.background = "#52a34b";
+
+            headerNavigation.onclick = () => {
+                header.classList.toggle("active")
+            }
+            if (document.querySelector("header.active")) {
+            } else {
+                if (window.innerWidth > 991) {
+                    header.style.animation = "fadeInleft 0.5s ease forwards";
+                }
+            }
+            scrollTop.style.display = "block"
+
+        } else {
+            handleScrollHeader()
+
+            if (document.querySelector("header.active")) {
+                if (window.innerWidth > 991) {
+                    document.querySelector("header.active").classList.remove("active")
+                }
+                if (window.innerWidth < 991) {
+                    header.style.paddingTop = "50px";
+                }
+            } else {
+                header.style.position = "absolute";
+                header.style.paddingTop = "50px";
+                header.style.left = 0;
+                header.style.right = 0;
+                header.style.background = "transparent";
+                header.style.animation = "unset";
+            }
+
+
+            scrollTop.style.display = "none"
+
+        }
+
+    }
+
+    function handleHederWidth() {
+
+        let atrbutton = document.querySelector(".navbar-toggler").getAttribute("aria-expanded")
+
+        if (atrbutton == "true" && window.innerWidth < 992) {
+            document.querySelector("header").classList.add("active")
+        }
+        if (window.innerWidth > 991 && atrbutton == "true" && document.documentElement.scrollTop > 100) {
+            header.style.background = "#52a34b";
+        }
+        if (window.innerWidth < 991 && atrbutton == "true" && document.documentElement.scrollTop < 100) {
+            header.style.background = "#52a34b";
+        }
+        if (window.innerWidth > 991 && atrbutton == "true" && document.documentElement.scrollTop < 100) {
+            header.style.background = "transparent";
+        }
+
+    }
+    window.addEventListener("resize", handleHederWidth)
+
+    handleHederWidth()
+
+
+    function handleScrollHeader() {
+        {
+            let handleHeder = headerNavigation.onclick = () => {
+                if (document.documentElement.scrollTop < 100) {
+                    header.classList.toggle("active")
+                    if (document.querySelector("header.active")) {
+                        header.style.background = "#52a34b";
+                    } else {
+                        function clearTimeout1() {
+                            header.style.background = "transparent";
+                            clearTimeout(myTimeout)
+                        }
+                        const myTimeout = setTimeout(clearTimeout1, 350);
+
+                    }
+
+                }
+            }
+        }
+    }
+    handleScrollHeader()
+}
+
+
+function handleProduct () {
+    window.location = "products.html";
+}
+function handleintro() {
+     window.location = "introduce.html";
+}
 
 
 
 
 
 
+let arrItemPoducts
+
+let productApi = "https://6290441a27f4ba1c65b64525.mockapi.io/api/product"
 
 
 
 
+function getProduct(callback) {
+    fetch(productApi)
+        .then(response => response.json())
+        .then(callback)
+}
+getProduct(renderProduct)
+
+let rangeInput = document.querySelectorAll(".range-input input")
+let minMaxrange = 300
+let progress = document.querySelector(".slider-filter .proress")
+if (progress) {
+    let fiterTextMin = document.querySelector(".filter-price2-min")
+    let fiterTextMax = document.querySelector(".filter-price2-max")
+    let btnFiter = document.querySelector(".filter-price-text > span")
 
 
+    fiterTextMin.innerText = rangeInput[0].value + ".000"
+    fiterTextMax.innerText = rangeInput[1].value + ".000"
+
+    rangeInput.forEach(input => {
+        input.oninput = (e) => {
+            let minValue = parseInt(rangeInput[0].value)
+            let maxValue = parseInt(rangeInput[1].value)
+
+            if (maxValue - minValue < minMaxrange) {
+                if (e.target.className === "range-min") {
+                    rangeInput[0].value = maxValue - minMaxrange
+                } else {
+                    rangeInput[1].value = minValue + minMaxrange
+                }
+            } else {
+                progress.style.left = (minValue / rangeInput[0].max) * 100 + "%"
+                progress.style.right = 100 - (maxValue / rangeInput[1].max) * 100 + "%"
+            }
+
+            fiterTextMin.innerText = minValue.toLocaleString() + ".000"
+            fiterTextMax.innerText = maxValue.toLocaleString() + ".000"
+
+        }
+    })
+
+    btnFiter.addEventListener("click", () => {
+        let minValf = parseInt(rangeInput[0].value),
+            maxValf = parseInt(rangeInput[1].value)
 
 
+        prodCard = document.querySelectorAll(" .card")           // id product
+
+        
+        let k = 0
+        for (let i = 0; i < prodCard.length; i++) {
+            let getPrice = prodCard[i].querySelector(".card .price").innerText
+
+            let priceText = (Number.parseFloat(getPrice) + '')
+
+            if (priceText.length === 4 && priceText.includes(".")) {
+                priceText = priceText + 0
+            } if (priceText.length === 3 && priceText.includes(".")) {
+                priceText = priceText + 00
+            } if (priceText.length === 2 && getPrice.length === 10) {
+
+            } if (priceText.length === 1 && getPrice.length === 10) {
+                priceText = priceText + "000"
+            }
+
+            let numItem = priceText.replace(/\./g, '')
+
+            if (minValf <= +numItem && +numItem <= maxValf) {
+                k++
+                prodCard[i].parentElement.style.display = ""
+            } else {
+                prodCard[i].parentElement.style.display = "none"
+                // console.log(prodCard[i].getAttribute("id-data"));
+            }
+        }
+        if(prodCard.length === k) {
+            
+            for(let i = 9; i < prodCard.length; i++) {
+                prodCard[i].parentElement.style.display = "none"
+            }
+            tabsproducts.style.display = ""
+
+        }else {
+            tabsproducts.style.display = "none"
+        }
 
 
+    })
 
 
-
-
+}
 
 
 
@@ -1335,6 +1523,8 @@ if(loginOut) {
 
 
 window.onload = () => {
+
+
 
     let prodCard = document.querySelectorAll(".card")
     if (document.querySelector(".header-cart span")) {

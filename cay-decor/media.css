@@ -1,6 +1,6 @@
 @media (max-width: 1200px) {
     .header-title {
-        width: 85%;
+        width: 82%;
     }
 
     /*         product detai          */
@@ -30,12 +30,30 @@
     .products-price {
         font-size: 20px;
     }
-   .product-search {
-       width: 60%;
+   
+   .introduce-left-btn {
+       display: none;
    }
+   .introduce-right {
+       margin-top: 35px;
+   }
+   .introduce-call{
+       margin-left: 20%;
+   }
+   .introduce-left {
+    margin-bottom: 35px;
+   }
+   .img-product-detai > img {
+       height: 400px;
+   }
+  
 }
 
 @media (max-width: 992px) {
+    .contact-input input,
+    .contact-input > textarea {
+        font-size: 20px;
+    }
     .header-title ul:last-child li:last-child span{
      left: 30px;
      right: unset;
@@ -112,22 +130,39 @@
     .header-logo img{
        margin: 10px 0;
      }
-
+     .frames-slogan h1 {
+        color: #ffffff;
+        font-size: 24px;
+        line-height: 44px;
+        font-weight: 500;
+        text-transform: uppercase;
+        font-family: 'Muli', sans-serif;
+     }
+     .Contacts-title + p {
+         font-size: 22px;
+     }
+     
+     .item-product-left img {
+         height: 130px;
+     }
+     .img-product-detai > img {
+        height: 400px;
+     }
 }
 @media (max-width: 768px) {
+    .img-product-detai > img {
+        height: 500px;
+    }
     .slider-search-icon {
         width: 30%;
     }
-    .map-content > iframe {
-        width: 100%;
-    }
-    .map-content {
-        display: block;
-    }
-    .map-content > .map-text {
-        width: 100%;
-        padding: 30px;
-
+    .slider-product,
+   .slider-contact {
+       height: 358px;
+   }
+  
+    .Contacts {
+        margin: 20px 0;
     }
     .map-text::after{
         display: none;
@@ -220,8 +255,49 @@
     .slider-content {
         width: 38%;
     }
+    .introduce-call {
+        margin-left: 0;
+    }
+    .frames-slogan-btn {
+        display: block;
+    }
+    .frames-slogan-btn button:nth-child(1) {
+        margin-bottom: 20px;
+    }
+    .footer-logo-img {
+        display: flex;
+        justify-content: center;
+
+    }
+    .trademark-title h3  {
+        font-size: 20px;
+    }
+    .slider-product p, 
+    .slider-contact p {
+        padding: 0;
+        background-image: unset;
+        -webkit-background-clip: unset;
+        -webkit-text-fill-color: unset;
+        font-size: 24px;
+    }
+    .space-review .space-review-title {
+        font-size: 24px;
+    }
 }
 @media (max-width: 576px) {
+    .space-review-title,
+    .service-home-title {
+    font-size: 24px;
+}
+    .contact-input div:first-child {
+        display: block;
+    }
+    .contact-input input {
+        width: 100%;
+    }
+    .contact-input input:first-child {
+        margin-bottom: 20px;
+    }
     .slider-content {
         height: 36px;
         width: 40%;
@@ -409,5 +485,64 @@
     }
     #silder img {
         height: 180px;
+    }
+    .icon-holder {
+        width: 100px;
+        height: 100px;
+    }
+    .swiper-button-next:after ,
+    .swiper-button-prev:after{
+        font-size: 30px !important;
+    }
+    .mySwiper2 .swiper-button-next:after, 
+    .mySwiper2 .swiper-button-prev:after {
+        font-size: 30px !important;
+    }   
+    .swiper-sider-text {
+        font-size: 24px;
+    }
+    .swiper-sider-text + p {
+        font-size: 35px;
+    }
+    .swiper-slide > img {
+        height: 500px;
+    }
+    .card-img > img {
+        height: 500px;
+        object-fit: unset;
+    }
+    .product-search div:first-child {
+        width: 80%;
+    }
+    .img-product-detai > img {
+        height: 450px;
+    }
+    
+}
+
+@media (max-width: 400px) {
+    .introduce-right-text h1 {
+        font-size: 16px;
+    }
+    .introduce-right-text h1 span {
+        font-size: 12px;
+    }
+    .frames-slogan h1 {
+        color: #ffffff;
+        font-size: 22px;
+    }
+    .frames-slogan-btn button {
+        font-size: 14px;
+    }
+    .swiper-sider-text {
+        font-size: 22px;
+    }
+    footer {
+        padding: 30px 0 30px 0;
+    }
+    .img-product-detai > img,
+    .card-img > img,
+    .swiper-slide > img {
+        height: 400px;
     }
 }
