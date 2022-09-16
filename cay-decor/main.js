@@ -68,6 +68,9 @@ let arrdistrict = {
 if (modalCart)
     modalCart.onclick = (e) => {
         document.querySelector(".modal-cart").style.display = "none"
+        console.log(1);
+
+        document.body.style.overflow = 'auto'
     }
 
 
@@ -78,6 +81,7 @@ if (cart) {
         informationUser.style.display = "none"
         modalogin.style.display = "none"
         modaproduct.style.display = "block"
+         document.body.style.overflow = 'hidden'
 
         render()
         clearItem()
@@ -90,6 +94,7 @@ if (loginHeder) {
 
     loginHeder.onclick = () => {
         isPay = false
+        document.body.style.overflow = 'hidden'
         if (users.information?.name && users.login?.email) {
 
         } else {
@@ -106,6 +111,7 @@ if (loginHeder) {
 if (deleteCart) {
     deleteCart.onclick = () => {
         document.querySelector(".modal-cart").style.display = "none"
+        document.body.style.overflow = 'auto'
     }
 }
 
@@ -1158,6 +1164,8 @@ if (document.querySelector(".payment-products-container")) {
     itemPayment()
 
     document.querySelector(".change-address").onclick = () => {
+        document.body.style.overflow = 'hidden'
+
         document.querySelector(".form-2").reset()
         let formmessage = document.querySelectorAll(".form-2 .form-message")
         for (let i = 0; i < formmessage.length; i++) {
@@ -1547,3 +1555,5 @@ window.onload = () => {
 
     clickCard(prodCard)
 }
+
+
