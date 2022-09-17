@@ -159,8 +159,9 @@ align-items: center;
     color: white;
     font-size: 30px;
     font-family: emoji;
-    font-weight: 500;
+    font-weight: 400;
      opacity: 0;
+     font-family: 'Roboto', sans-serif;
 }
 .swiper-sider-text + p {
     color: white;
