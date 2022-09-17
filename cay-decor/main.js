@@ -1176,10 +1176,12 @@ if (document.querySelector(".payment-products-container")) {
         informationUser.style.display = "block"
     }
 
+    console.log(arrPrice);
 
     let pricePayment = arrPrice.reduce((total, num) => {
         return total + num
     }, 0)
+   
 
     let priceProductsPayment = document.querySelectorAll(".all-price-products")
     for (let i = 0; i < priceProductsPayment.length; i++) {
@@ -1206,6 +1208,10 @@ function itemPayment() {
         let numItem = priceText.replace(/\./g, '')
         numItem = (+numItem * arrItem.qty)
 
+        
+        if(numItem < 9) {
+            numItem = +(numItem + '000')
+        }
         arrPrice.push(numItem)
 
         let result = (numItem.toLocaleString()) + ".000₫"
