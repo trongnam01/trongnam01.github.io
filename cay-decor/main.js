@@ -1434,7 +1434,7 @@ function handleintro() {
 
 let arrItemPoducts
 
-let productApi = "https://6290441a27f4ba1c65b64525.mockapi.io/api/product"
+let productApi = "https://ac5f8d67-e14e-487f-b985-4c1254ec6084.mock.pstmn.io/product"
 
 
 
